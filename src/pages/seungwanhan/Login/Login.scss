@@ -1,0 +1,51 @@
+.Login {
+
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+
+  .contentsWrapper {
+    position: relative;
+    width: 400px;
+    border: 1px solid lightgray;
+    text-align: center;
+  }
+
+  .logo {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 60px;
+  }
+
+  form {
+    input {
+      width: 290px;
+      height: 35px;
+      margin-bottom: 15px;
+      padding-left: 7px;
+      border: 1px solid lightgray;
+      border-radius: 5px;
+      font-size: 13px;
+      background-color: #F7F7F7;
+    }
+  }
+
+  #btnLogin {
+    width: 303px;
+    height: 35px;
+    margin-bottom: 250px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #ADD3EA;
+  }
+
+  #findPw {
+    position: absolute;
+    bottom: 70px;
+    left: 125px;
+    text-decoration: none;
+  }
+
+}
