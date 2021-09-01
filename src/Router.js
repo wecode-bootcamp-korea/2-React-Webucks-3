@@ -33,29 +33,29 @@ function Router() {
     <>
       <Switch>
         {/* 원구 */}
-        <Route exact path="/login-wongu" component={loginWongu} />
+        {/* <Route exact path="/login-wongu" component={loginWongu} />
         <Route exact path="/list-wongu" component={listWongu} />
-        <Route exact path="/detail-wongu" component={detailWongu} />
+        <Route exact path="/detail-wongu" component={detailWongu} /> */}
 
         {/* 다빈 */}
-        <Route exact path="/login-dabin" component={loginDabin} />
+        {/* <Route exact path="/login-dabin" component={loginDabin} />
         <Route exact path="/list-dabin" component={listDabin} />
-        <Route exact path="/detail-dabin" component={detailDabin} />
+        <Route exact path="/detail-dabin" component={detailDabin} /> */}
 
         {/* 승완 */}
-        <Route exact path="/login-seungwan" component={loginSeungwan} />
+        {/* <Route exact path="/login-seungwan" component={loginSeungwan} />
         <Route exact path="/list-seungwan" component={listSeungwan} />
-        <Route exact path="/detail-seungwan" component={detailSeungwan} />
+        <Route exact path="/detail-seungwan" component={detailSeungwan} /> */}
 
         {/* 지훈 */}
-        <Route exact path="/login-jihoon" component={loginJihoon} />
+        {/* <Route exact path="/login-jihoon" component={loginJihoon} />
         <Route exact path="/list-jihoon" component={listJihoon} />
-        <Route exact path="/detail-jihoon" component={detailJihoon} />
+        <Route exact path="/detail-jihoon" component={detailJihoon} /> */}
 
         {/* 준범 */}
-        <Route exact path="/login-junbeom" component={loginJunbeom} />
+        {/* <Route exact path="/login-junbeom" component={loginJunbeom} />
         <Route exact path="/list-junbeom" component={listJunbeom} />
-        <Route exact path="/detail-junbeom" component={detailJunbeom} />
+        <Route exact path="/detail-junbeom" component={detailJunbeom} /> */}
       </Switch>
     </>
   );
