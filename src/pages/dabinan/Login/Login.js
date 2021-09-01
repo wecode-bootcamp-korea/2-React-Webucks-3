@@ -1,1 +1,1 @@
-console.log("식사좀 합시다.")
+console.log('식사좀 합시다.');

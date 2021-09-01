@@ -1,0 +1,159 @@
+@import '../../../Styles/font.scss';
+
+// VARIABLES
+$theme-color: #f6f5ef;
+$basic-btn-color: #3795f6;
+$disabled-btn-color: #b2dffd;
+
+//EXTENDS
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+%flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.Login {
+  @extend %flex-center;
+  height: 100vh;
+  background-color: $theme-color;
+}
+
+.login-section {
+  @extend %flex-column;
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 10px 10px 20px lightgray;
+}
+
+.login-logo-wrap,
+.loginForm-wrap,
+.findPw-wrap {
+  width: 80%;
+  margin: 0 40px;
+}
+
+.login-logo-wrap {
+  @include FontDancingScripts;
+  margin-top: 15%;
+  height: 100px;
+  font-size: 60px;
+  text-align: center;
+}
+
+.loginForm-wrap {
+  height: 180px;
+}
+
+.loginForm {
+  @extend %flex-column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+.input-wrap,
+.button-wrap,
+.input-wrap input,
+.button-wrap button {
+  width: 300px;
+  height: 45px;
+}
+
+.input-wrap {
+  input {
+    padding: 10px 10px 3px 10px;
+    background-color: $theme-color;
+    border: 2px solid lightgray;
+    border-radius: 5px;
+  }
+
+  input.active {
+    border: 2px solid green;
+  }
+
+  input:focus ~ label,
+  input:valid ~ label {
+    top: 3px;
+    font-size: 12px;
+  }
+
+  label {
+    position: absolute;
+    left: 10px;
+    top: 13px;
+    color: #999;
+    font-size: 15px;
+    transition: 0.5s;
+    pointer-events: none;
+  }
+
+  button.hide {
+    color: $basic-btn-color;
+    background-color: white;
+  }
+}
+
+.button-wrap {
+  button {
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: $disabled-btn-color;
+    font-size: 15px;
+  }
+
+  button.able {
+    background-color: $basic-btn-color;
+    cursor: pointer;
+  }
+}
+
+.findPw-wrap {
+  margin: 20% auto;
+  text-align: center;
+}
+
+.findPw {
+  color: $basic-btn-color;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.input-wrap,
+.button-wrap {
+  position: relative;
+}
+
+.pw-btn {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  width: 50px;
+  padding: 4px;
+  color: white;
+  background-color: $basic-btn-color;
+  border: none;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+#userPw:focus ~ .pw-btn {
+  opacity: 1;
+}
