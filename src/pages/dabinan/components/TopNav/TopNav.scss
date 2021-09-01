@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+.TopNav {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  min-width: 440px;
+  height: 90px;
+  padding-right: 11vw;
+  padding-left: 11vw;
+  background-color: #f6f5ef;
+  z-index: 2;
+	@media screen and (max-width: 800px) {
+    padding-left: 5vw;
+    padding-right: 5vw;
+	}
+  
+	h1 {
+    font-size: 35px;
+    font-family: 'Dancing Script', cursive;
+	}
+  
+	li {
+  	display: inline-block;
+    padding: 6px;
+		@media screen and (max-width: 800px) {
+			font-size: smaller;
+		}
+	}
+}
