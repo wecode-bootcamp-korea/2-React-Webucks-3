@@ -1,12 +1,34 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react';
 import './Detail.scss';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import TopNav from '../../../components/Nav/TopNav';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
+
+library.add(faHeart, faHeartRegular);
 
 class Detail extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      heartClicked: false,
+      whichIcon: faHeartRegular,
+      iconClassName: 'far faHeart',
+    };
+  }
+
+  heartOnOff = () => {
+    this.setState({ heartClicked: !this.state.heartClicked });
+    this.state.heartClicked
+      ? this.setState({ whichIcon: faHeart, iconClassName: 'fas faHeart' })
+      : this.setState({
+          whichIcon: faHeartRegular,
+          iconClassName: 'far faHeart',
+        });
+  };
+
   render() {
     return (
       <>
@@ -19,23 +41,23 @@ class Detail extends Component {
           <nav>
             <ul>
               <li>
-                <a>아이스 커피</a>
+                <a>홈</a>
               </li>
-              <li>></li>
-              <li>
-                <a>브루드 커피</a>
-              </li>
-              <li>></li>
-              <li>
-                <a>음료</a>
-              </li>
-              <li>></li>
+              <li>&gt;</li>
               <li>
                 <a>MENU</a>
               </li>
-              <li>></li>
+              <li>&gt;</li>
               <li>
-                <a>홈</a>
+                <a>음료</a>
+              </li>
+              <li>&gt;</li>
+              <li>
+                <a>브루드 커피</a>
+              </li>
+              <li>&gt;</li>
+              <li>
+                <a>아이스 커피</a>
               </li>
             </ul>
           </nav>
@@ -44,7 +66,7 @@ class Detail extends Component {
         <div className="container">
           <img
             alt="나이트로바닐라크림"
-            src="/images/나이트로바닐라크림.jpg"
+            src="/images/jihoonhan/나이트로바닐라크림.jpg"
           />
           <div className="table">
             <div className="coffename">
@@ -54,7 +76,12 @@ class Detail extends Component {
                 Nitro vanilla Cream
               </span>
               <a className="heart">
-                <FontAwesomeIcon icon={faHeart} className="far fa-heart" />
+                <a
+                  className={this.state.iconClassName}
+                  onClick={this.heartOnOff}
+                >
+                  <FontAwesomeIcon icon={this.state.whichIcon} />
+                </a>
               </a>
             </div>
             <div className="coffee-detail">

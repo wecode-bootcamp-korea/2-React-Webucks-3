@@ -73,7 +73,11 @@ h3 {
   margin-top: 0;
 }
 
-.coldbrewMenu img,
+.coldbrewMenu img:hover {
+  transform: scale(1.1);
+  transition: transform 1s;
+}
+
 .brewMenu img:hover {
   transform: scale(1.1);
   transition: transform 1s;

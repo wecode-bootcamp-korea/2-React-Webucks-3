@@ -15,10 +15,7 @@ class List extends Component {
           <div className="sector coldbrew">
             <h2>콜드 브루 커피</h2>
             <a className="mug">
-              <img
-                alt="머그잔"
-                src="../../../../public/images/jihoonhan/mug.jpeg"
-              />
+              <img alt="머그잔" src="/images/jihoonhan/mug.jpeg" />
             </a>
             <h3>디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</h3>
           </div>
@@ -43,7 +40,7 @@ class List extends Component {
           <div className="sector brew">
             <h2>브루 커피</h2>
             <a className="mug">
-              <img alt="머그잔" src="/images/mug.jpeg" />
+              <img alt="머그잔" src="/images/jihoonhan/mug.jpeg" />
             </a>
             <h3>디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</h3>
           </div>
@@ -63,21 +60,6 @@ class List extends Component {
                 </li>
               );
             })}
-
-            {/* <ul>
-              <li>
-                <a>
-                  <img alt='아이스커피' src='/images/아이스커피.jpg' />
-                </a>
-                <p>아이스 커피</p>
-              </li>
-              <li>
-                <a>
-                  <img alt='오늘의커피' src='/images/오늘의커피.jpg' />
-                </a>
-                <p>오늘의 커피</p>
-              </li>
-            </ul> */}
           </div>
         </article>
       </>
