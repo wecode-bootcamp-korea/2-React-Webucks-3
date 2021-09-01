@@ -1,24 +1,22 @@
-import React, { Component } from "react";
-import "./TopNav.scss";
+import React, { Component } from 'react';
+import './TopNav.scss';
 
 class TopNav extends Component {
   render() {
     return (
-      <React.Fragment>
-        <header className="TopNav">
-          <a href="/">
-            <p className="logo">WeBucks</p>
-          </a>
-          <div className="mainMenu">
-            <ul className="storeMenu">
-              <li className="itemName">COFFEE</li>
-              <li className="itemName">MENU</li>
-              <li className="itemName">STORE</li>
-              <li className="itemName">WHAT'S NEW</li>
-            </ul>
-          </div>
-        </header>
-      </React.Fragment>
+      <header className="TopNav">
+        <a href="/">
+          <p className="logo">WeBucks</p>
+        </a>
+        <div className="mainMenu">
+          <ul className="storeMenu">
+            <li className="itemName">COFFEE</li>
+            <li className="itemName">MENU</li>
+            <li className="itemName">STORE</li>
+            <li className="itemName">WHAT'S NEW</li>
+          </ul>
+        </div>
+      </header>
     );
   }
 }
