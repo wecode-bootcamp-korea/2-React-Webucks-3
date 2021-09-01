@@ -14,7 +14,6 @@ class Login extends Component {
   handleUserIdChange = event => {
     this.setState({
       userId: event.target.value,
-      userPw: this.state.userPw,
       isLoginBtnValid:
         event.target.value.includes('@') && this.state.userPw.length >= 5,
     });
@@ -22,7 +21,6 @@ class Login extends Component {
 
   handleUserPwChange = event => {
     this.setState({
-      userId: this.state.userId,
       userPw: event.target.value,
       isLoginBtnValid:
         this.state.userId.includes('@') && event.target.value.length >= 5,
@@ -30,7 +28,6 @@ class Login extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <div className="Login">
         <section className="login-section">

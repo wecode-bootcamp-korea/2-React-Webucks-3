@@ -5,16 +5,67 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 import TopNav from '../../../components/Nav/Nav';
+import REVIEw_DATA from './mockData';
+import REVIEW_DATA from './mockData';
+
+class Review extends Component {
+  render() {
+    return (
+      <li>
+        <dl>
+          <dt>{this.props.userId}</dt>
+          <dd>{this.props.text}</dd>
+          <div className="review-like-btn-wrap">
+            <button className="like-wrap" id="review-like">
+              <FontAwesomeIcon icon={faHeart} />
+            </button>
+          </div>
+          <button className="del-btn">삭제</button>
+        </dl>
+      </li>
+    );
+  }
+}
 
 class Detail extends Component {
   constructor(props) {
     super(props);
-    this.state = { isLikeClicked: false };
+    this.state = {
+      isLikeClicked: false,
+      testIdNum: 1,
+      reviewList: REVIEW_DATA,
+      reviewInputVal: '',
+    };
     this.handleLikeBtnColor = this.handleLikeBtnColor.bind(this);
+    this.handleReviewInput = this.handleReviewInput.bind(this);
+    this.getReviewInputVal = this.getReviewInputVal.bind(this);
   }
 
-  handleLikeBtnColor = event => {
-    this.setState({ isLikeClicked: !this.state.isLikeClicked });
+  handleLikeBtnColor = () => {
+    this.setState({
+      isLikeClicked: !this.state.isLikeClicked,
+    });
+  };
+
+  handleReviewInput = event => {
+    this.setState({ reviewInputVal: event.target.value });
+    if (event.key === 'Enter' && event.target.value !== '') {
+      let newReview = {
+        userId: 'test' + this.state.testIdNum,
+        text: event.target.value,
+      };
+      REVIEW_DATA.push(newReview);
+      this.setState({
+        testIdNum: this.state.testIdNum + 1,
+        reviewList: REVIEW_DATA,
+        reviewInputVal: '',
+      });
+    }
+  };
+
+  getReviewInputVal = event => {
+    this.setState({ reviewInputVal: event.target.value });
+    return this.state.reviewInputVal;
   };
 
   render() {
@@ -169,48 +220,24 @@ class Detail extends Component {
                 <div className="detail-review">
                   <h2 className="category-title review-title">리뷰</h2>
                   <ul className="review-list">
-                    <li>
-                      <dl>
-                        <dt>coffee_lover</dt>
-                        <dd>너무 맛있어요!</dd>
-                        <div className="review-like-btn-wrap">
-                          <button className="like-wrap" id="review-like">
-                            <FontAwesomeIcon icon={faHeart} />
-                          </button>
-                        </div>
-                        <button className="del-btn">삭제</button>
-                      </dl>
-                    </li>
-                    <li>
-                      <dl>
-                        <dt>coldBrewMan</dt>
-                        <dd>콜드 브루는 커피 중의 커피다.</dd>
-                        <div className="review-like-btn-wrap">
-                          <button className="like-wrap" id="review-like">
-                            <FontAwesomeIcon icon={faHeart} />
-                          </button>
-                        </div>
-                        <button className="del-btn">삭제</button>
-                      </dl>
-                    </li>
-                    <li>
-                      <dl>
-                        <dt>if_dead</dt>
-                        <dd>얼어 죽어도 콜드 브루!!</dd>
-                        <div className="review-like-btn-wrap">
-                          <button className="like-wrap" id="review-like">
-                            <FontAwesomeIcon icon={faHeart} />
-                          </button>
-                        </div>
-                        <button className="del-btn">삭제</button>
-                      </dl>
-                    </li>
+                    {this.state.reviewList.map(review => {
+                      return (
+                        <Review
+                          key={review.userId}
+                          userId={review.userId}
+                          text={review.text}
+                        />
+                      );
+                    })}
                   </ul>
                   <div className="review-input-wrap">
                     <input
                       className="review-input"
                       placeholder="리뷰를 입력해주세요."
                       type="text"
+                      value={this.state.reviewInputVal}
+                      onChange={this.getReviewInputVal}
+                      onKeyPress={this.handleReviewInput}
                     />
                   </div>
                 </div>
