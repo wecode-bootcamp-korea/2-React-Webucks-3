@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Login.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
-//import { faEyeSlash } from "@fortawesome/free-regular-svg-icons";
+import { faEyeSlash } from '@fortawesome/free-regular-svg-icons';
 
 class Login extends Component {
   constructor() {
@@ -13,6 +13,7 @@ class Login extends Component {
       idValue: '',
       pwValue: '',
       type: 'password',
+      clicked: false,
     };
   }
   handleIdInput = e => {
@@ -46,14 +47,23 @@ class Login extends Component {
               <input
                 className="box"
                 id="pwd"
-                type={this.state.type}
+                type={this.state.clicked ? 'text' : 'password'}
                 placeholder="비밀번호"
                 required
                 value={this.pwValue}
                 onChange={this.handlePasswordInput}
               />
-              <div className="icon">
-                <FontAwesomeIcon icon={faEye} />
+              <div
+                className="icon"
+                onClick={() => {
+                  this.setState({
+                    clicked: !this.state.clicked,
+                  });
+                }}
+              >
+                <FontAwesomeIcon
+                  icon={this.state.clicked ? faEyeSlash : faEye}
+                />
               </div>
             </div>
             <Link to="/list-dabin" className="linkToList">

@@ -5,10 +5,10 @@
 }
 
 $border-color: #dddddd;
-    
+
 .LoginPage {
+  height: 100vh;
   background-color: #eeefef;
-  
   .container {
     position: absolute; 
     top:50%; left: 50%;
@@ -47,7 +47,6 @@ $border-color: #dddddd;
       .pwdBox {
         position: relative;
       }
-
       .icon {
         position: absolute;
         right: 10px;
@@ -57,9 +56,9 @@ $border-color: #dddddd;
       }
     }
     .linkToList {
-      color: white;
       text-decoration: none;
       .loginBtn {
+        color: white;
         padding-left: 2px;
         background-color: #add3ea;
         border-style: none;

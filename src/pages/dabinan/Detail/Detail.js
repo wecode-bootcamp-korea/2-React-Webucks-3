@@ -5,6 +5,46 @@ import Review from './components/Review/Review';
 import './Detail.scss';
 
 class Detail extends Component {
+  constructor() {
+    super();
+    this.state = {
+      value: '',
+      comments: [],
+    };
+  }
+
+  getValue = e => {
+    this.setState({
+      value: e.target.value,
+    });
+  };
+
+  addReview = e => {
+    if (this.state.value !== '') {
+      this.setState({
+        comments: this.state.comments.concat(this.state.value),
+        value: '',
+      });
+    } else {
+      alert('한 글자 이상 입력해주세요 ⊙﹏⊙');
+    }
+  };
+
+  addReviewByEnter = e => {
+    if (e.key === 'Enter') {
+      this.addReview();
+      e.target.value = '';
+    }
+  };
+
+  removeReview = id => {
+    const { comments } = this.state;
+    const newComments = comments.filter(comment => comment.id !== id);
+    this.setState({
+      comments: newComments,
+    });
+  };
+
   render() {
     return (
       <div className="DetailPage">
@@ -90,37 +130,70 @@ class Detail extends Component {
                   </h5>
                   <div className="nutritionList">
                     <table className="leftTable">
-                      <tr>
-                        <td>1회 제공량(kcal)</td>
-                        <td>340</td>
-                      </tr>
-                      <tr>
-                        <td>포화지방 (g)</td>
-                        <td>8</td>
-                      </tr>
-                      <tr>
-                        <td>단백질 (g)</td>
-                        <td>10</td>
-                      </tr>
+                      <tbody>
+                        <tr>
+                          <td>1회 제공량(kcal)</td>
+                          <td>340</td>
+                        </tr>
+                        <tr>
+                          <td>포화지방 (g)</td>
+                          <td>8</td>
+                        </tr>
+                        <tr>
+                          <td>단백질 (g)</td>
+                          <td>10</td>
+                        </tr>
+                      </tbody>
                     </table>
                     <table className="rightTable">
-                      <tr>
-                        <td>나트륨 (mg)</td>
-                        <td>115</td>
-                      </tr>
-                      <tr>
-                        <td>당류 (g)</td>
-                        <td>44</td>
-                      </tr>
-                      <tr>
-                        <td>카페인 (mg)</td>
-                        <td>105</td>
-                      </tr>
+                      <tbody>
+                        <tr>
+                          <td>나트륨 (mg)</td>
+                          <td>115</td>
+                        </tr>
+                        <tr>
+                          <td>당류 (g)</td>
+                          <td>44</td>
+                        </tr>
+                        <tr>
+                          <td>카페인 (mg)</td>
+                          <td>105</td>
+                        </tr>
+                      </tbody>
                     </table>
                   </div>
                   <div className="alergy">알레르기 유발 요인: 없음</div>
                 </div>
-                <Review />
+                <div className="review">
+                  <h3>리뷰</h3>
+                  <div className="comments">
+                    <ul className="commentsBox">
+                      {this.state.comments.map((comment, id) => {
+                        return (
+                          <Review
+                            key={id}
+                            value={comment}
+                            removeReview={this.removeReview}
+                          />
+                        );
+                      })}
+                    </ul>
+                  </div>
+                  <div className="pushBox">
+                    <input
+                      className="reviewText"
+                      type="text"
+                      value={this.state.value}
+                      placeholder="리뷰를 입력해주세요"
+                      required
+                      onChange={this.getValue}
+                      onKeyPress={this.addReviewByEnter}
+                    />
+                    <button className="push" onClick={this.addReview}>
+                      POST
+                    </button>
+                  </div>
+                </div>
               </div>
             </section>
           </section>
