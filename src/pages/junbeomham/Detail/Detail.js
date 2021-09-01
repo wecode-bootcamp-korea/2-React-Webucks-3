@@ -7,6 +7,16 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import TopNav from '../../../components/Nav/Nav';
 
 class Detail extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { isLikeClicked: false };
+    this.handleLikeBtnColor = this.handleLikeBtnColor.bind(this);
+  }
+
+  handleLikeBtnColor = event => {
+    this.setState({ isLikeClicked: !this.state.isLikeClicked });
+  };
+
   render() {
     return (
       <div className="Detail">
@@ -84,7 +94,15 @@ class Detail extends Component {
                     </span>
                   </h3>
                   <div className="like-btn-wrap">
-                    <button className="like-wrap" id="product-like">
+                    <button
+                      className={
+                        this.state.isLikeClicked
+                          ? 'like-wrap clicked'
+                          : 'like-wrap'
+                      }
+                      id="product-like"
+                      onClick={this.handleLikeBtnColor}
+                    >
                       <FontAwesomeIcon icon={faHeart} />
                     </button>
                   </div>
