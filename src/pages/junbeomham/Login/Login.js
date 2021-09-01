@@ -4,6 +4,21 @@ import { withRouter } from 'react-router-dom';
 import './Login.scss';
 
 class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.handleUserIdChange = this.handleUserIdChange.bind(this);
+    this.handleUserPwChange = this.handleUserPwChange.bind(this);
+    this.state = { userId: '', userPw: '' };
+  }
+
+  handleUserIdChange(event) {
+    this.setState({ userId: event.target.value, userPw: this.state.userPw });
+  }
+
+  handleUserPwChange(event) {
+    this.setState({ userId: this.state.userId, userPw: event.target.value });
+  }
+
   render() {
     return (
       <div className="Login">
@@ -12,13 +27,23 @@ class Login extends Component {
           <div className="loginForm-wrap">
             <form action="/list-junbeom" className="loginForm">
               <div className="input-wrap">
-                <input id="userId" type="text" required />
+                <input
+                  id="userId"
+                  type="text"
+                  onChange={this.handleUserIdChange}
+                  required
+                />
                 <label htmlFor="userId">
                   전화번호, 사용자 이름 또는 이메일
                 </label>
               </div>
               <div className="input-wrap">
-                <input id="userPw" type="password" required />
+                <input
+                  id="userPw"
+                  type="password"
+                  onChange={this.handleUserPwChange}
+                  required
+                />
                 <label htmlFor="userPw">비밀번호</label>
                 <button type="button" id="pw-btn" className="pw-btn">
                   show
