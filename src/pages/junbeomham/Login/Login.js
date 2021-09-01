@@ -8,18 +8,29 @@ class Login extends Component {
     super(props);
     this.handleUserIdChange = this.handleUserIdChange.bind(this);
     this.handleUserPwChange = this.handleUserPwChange.bind(this);
-    this.state = { userId: '', userPw: '' };
+    this.state = { userId: '', userPw: '', isLoginBtnValid: false };
   }
 
-  handleUserIdChange(event) {
-    this.setState({ userId: event.target.value, userPw: this.state.userPw });
-  }
+  handleUserIdChange = event => {
+    this.setState({
+      userId: event.target.value,
+      userPw: this.state.userPw,
+      isLoginBtnValid:
+        event.target.value.includes('@') && this.state.userPw.length >= 5,
+    });
+  };
 
-  handleUserPwChange(event) {
-    this.setState({ userId: this.state.userId, userPw: event.target.value });
-  }
+  handleUserPwChange = event => {
+    this.setState({
+      userId: this.state.userId,
+      userPw: event.target.value,
+      isLoginBtnValid:
+        this.state.userId.includes('@') && event.target.value.length >= 5,
+    });
+  };
 
   render() {
+    console.log(this.state);
     return (
       <div className="Login">
         <section className="login-section">
@@ -51,7 +62,12 @@ class Login extends Component {
               </div>
               <div className="button-wrap">
                 {/* button에 disabled 추가 */}
-                <button type="submit" id="loginBtn">
+                <button
+                  type="submit"
+                  id="loginBtn"
+                  className={this.state.isLoginBtnValid ? 'able' : ''}
+                  disabled={!this.state.isLoginBtnValid}
+                >
                   로그인
                 </button>
               </div>
