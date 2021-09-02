@@ -1,7 +1,25 @@
 import React, { Component } from 'react';
 import './Login.scss';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye } from '@fortawesome/free-regular-svg-icons';
+
 export default class Login extends Component {
+  constructor() {
+    super();
+    this.state = {
+      email: '',
+      pwd: '',
+    };
+  }
+
+  handleIdInput = e => {
+    this.setState({
+      email: e.target.value,
+      pwd: e.target.value,
+    });
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -21,6 +39,7 @@ export default class Login extends Component {
                   type="text"
                   maxLength="30"
                   placeholder="전화번호, 사용자 이름 또는 이메일"
+                  onChange={this.handleIdInput}
                 />
                 <div className="pwFiled">
                   <input
@@ -28,15 +47,11 @@ export default class Login extends Component {
                     type="password"
                     maxLength="16"
                     placeholder="비밀번호"
+                    onChange={this.handleIdInput}
                   />
-                  <i className="fas fa-eye" id="viewPasswordBtn"></i>
+                  <FontAwesomeIcon id="viewPasswordBtn" icon={faEye} />
                 </div>
-                <button
-                  // onClick="location.href = `list.html`"
-                  id="loginBtn"
-                  type="button"
-                  disabled
-                >
+                <button id="loginBtn" type="button" disabled>
                   로그인
                 </button>
               </fieldset>
