@@ -1,4 +1,4 @@
-const Data = [
+const DATA = [
   {
     coldbrew: [
       {
@@ -79,4 +79,4 @@ const Data = [
   },
 ];
 
-export default Data;
+export default DATA;

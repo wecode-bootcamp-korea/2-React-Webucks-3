@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import LikeButton from '../../../components/LikeButton/LikeButton';
 import { Link } from 'react-router-dom';
+import LikeButton from '../../../components/LikeButton/LikeButton';
 import './CoffeeCard.scss';
 
 class CoffeeCard extends Component {
@@ -8,13 +8,17 @@ class CoffeeCard extends Component {
     return (
       <>
         <div className="CoffeeCard">
-          <div className="coffeeImg">
-            <img alt={this.props.title} src={this.props.img} />
+          <div className="coffeeImgWithIcon">
+            <img
+              className="coffeeImg"
+              alt={this.props.title}
+              src={this.props.img}
+            />
             <label className="listLikeButton">
               <LikeButton />
             </label>
           </div>
-          <p>
+          <p className="listPageCoffeeName">
             <Link to="/detail-dabin" className="linkToDetail">
               {this.props.title}
             </Link>

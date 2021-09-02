@@ -1,16 +1,3 @@
-.ListPage {
-  padding-top: 90px;
-	.listMain {
-		width: 80vw;
-		margin: 0 auto;
-		z-index: 1;
-		.listContainer {
-			width: 80vw;
-			padding-top: 30px;
-		}
-	}
-}
-
 .coffeeCategory {
   display: flex;
 	align-items: center;
@@ -22,33 +9,23 @@
 	@media screen and (max-width: 800px) {
 		flex-wrap: wrap;
 	}
+
 	.coffeeCategoryWithDecafImg {
 		display: flex;
 		@media screen and (max-width: 800px) {
 			justify-items: flex-start;;
 		}
-		a {
+
+		.coffeeCategoryName {
 			padding-top: 16px;
 			padding-bottom: 16px;
 			color: black;
   		font-size: 20px;
 			text-decoration: none;
 		}
-		img {
+
+		.decafImg {
   		width: 60px;
 		}
-	}
-	
-}
-
-.coffeeList {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-	@media screen and (max-width:1000px) {
-		grid-template-columns: 1fr 1fr 1fr;
-	}
-	@media screen and (max-width:800px) {
-		grid-template-columns: 1fr 1fr;
-		min-width: 440px;
 	}
 }

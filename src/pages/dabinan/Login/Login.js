@@ -8,54 +8,60 @@ import { faEyeSlash } from '@fortawesome/free-regular-svg-icons';
 class Login extends Component {
   constructor() {
     super();
-
     this.state = {
       idValue: '',
       pwValue: '',
       type: 'password',
       clicked: false,
+      activateLoginBtn: false,
     };
   }
-  handleIdInput = e => {
-    this.setState({
-      idValue: e.target.value,
+
+  handleInput = e => {
+    const { value, name } = e.target;
+    this.setState({ [name]: value }, () => {
+      this.changeLoginBtn();
     });
   };
 
-  handlePasswordInput = e => {
+  changeLoginBtn = e => {
+    const { idValue, pwValue } = this.state;
+    let isLoginValid = idValue.includes('@') && pwValue.length >= 5;
     this.setState({
-      pwValue: e.target.value,
+      activateLoginBtn: isLoginValid,
     });
   };
 
   render() {
     return (
       <div className="LoginPage">
-        <section className="container">
-          <h1 className="logo">WeBucks</h1>
+        <section className="loginContainer">
+          <h1 className="loginPageLogo">WeBucks</h1>
           <form className="loginForm">
             <input
-              className="box"
+              className="loginBox"
               id="user"
+              name="idValue"
               type="text"
               placeholder="전화번호, 사용자 이름 또는 이메일"
               required
               value={this.idValue}
-              onChange={this.handleIdInput}
+              onChange={this.handleInput}
             />
             <div className="pwdBox">
               <input
-                className="box"
+                className="loginBox"
                 id="pwd"
+                name="pwValue"
                 type={this.state.clicked ? 'text' : 'password'}
                 placeholder="비밀번호"
                 required
                 value={this.pwValue}
-                onChange={this.handlePasswordInput}
+                onChange={this.handleInput}
               />
-              <div
-                className="icon"
-                onClick={() => {
+              <i
+                className="eyeIcon"
+                onKeyDown={() => {
                   this.setState({
                     clicked: !this.state.clicked,
                   });
@@ -64,29 +70,23 @@ class Login extends Component {
                 <FontAwesomeIcon
                   icon={this.state.clicked ? faEyeSlash : faEye}
                 />
-              </div>
+              </i>
             </div>
             <Link to="/list-dabin" className="linkToList">
               <button
                 type="button"
-                className="box loginBtn"
+                className="loginBox loginBtn"
                 id={
-                  this.state.idValue.includes('@') !== -1 &&
-                  this.state.pwValue.length >= 5
-                    ? 'changedBtnColor'
-                    : 'unchangedBtnColor'
+                  this.state.activateLoginBtn
+                    ? 'changedLoginBtnColor'
+                    : 'unchangedLoginBtnColor'
                 }
-                disabled={
-                  this.state.idValue.includes('@') !== -1 &&
-                  this.state.pwValue.length >= 5
-                    ? false
-                    : true
-                }
+                disabled={this.state.activateLoginBtn ? false : true}
               >
                 로그인
               </button>
             </Link>
-            <a className="forgetPwd" href="https://google.com">
+            <a className="forgetPwd" href="http://localhost:3000/">
               비밀번호를 잊으셨나요?
             </a>
           </form>

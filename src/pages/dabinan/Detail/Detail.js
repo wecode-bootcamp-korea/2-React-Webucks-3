@@ -1,128 +1,58 @@
 import React, { Component } from 'react';
 import TopNav from '../components/TopNav/TopNav';
+import NavBar from './components/NavBar/NavBar';
 import LikeButton from '../components/LikeButton/LikeButton';
 import Review from './components/Review/Review';
+import Footer from '../components/Footer/Footer';
 import './Detail.scss';
 
 class Detail extends Component {
-  constructor() {
-    super();
-    this.state = {
-      value: '',
-      comments: [],
-    };
-  }
-
-  getValue = e => {
-    this.setState({
-      value: e.target.value,
-    });
-  };
-
-  addReview = e => {
-    if (this.state.value !== '') {
-      this.setState({
-        comments: this.state.comments.concat(this.state.value),
-        value: '',
-      });
-    } else {
-      alert('한 글자 이상 입력해주세요 ⊙﹏⊙');
-    }
-  };
-
-  addReviewByEnter = e => {
-    if (e.key === 'Enter') {
-      this.addReview();
-      e.target.value = '';
-    }
-  };
-
-  removeReview = id => {
-    const { comments } = this.state;
-    const newComments = comments.filter(comment => comment.id !== id);
-    this.setState({
-      comments: newComments,
-    });
-  };
-
   render() {
     return (
       <div className="DetailPage">
-        <TopNav> </TopNav>
+        <TopNav />
         <main>
-          <section className="container">
-            <section className="title">
+          <section className="detailContainer">
+            <section className="detailCoffeeTitle">
               <h1>콜드 브루</h1>
-              <ul>
-                <li>
-                  <img
-                    alt="home button"
-                    src="https://image.istarbucks.co.kr/common/img/common/icon_home.png"
-                  />
-                </li>
-                <li>
-                  <img
-                    alt="arrow"
-                    src="https://image.istarbucks.co.kr/common/img/common/icon_arrow.png"
-                  />
-                </li>
-                <li>MENU</li>
-                <li>
-                  <img
-                    alt="arrow"
-                    src="https://image.istarbucks.co.kr/common/img/common/icon_arrow.png"
-                  />
-                </li>
-                <li>음료</li>
-                <li>
-                  <img
-                    alt="arrow"
-                    src="https://image.istarbucks.co.kr/common/img/common/icon_arrow.png"
-                  />
-                </li>
-                <li>콜드 브루</li>
-                <li>
-                  <img
-                    alt="arrow"
-                    src="https://image.istarbucks.co.kr/common/img/common/icon_arrow.png"
-                  />
-                </li>
-                <li>제주 비자림 콜드 브루</li>
-              </ul>
+              <NavBar
+                coffeeCategory="콜드 브루"
+                coffeeName="제주 비자림 콜드 브루"
+              />
             </section>
-            <section className="coffeeInfo">
-              <div className="Img">
+            <section className="detailCoffeeInfo">
+              <div className="detailCoffeeInfoImg">
                 <img
                   alt="제주 비자림 콜드 브루"
                   src="https://image.istarbucks.co.kr/upload/store/skuimg/2020/09/[9200000002672]_20200921171223898.jpg"
                 />
               </div>
-              <div className="nonImg">
-                <div className="coffeeName">
+              <div className="detailCoffeeInfoNonImg">
+                <div className="detailCoffeeName">
                   <h2>
                     제주 비자림 콜드 브루
                     <br />
                     <span>Jeju Forest Cold Brew</span>
                   </h2>
-                  <div className="likeButton">
+                  <div className="detailLikeButton">
                     <LikeButton />
                   </div>
                 </div>
-                <p className="description">
+                <p className="detailDescription">
                   [제주지역 한정음료] 제주 천년의 숲 비자림을 연상시키는
                   <br />
                   음료로 제주에서 유기농 말차로 만든
                   <br />
                   파우더와 Cold Brew를 활용한 음료
                 </p>
-                <div className="Img2">
+                <div className="detailImg2">
                   <img
                     alt="제주 비자림 콜드 브루"
                     src="https://image.istarbucks.co.kr/upload/store/skuimg/2020/09/[9200000002672]_20200921171223898.jpg"
                   />
                 </div>
                 <div className="nutrition">
-                  <h5>
+                  <h5 className="sizeForNutrition">
                     <p className="productNutritionInfo">제품 영양 정보</p>
                     <p className="nutritionInfoDetails">
                       Grande(그란데) / 473ml (16 fl oz)
@@ -164,89 +94,12 @@ class Detail extends Component {
                   </div>
                   <div className="alergy">알레르기 유발 요인: 없음</div>
                 </div>
-                <div className="review">
-                  <h3>리뷰</h3>
-                  <div className="comments">
-                    <ul className="commentsBox">
-                      {this.state.comments.map((comment, id) => {
-                        return (
-                          <Review
-                            key={id}
-                            value={comment}
-                            removeReview={this.removeReview}
-                          />
-                        );
-                      })}
-                    </ul>
-                  </div>
-                  <div className="pushBox">
-                    <input
-                      className="reviewText"
-                      type="text"
-                      value={this.state.value}
-                      placeholder="리뷰를 입력해주세요"
-                      required
-                      onChange={this.getValue}
-                      onKeyPress={this.addReviewByEnter}
-                    />
-                    <button className="push" onClick={this.addReview}>
-                      POST
-                    </button>
-                  </div>
-                </div>
+                <Review />
               </div>
             </section>
           </section>
         </main>
-        <footer className="footer">
-          <div className="footerCategory">
-            <h3>COMPANY</h3>
-            <ul>
-              <li>한눈에 보기</li>
-              <li>스타벅스 사명</li>
-              <li>스타벅스 소개</li>
-              <li>국내 뉴스룸</li>
-              <li>세계의 스타벅스</li>
-              <li>글로벌 뉴스룸</li>
-            </ul>
-          </div>
-          <div className="footerCategory">
-            <h3>CORPORATE SALES</h3>
-            <ul>
-              <li>단체 및 기업 구매 안내</li>
-            </ul>
-          </div>
-          <div className="footerCategory">
-            <h3>PARTNERSHIP</h3>
-            <ul>
-              <li>신규 입점 제의</li>
-              <li>협력 고객사 등록 신청</li>
-            </ul>
-          </div>
-          <div className="footerCategory">
-            <h3>ONLINE COMMUNITY</h3>
-            <ul>
-              <li>페이스북</li>
-              <li>트위터</li>
-              <li>유튜브</li>
-              <li>블로그</li>
-              <li>인스타그램</li>
-            </ul>
-          </div>
-          <div className="footerCategory">
-            <h3>RECRUIT</h3>
-            <ul>
-              <li>채용 소개</li>
-              <li>채용 지원하기</li>
-            </ul>
-          </div>
-          <div className="footerCategory">
-            <h3>WEBUCKS</h3>
-            <ul>
-              <li></li>
-            </ul>
-          </div>
-        </footer>
+        <Footer />
       </div>
     );
   }
