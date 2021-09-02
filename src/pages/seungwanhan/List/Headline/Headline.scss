@@ -1,0 +1,18 @@
+.headline {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  background-color: #F6F5EF;
+
+  > span {
+    padding: 15px 0 15px 20px;
+  }
+
+  img {
+    width: 30px;
+  }
+}
+
+.addShot {
+  font-size: 12px;
+}
