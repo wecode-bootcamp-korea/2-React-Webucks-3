@@ -12,8 +12,8 @@
   }
 
   .logo {
-    margin-top: 50px;
-    margin-bottom: 30px;
+    margin-top: 60px;
+    margin-bottom: 50px;
     font-family: 'Dancing Script', cursive;
     font-size: 60px;
   }
@@ -38,13 +38,21 @@
     border: none;
     border-radius: 5px;
     color: white;
+  }
+
+  .invalid {
     background-color: #ADD3EA;
+  }
+  
+  .valid {
+    background-color: #60ADED;
   }
 
   #findPw {
     position: absolute;
-    bottom: 70px;
+    bottom: 80px;
     left: 125px;
+    color: #2b84c4;
     text-decoration: none;
   }
 
