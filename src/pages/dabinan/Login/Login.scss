@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+@import '../../../Styles/font.scss';
 
 @mixin border {
   border:2px solid #dddddd;
@@ -6,9 +7,6 @@
 }
 @mixin cursor {
   cursor: pointer;
-}
-* {
-  box-sizing: border-box;
 }
 
 .LoginPage {
@@ -29,7 +27,7 @@
     @include border;
     .loginPageLogo {
       margin: 60px 0px 30px;
-      font-family: "Dancing Script", cursive;
+      @include FontDancingScripts;
       font-size: 60px;
     }
 

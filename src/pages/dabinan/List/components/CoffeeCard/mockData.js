@@ -1,4 +1,4 @@
-const DATA = [
+const COFFEE_LIST = [
   {
     coldbrew: [
       {
@@ -79,4 +79,4 @@ const DATA = [
   },
 ];
 
-export default DATA;
+export default COFFEE_LIST;

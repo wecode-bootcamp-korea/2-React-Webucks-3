@@ -14,15 +14,16 @@ class LikeButton extends Component {
   }
 
   render() {
+    const { clicked } = this.state;
     return (
       <i
         onClick={() => {
-          this.setState({ clicked: !this.state.clicked });
+          this.setState({ clicked: !clicked });
         }}
       >
         <FontAwesomeIcon
-          icon={this.state.clicked ? heartActive : heartInactive}
-          className={this.state.clicked ? 'fillHeart' : ''}
+          icon={clicked ? heartActive : heartInactive}
+          className={clicked ? 'fillHeart' : ''}
         />
       </i>
     );

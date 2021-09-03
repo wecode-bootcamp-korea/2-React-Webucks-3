@@ -16,6 +16,8 @@ class Detail extends Component {
             <section className="detailCoffeeTitle">
               <h1>콜드 브루</h1>
               <NavBar
+                navCategory="MENU"
+                foodCategory="음료"
                 coffeeCategory="콜드 브루"
                 coffeeName="제주 비자림 콜드 브루"
               />

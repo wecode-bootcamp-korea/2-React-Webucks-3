@@ -54,7 +54,7 @@ class Review extends Component {
   };
 
   removeReview = id => {
-    if (window.confirm('진짜진짜 삭제하고 싶어요? (ʘ言ʘ╬)')) {
+    if (window.confirm('진짜 삭제하고 싶어요?( •_ •̥ ˳ ˳ )')) {
       const { comments } = this.state;
       const nextComments = comments.filter(comment => comment.id !== id);
       this.setState({

@@ -17,14 +17,14 @@ class NavBar extends Component {
             src="https://image.istarbucks.co.kr/common/img/common/icon_arrow.png"
           />
         </li>
-        <li>MENU</li>
+        <li>{this.props.navCategory}</li>
         <li>
           <img
             alt="arrow"
             src="https://image.istarbucks.co.kr/common/img/common/icon_arrow.png"
           />
         </li>
-        <li>음료</li>
+        <li>{this.props.foodCategory}</li>
         <li>
           <img
             alt="arrow"

@@ -6,8 +6,8 @@ class TopNav extends Component {
     return (
       <>
         <header className="TopNav">
-          <h1> WeBucks</h1>
-          <ul>
+          <h1 className="topNavLogo"> WeBucks</h1>
+          <ul className="topNavList">
             <li>COFFEE</li>
             <li>MENU</li>
             <li>STORE</li>

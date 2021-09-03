@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.scss';
+import '../Styles/common.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 import { faEyeSlash } from '@fortawesome/free-regular-svg-icons';
@@ -13,26 +14,19 @@ class Login extends Component {
       pwValue: '',
       type: 'password',
       clicked: false,
-      activateLoginBtn: false,
     };
   }
 
   handleInput = e => {
     const { value, name } = e.target;
-    this.setState({ [name]: value }, () => {
-      this.changeLoginBtn();
-    });
-  };
-
-  changeLoginBtn = e => {
-    const { idValue, pwValue } = this.state;
-    let isLoginValid = idValue.includes('@') && pwValue.length >= 5;
     this.setState({
-      activateLoginBtn: isLoginValid,
+      [name]: value,
     });
   };
 
   render() {
+    const { idValue, pwValue, clicked } = this.state;
+    let activateLoginBtn = idValue.includes('@') && pwValue.length >= 5;
     return (
       <div className="LoginPage">
         <section className="loginContainer">
@@ -53,7 +47,7 @@ class Login extends Component {
                 className="loginBox"
                 id="pwd"
                 name="pwValue"
-                type={this.state.clicked ? 'text' : 'password'}
+                type={clicked ? 'text' : 'password'}
                 placeholder="비밀번호"
                 required
                 value={this.pwValue}
@@ -61,27 +55,25 @@ class Login extends Component {
               />
               <i
                 className="eyeIcon"
-                onKeyDown={() => {
+                onClick={() => {
                   this.setState({
-                    clicked: !this.state.clicked,
+                    clicked: !clicked,
                   });
                 }}
               >
-                <FontAwesomeIcon
-                  icon={this.state.clicked ? faEyeSlash : faEye}
-                />
+                <FontAwesomeIcon icon={clicked ? faEyeSlash : faEye} />
               </i>
             </div>
             <Link to="/list-dabin" className="linkToList">
               <button
-                type="button"
+                type="submit"
                 className="loginBox loginBtn"
                 id={
-                  this.state.activateLoginBtn
+                  activateLoginBtn
                     ? 'changedLoginBtnColor'
                     : 'unchangedLoginBtnColor'
                 }
-                disabled={this.state.activateLoginBtn ? false : true}
+                disabled={activateLoginBtn ? false : true}
               >
                 로그인
               </button>
