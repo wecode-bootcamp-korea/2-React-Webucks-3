@@ -64,12 +64,16 @@
             color: #c0c0c0;
           }
         }
-        #viewPasswordBtn {
+        .viewPasswordBtn {
           position: absolute;
           display: inline-block;
           right: 1rem;
           top: 0.9rem;
           color: #dddddd;
+        }
+        .closePasswordBtn {
+          @extend .viewPasswordBtn;
+          color: #000000;
         }
       }
       #loginBtn {
