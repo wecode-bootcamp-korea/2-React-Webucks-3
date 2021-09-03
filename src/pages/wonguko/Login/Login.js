@@ -1,23 +1,69 @@
 import React, { Component } from 'react';
-import './Login.scss';
-
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 
+//components
+import {
+  CheckEmail,
+  CheckPassword,
+} from '../../../components/Login/Validation';
+
+//css
+import './Login.scss';
 export default class Login extends Component {
+  btnRef = React.createRef();
+  viewPwdRef = React.createRef();
+
   constructor() {
     super();
     this.state = {
       email: '',
       pwd: '',
+      checkValidation: false,
+      pwdView: false,
     };
   }
 
-  handleIdInput = e => {
-    this.setState({
-      email: e.target.value,
-      pwd: e.target.value,
-    });
+  handleInput = e => {
+    const { name, value } = e.target;
+    this.setState(
+      {
+        [name]: value,
+      },
+      () => this.handleValidation()
+    );
+  };
+
+  handleValidation = () => {
+    const isEmail = this.state.email;
+    const isPwd = this.state.pwd;
+    const checkVal = this.state.checkValidation;
+
+    if (CheckEmail(isEmail) && CheckPassword(isPwd)) {
+      this.setState({
+        checkValidation: true,
+      });
+      this.btnRef.current.style.opacity = 1;
+    } else {
+      this.setState({
+        checkValidation: false,
+      });
+      this.btnRef.current.style.opacity = 0.5;
+    }
+  };
+
+  viewPwdBtn = () => {
+    console.log(this.state.pwdView);
+    if (this.state.pwdView) {
+      this.setState({
+        pwdView: false,
+      });
+    } else {
+      this.setState({
+        pwdView: true,
+      });
+    }
   };
 
   render() {
@@ -36,24 +82,45 @@ export default class Login extends Component {
               <fieldset className="inputWrap">
                 <input
                   id="inputId"
-                  type="text"
+                  name="email"
+                  value={this.email}
+                  type="input"
                   maxLength="30"
                   placeholder="전화번호, 사용자 이름 또는 이메일"
-                  onChange={this.handleIdInput}
+                  onChange={this.handleInput}
+                  onBlur={this.handleValidation}
                 />
                 <div className="pwFiled">
                   <input
                     id="inputPw"
-                    type="password"
+                    name="pwd"
+                    value={this.pwd}
+                    type={this.state.pwdView ? 'input' : 'passWord'}
                     maxLength="16"
                     placeholder="비밀번호"
-                    onChange={this.handleIdInput}
+                    onChange={this.handleInput}
+                    onBlur={this.handleValidation}
                   />
-                  <FontAwesomeIcon id="viewPasswordBtn" icon={faEye} />
+                  <FontAwesomeIcon
+                    className={
+                      this.state.pwdView
+                        ? 'closePasswordBtn'
+                        : 'viewPasswordBtn'
+                    }
+                    icon={faEye}
+                    onClick={this.viewPwdBtn}
+                  />
                 </div>
-                <button id="loginBtn" type="button" disabled>
-                  로그인
-                </button>
+                <Link to="/list-wongu">
+                  <button
+                    id="loginBtn"
+                    type="button"
+                    ref={this.btnRef}
+                    disabled={this.state.checkValidation ? false : true}
+                  >
+                    로그인
+                  </button>
+                </Link>
               </fieldset>
             </form>
             <div className="findPwdWrap">

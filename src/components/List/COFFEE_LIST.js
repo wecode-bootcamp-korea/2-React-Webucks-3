@@ -1,4 +1,4 @@
-const coffeeListMockData = [
+const COFFEE_LIST = [
   {
     coldBrewCoffee: [
       {
@@ -49,7 +49,7 @@ const coffeeListMockData = [
     ],
   },
   {
-    brudCoffee: [
+    brewedCoffee: [
       {
         id: 1,
         img: 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/02/[9200000001635]_20210225092236748.jpg',
@@ -64,4 +64,4 @@ const coffeeListMockData = [
   },
 ];
 
-export default coffeeListMockData;
+export default COFFEE_LIST;

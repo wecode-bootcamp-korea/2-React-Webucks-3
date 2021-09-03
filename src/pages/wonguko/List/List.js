@@ -3,15 +3,15 @@ import React, { Component } from 'react';
 //components
 import TopNav from '../../../components/Nav/Nav';
 import CoffeeList from '../../../components/List/CoffeeList';
-import coffeeListMockData from '../../../components/List/MockData';
+import COFFEE_LIST from '../../../components/List/COFFEE_LIST';
 import TypeOfCoffeeInner from '../../../components/List/TypeOfCoffeeInner';
 
 // CSS
 import './List.scss';
 
-const coldBrewCoffeeList = coffeeListMockData[0].coldBrewCoffee;
-const brudCoffeeList = coffeeListMockData[1].brudCoffee;
-const typeOfCoffee = [
+const coldBrewCoffeeList = COFFEE_LIST[0].coldBrewCoffee;
+const brewedCoffeeList = COFFEE_LIST[1].brewedCoffee;
+const TYPE_OF_COFFEE = [
   [{ id: 1, title: '콜드 브루 커피' }],
   [{ id: 2, title: '브루드 커피' }],
 ];
@@ -23,7 +23,7 @@ class List extends Component {
         <TopNav />
         <section className="typeOfCoffeeWrap">
           <>
-            {typeOfCoffee[0].map(props => {
+            {TYPE_OF_COFFEE[0].map(props => {
               return <TypeOfCoffeeInner id={props.id} title={props.title} />;
             })}
           </>
@@ -38,12 +38,12 @@ class List extends Component {
 
         <section className="typeOfCoffeeWrap">
           <>
-            {typeOfCoffee[1].map(props => {
+            {TYPE_OF_COFFEE[1].map(props => {
               return <TypeOfCoffeeInner id={props.id} title={props.title} />;
             })}
           </>
           <div className="coffeeTable">
-            {brudCoffeeList.map(props => {
+            {brewedCoffeeList.map(props => {
               return (
                 <CoffeeList id={props.id} img={props.img} title={props.title} />
               );
