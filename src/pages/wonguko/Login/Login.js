@@ -13,7 +13,6 @@ import {
 import './Login.scss';
 export default class Login extends Component {
   btnRef = React.createRef();
-  viewPwdRef = React.createRef();
 
   constructor() {
     super();
@@ -38,7 +37,6 @@ export default class Login extends Component {
   handleValidation = () => {
     const isEmail = this.state.email;
     const isPwd = this.state.pwd;
-    const checkVal = this.state.checkValidation;
 
     if (CheckEmail(isEmail) && CheckPassword(isPwd)) {
       this.setState({
@@ -54,7 +52,6 @@ export default class Login extends Component {
   };
 
   viewPwdBtn = () => {
-    console.log(this.state.pwdView);
     if (this.state.pwdView) {
       this.setState({
         pwdView: false,

@@ -70,6 +70,10 @@
               margin-right: 1rem;
               font-size: 1.4rem;
               color: #c8c9c4;
+              &.active {
+                color: tomato;
+                font-weight: 900;
+              }
             }
           }
           .headLine {

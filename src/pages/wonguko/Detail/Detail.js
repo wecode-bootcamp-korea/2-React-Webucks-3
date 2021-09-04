@@ -1,13 +1,31 @@
 import React, { Component } from 'react';
 import Nav from '../../../components/Nav/Nav';
 import './Detail.scss';
-
+import HeartBtn from '../../../components/Detail/HeartBtn';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 
 class Detail extends Component {
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     heart: false,
+  //   };
+  // }
+
+  // handleHeartBtn = () => {
+  //   if (this.state.heart) {
+  //     this.setState({
+  //       heart: false,
+  //     });
+  //   } else {
+  //     this.setState({
+  //       heart: true,
+  //     });
+  //   }
+  // };
+
   render() {
     return (
       <div className="detailContainer">
@@ -34,7 +52,10 @@ class Detail extends Component {
                   <h4 className="productDetailSubTitle">
                     White chocolate Mocha
                   </h4>
-                  <FontAwesomeIcon className="heartBtn" icon={faHeart} />
+                  <HeartBtn
+                    activeHeart={this.state.heart}
+                    handleHeartBtn={this.handleHeartBtn}
+                  />
                 </div>
                 <hr className="headLine" />
                 <p className="productExplanation">

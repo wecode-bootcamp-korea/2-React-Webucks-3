@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import HeartBtn from '../../components/Detail/HeartBtn';
 
 class CoffeeList extends Component {
   render() {
@@ -15,7 +16,7 @@ class CoffeeList extends Component {
         </div>
         <div className="coffeeNameWrap">
           <p className="coffeeName">{this.props.title}</p>
-          <FontAwesomeIcon className="heartBtn" id="heartBtn" icon={faHeart} />
+          <HeartBtn className="heartBtn" id="heartBtn" icon={faHeart} />
         </div>
       </div>
     );
