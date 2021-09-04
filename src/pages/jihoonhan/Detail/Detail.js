@@ -1,11 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react';
-import './Detail.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TopNav from '../../../components/Nav/TopNav';
+import Footer from '../../../components/DetailFooter';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
+
+import './Detail.scss';
 
 library.add(faHeart, faHeartRegular);
 
@@ -16,6 +18,25 @@ class Detail extends Component {
       heartClicked: false,
       whichIcon: faHeartRegular,
       iconClassName: 'far faHeart',
+      userInpttedId: '',
+      userInputtedComment: '',
+      comments: [
+        {
+          commentId: 1,
+          userId: 'coffee_lover',
+          userComment: '너무 맛있어요!',
+        },
+        {
+          commentId: 2,
+          userId: 'CHOCO7',
+          userComment: '오늘도 화이트 초콜릿 모카를 마시러 갑니다.',
+        },
+        {
+          commentId: 3,
+          userId: 'legend_dev',
+          userComment: '진짜 화이트 초콜릿 모카는 전설이다.',
+        },
+      ],
     };
   }
 
@@ -29,6 +50,35 @@ class Detail extends Component {
         });
   };
 
+  handleInput = e => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  enterKeyPressed = e => {
+    if (e.key === 'Enter') {
+      this.addComment();
+      this.setState({});
+    }
+  };
+
+  addComment = () => {
+    let commented = this.state.comments;
+    if (this.state.userInputtedComment !== '') {
+      commented = commented.concat({
+        commentId: Math.floor(Math.random() * 10000) + 1,
+        userId: this.state.userInpttedId,
+        userComment: this.state.userInputtedComment,
+      });
+      this.setState({
+        comments: commented,
+        userInpttedId: '',
+        userInputtedComment: '',
+      });
+    }
+  };
+
   render() {
     return (
       <>
@@ -37,7 +87,7 @@ class Detail extends Component {
         <div className="nameColdbrew">
           <span>콜드 브루</span>
         </div>
-        <div class="arrow-nav">
+        <div className="arrow-nav">
           <nav>
             <ul>
               <li>
@@ -145,84 +195,36 @@ class Detail extends Component {
             </div>
 
             <div className="comments">
-              <div className="commentRow">
-                <span className="username">cofee_lover</span>
-                <span className="comment">너무 맛있어요!</span>
-              </div>
-              <div className="commentRow">
-                <span className="username">CHOCO7</span>
-                <span className="comment">
-                  오늘도 화이트 초콜릿 모카를 마시러 갑니다.
-                </span>
-              </div>
-              <div className="commentRow">
-                <span className="username">legend_dev</span>
-                <span className="comment">
-                  진짜 화이트 초콜릿 모카는 전설이다.
-                </span>
-              </div>
+              <ul>
+                {this.state.comments.map((reply, id) => {
+                  return (
+                    <li className="commentRow" key={id}>
+                      <p className="username">{reply.userId}</p>
+                      <p>{reply.userComment}</p>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
             <input
+              value={this.state.userInpttedId}
+              name="userInpttedId"
+              className="newId"
+              placeholder="아이디"
+              onChange={this.handleInput}
+              onKeyPress={this.enterKeyPressed}
+            />
+            <input
+              value={this.state.userInputtedComment}
+              name="userInputtedComment"
               className="newComment"
               placeholder="리뷰를 입력해주세요."
-            ></input>
+              onChange={this.handleInput}
+              onKeyPress={this.enterKeyPressed}
+            />
           </div>
         </div>
-
-        <footer>
-          <div className="footer">
-            <div className="footerText">
-              <span>COMPANY</span>
-              <br />
-              한눈에 보기
-              <br />
-              스타벅스 사명
-              <br />
-              스타벅스 소개
-              <br />
-              국내 뉴스룸
-              <br />
-              세계의 스타벅스
-              <br />
-              글로벌 뉴스룸
-            </div>
-            <div className="footerText">
-              <span>CORPORATE SALES</span>
-              <br />
-              단체 및 기업 구매 안내
-            </div>
-            <div className="footerText">
-              <span>PARTNERSHIP</span>
-              <br />
-              신규 입점 제의
-              <br />
-              협력 고객사 등록 신청
-            </div>
-            <div className="footerText">
-              <span>ONLINE COMMUNITY</span>
-              <br />
-              페이스북
-              <br />
-              트위터
-              <br />
-              유튜브
-              <br />
-              블로그
-              <br />
-              인스타그램
-            </div>
-            <div className="footerText">
-              <span>RECRUIT</span>
-              <br />
-              채용 소개
-              <br />
-              채용 지원하기
-            </div>
-            <div className="footerText">
-              <span>WEBUCKS</span>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </>
     );
   }

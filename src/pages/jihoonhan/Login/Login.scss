@@ -27,30 +27,35 @@
     color: #acacac;
     background-color: #efefef;
   }
-  
+
   input:focus {
     outline: none;
   }
-  
-  #loginBtn {
+
+  .loginBtn {
     display: inline-block;
     margin-top: 20px;
     padding-top: 5px;
     height: 40px;
     width: 340px;
-    border: 1px solid #CBE3F2;
+    border: 1px solid #cbe3f2;
     border-radius: 10px;
-    background-color: #61ADEC;
+    background-color: #61adec;
     color: #ffffff;
     text-decoration-line: none;
     font-size: 15px;
     font-weight: bold;
+    opacity: 0.5;
+  }
+
+  .btnActivated {
+    opacity: 1;
   }
 
   #forgotPassword {
     display: inline-block;
     margin-top: 80px;
     font-weight: bold;
-    color: #90AEC3;
+    color: #90aec3;
   }
 }

@@ -23,8 +23,8 @@ class Login extends Component {
 
   handleBtnActive = () => {
     this.state.inputId.includes('@') && this.state.inputPw.length >= 5
-      ? this.setState({ isActive: true, opacity: 1 })
-      : this.setState({ isActive: false, opacity: 0.5 });
+      ? this.setState({ isActive: true })
+      : this.setState({ isActive: false });
   };
 
   goToList = () => {
@@ -58,8 +58,8 @@ class Login extends Component {
 
         <button
           type="button"
-          id="loginBtn"
-          style={{ opacity: this.state.opacity }}
+          className={this.state.isActive ? 'loginBtn btnActivated' : 'loginBtn'}
+          disabled={this.state.isActive ? null : 'disabled'}
           onClick={this.goToList}
         >
           로그인

@@ -141,10 +141,17 @@
     border-bottom: 2px solid #cccccc;
   }
 
+  ul {
+    list-style: none;
+  }
   .commentRow {
     width: 700px;
     height: 30px;
     font-size: 18px;
+
+    p {
+      display: inline-block;
+    }
   }
 
   .username {
@@ -152,15 +159,32 @@
     font-weight: 900;
   }
 
-  .newComment {
+  .newId {
+    display: inline-block;
     resize: none;
     margin-top: 30px;
     margin-bottom: 200px;
-    padding-top: 6px;
+    margin-right: 10px;
+    padding-top: 4px;
     padding-left: 10px;
     border: none;
     border-radius: 5px;
-    width: 700px;
+    width: 100px;
+    height: 33px;
+    background-color: #cccccc;
+    font-size: 20px;
+  }
+
+  .newComment {
+    display: inline-block;
+    resize: none;
+    margin-top: 30px;
+    margin-bottom: 200px;
+    padding-top: 4px;
+    padding-left: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 550px;
     height: 33px;
     background-color: #cccccc;
     font-size: 20px;

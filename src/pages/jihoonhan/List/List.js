@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react';
-import './List.scss';
 import TopNav from '../../../components/Nav/TopNav';
-import { COLDBREW_LIST } from './ListMockData';
-import { BREW_LIST } from './ListMockData';
+import ColdBrewCoffees from '../../../components/ListColdBrew';
+import BrewedCoffees from '../../../components/ListBrewed';
+import COFFEE_LIST from './ListMock';
+import './List.scss';
 
 class List extends Component {
   render() {
@@ -14,31 +15,24 @@ class List extends Component {
         <article className="menus">
           <div className="sector coldbrew">
             <h2>콜드 브루 커피</h2>
-            <a className="mug">
-              <img alt="머그잔" src="/images/jihoonhan/mug.jpeg" />
-            </a>
+            <img alt="머그잔" src="/images/jihoonhan/mug.jpeg" />
             <h3>디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</h3>
           </div>
 
-          <div className="coldbrewMenu">
-            {COLDBREW_LIST.map(coldbrewList => {
+          <ul className="coldbrewMenu">
+            {COFFEE_LIST[0].coldBrewCoffee.map(data => {
               return (
-                <li>
-                  <a>
-                    <img
-                      key={coldbrewList.id}
-                      alt={coldbrewList.alt}
-                      src={coldbrewList.src}
-                    />
-                  </a>
-                  <p>{coldbrewList.coffeeName}</p>
-                </li>
+                <ColdBrewCoffees
+                  alt={data.title}
+                  src={data.img}
+                  coffeeName={data.title}
+                />
               );
             })}
-          </div>
+          </ul>
 
           <div className="sector brew">
-            <h2>브루 커피</h2>
+            <h2>브루드 커피</h2>
             <a className="mug">
               <img alt="머그잔" src="/images/jihoonhan/mug.jpeg" />
             </a>
@@ -46,18 +40,13 @@ class List extends Component {
           </div>
 
           <div className="brewMenu">
-            {BREW_LIST.map(brewList => {
+            {COFFEE_LIST[1].brewedCoffee.map((data, index) => {
               return (
-                <li>
-                  <a>
-                    <img
-                      key={brewList.id}
-                      alt={brewList.alt}
-                      src={brewList.src}
-                    />
-                  </a>
-                  <p>{brewList.coffeeName}</p>
-                </li>
+                <BrewedCoffees
+                  alt={data.title}
+                  src={data.img}
+                  coffeeName={data.title}
+                />
               );
             })}
           </div>
