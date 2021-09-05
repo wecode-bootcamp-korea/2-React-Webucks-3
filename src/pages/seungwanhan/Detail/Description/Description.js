@@ -13,7 +13,7 @@ export default class Description extends Component {
     };
   }
 
-  clickHeart = () => {
+  clickHeartIcon = () => {
     this.setState({
       isHeartClicked: !this.state.isHeartClicked,
     });
@@ -24,14 +24,13 @@ export default class Description extends Component {
 
     return (
       <section className="Description">
-        <span onClick={this.clickHeart}>
+        <span className="heartIcon" onClick={this.clickHeartIcon}>
           <FontAwesomeIcon
             icon={this.state.isHeartClicked ? heartSolid : heartRegular}
-            className="heartIcon"
             size="2x"
           />
         </span>
-        <div className="coffeeName">
+        <div className="name">
           <p className="ko">{coffeeInfo.koName}</p>
           <p className="eng">{coffeeInfo.engName}</p>
         </div>

@@ -1,0 +1,33 @@
+.ReviewList {
+
+  .top {
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid gray;
+    font-size: 20px;
+  }
+
+  .mid {
+    margin-bottom: 20px;
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+
+    .userId, .reviewText {
+      padding: 5px 0 5px 10px;
+      border-style: none;
+      font-size: 13px;
+      background-color: lightgray;
+    }
+
+    .userId {
+      width: 25%;
+    }
+
+    .reviewText {
+      width: 70%;
+    }
+  }
+}

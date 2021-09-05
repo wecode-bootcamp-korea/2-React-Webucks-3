@@ -3,7 +3,7 @@ import TopNav from '../../../components/Nav/Nav.js';
 import Category from './Category/Category.js';
 import Description from './Description/Description.js';
 import Nutrition from './Nutrition/Nutrition.js';
-import Review from './Review/Review.js';
+import ReviewList from './ReviewList/ReviewList.js';
 import './Detail.scss';
 
 class Detail extends Component {
@@ -22,7 +22,7 @@ class Detail extends Component {
           <div className="rightSide">
             <Description />
             <Nutrition />
-            <Review />
+            <ReviewList />
           </div>
         </main>
       </div>

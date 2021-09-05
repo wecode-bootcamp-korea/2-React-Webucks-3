@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import COFFEE_INFO_LIST from '../data/CoffeeInfoList.js';
 import './Category.scss';
 
 export default class Category extends Component {
