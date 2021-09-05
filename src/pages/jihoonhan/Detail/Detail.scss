@@ -34,7 +34,7 @@
     margin-left: 40px;
   }
 
-  .coffename {
+  .coffeename {
     position: relative;
     width: 700px;
     height: 80px;
@@ -136,40 +136,61 @@
     margin-bottom: 20px;
     width: 700px;
     height: 40px;
-    font-size: 30px;
-    font-weight: bold;
     border-bottom: 2px solid #cccccc;
-  }
 
-  ul {
-    list-style: none;
-  }
-  .commentRow {
-    width: 700px;
-    height: 30px;
-    font-size: 18px;
-
-    p {
-      display: inline-block;
+    .reviewHeader {
+      margin-bottom: 30px;
+      font-size: 30px;
+      font-weight: bold;
+      color: #666666;
     }
-  }
 
-  .username {
-    margin-right: 5px;
-    font-weight: 900;
+    ul {
+      list-style: none;
+
+      li {
+        position: relative;
+        width: 700px;
+        height: 30px;
+        font-size: 20px;
+
+        .userName {
+          display: inline-block;
+          margin-right: 15px;
+          font-weight: 900;
+        }
+
+        .userComment {
+          display: inline-block;
+          font-size: 19px;
+          color: black;
+        }
+
+        .reviewHeart {
+          position: absolute;
+          right: 50px;
+          font-size: 18px;
+        }
+
+        .commentDeleteBtn {
+          position: absolute;
+          right: 15px;
+          color: #666666;
+          font-size: 18px;
+        }
+      }
+    }
   }
 
   .newId {
     display: inline-block;
     resize: none;
-    margin-top: 30px;
-    margin-bottom: 200px;
-    margin-right: 10px;
+    margin: 30px 10px 200px -5px;
     padding-top: 4px;
-    padding-left: 10px;
+    padding-left: 12px;
     border: none;
     border-radius: 5px;
-    width: 100px;
+    width: 115px;
     height: 33px;
     background-color: #cccccc;
     font-size: 20px;
@@ -181,7 +202,7 @@
     margin-top: 30px;
     margin-bottom: 200px;
     padding-top: 4px;
-    padding-left: 10px;
+    padding-left: 12px;
     border: none;
     border-radius: 5px;
     width: 550px;

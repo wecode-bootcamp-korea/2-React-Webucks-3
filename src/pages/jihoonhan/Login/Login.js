@@ -44,6 +44,7 @@ class Login extends Component {
           placeholder="전화번호, 사용자 이름 또는 이메일"
           value={this.inputId}
           name="inputId"
+          autoComplete="off"
           onChange={this.handleInput}
         />
 

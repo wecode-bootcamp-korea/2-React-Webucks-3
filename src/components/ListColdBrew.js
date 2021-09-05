@@ -9,8 +9,6 @@ class ColdBrewCoffees extends Component {
     super();
     this.state = {
       heartClicked: false,
-      icon: farHeart,
-      iconClassName: 'far listHeart',
     };
     this.heartOnOff = this.heartOnOff.bind(this);
   }
