@@ -1,4 +1,4 @@
-const COFFEE_LIST = [
+const COFFEE_IMG_LIST = [
   {
     coldBrewCoffee: [
       {
@@ -64,4 +64,4 @@ const COFFEE_LIST = [
   },
 ];
 
-export default COFFEE_LIST;
+export default COFFEE_IMG_LIST;

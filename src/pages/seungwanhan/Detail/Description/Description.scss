@@ -1,0 +1,33 @@
+.Description {
+
+  .heartIcon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+
+  .coffeeName {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid black;
+
+    .ko {
+      font-size: 23px;
+      font-weight: 600;
+      padding-bottom: 5px;
+    }
+
+    .eng {
+      font-size: 14px;
+    }
+  }
+
+  .detail {
+    margin-bottom: 25px;
+
+    p {
+      padding-bottom: 7px;
+      font-size: 16px;
+    }
+  }
+}

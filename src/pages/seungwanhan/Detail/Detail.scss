@@ -1,96 +1,55 @@
 .Detail{
 
-body {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
 
-body > section {
-  width: 80%;
-}
+  .TopNav, .Category, .contentsWrapper {
+    width: 80%;
+  }
 
-.menu-bar {
-  position: fixed;
-  top: 0;
-  z-index: 5;
-  /* height 고정 다른 방법으로 변경해보기 */
-  height: 50px;
-  margin-bottom: 15px;
-  background-color: #F6F5EF;
-}
+  .Category {
+    position: absolute;
+    top: 60px;
+  }
 
-.menu-bar .logo {
-  position: absolute;
-  top: 9px;
-  left: 20px;
-  font-family: 'Dancing Script', cursive;
-  font-size: 25px;
-  color: black;
-  text-decoration: none;
-}
+  .contentsWrapper {
+    position: absolute;
+    top: 120px;
+    display: flex;
+    justify-content: space-between;
 
-.menu-bar .btn {
-  position: absolute;
-  top: 15px;
-  color: lightgray;
-  text-decoration: none;
-}
+    .leftSide {
+      width: 40%;
 
-.menu-bar .btn.new {
-  right: 30px;
-}
+      img {
+        width: 100%;
+      }
+    }
 
-.menu-bar .btn.store {
-  right: 140px;
-}
+    .rightSide {
+      width: 57%;
+    }
+  }
 
-.menu-bar .btn.menu {
-  right: 230px;
-}
 
-.menu-bar .btn.coffee {
-  right: 320px;
-}
+  .sec-mid {
+    position: absolute;
+    top: 145px;
+    display: flex;
+    justify-content: space-between;
+  }
 
-.sec-top {
-  position: absolute;
-  top: 60px;
-  /* margin-bottom: 15px; */
-  /* background-color: beige; */
-}
+  .sec-left {
+    width: 45%;
+  }
 
-.sec-top .coffee-name {
-  margin: 10px 0 0 5px;
-  font-size: 25px;
-}
+  .sec-right {
+    width: 52%;
+  }
 
-.sec-top .menu-route {
-  font-size: 13px;
-  text-align: right;
-  color: lightgray;
-}
-
-.sec-mid {
-  position: absolute;
-  top: 145px;
-
-  display: flex;
-  justify-content: space-between;
-
-  /* background-color: burlywood; */
-}
-
-.sec-left {
-  width: 45%;
-}
-
-.sec-right {
-  width: 52%;
-}
-
-.sec-left img {
-  width: 100%;
-}
+  .sec-left img {
+    width: 100%;
+  }
 
 }

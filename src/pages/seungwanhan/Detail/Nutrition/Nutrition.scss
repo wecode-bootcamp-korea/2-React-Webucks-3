@@ -1,0 +1,47 @@
+.Nutrition {
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 15px 20px 15px;
+    margin-bottom: 10px;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    font-size: 20px;
+  }
+
+  .mid {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px 0 15px;
+    margin-bottom: 15px;
+
+    .midLeft, .midRight {
+      width: 48%;
+  
+      div {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0 10px 0;
+      }
+  
+      > div:nth-child(1) {
+        padding-top: 7px;
+      }
+  
+      > div:nth-child(3) {
+        padding-bottom: 17px;
+      }
+    }
+  
+    .midLeft {
+      padding-right: 2%;
+      border-right: 1px dashed gray;
+    }
+  }
+
+  .bottom {
+    padding: 15px;
+    background-color: lightgray;
+  }
+}

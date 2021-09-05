@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import COFFEE_LIST from '../data/CoffeeList';
+import COFFEE_IMG_LIST from '../data/CoffeeImgList';
 import './Grid.scss';
 
 class Grid extends Component {
   render() {
     let coffeeInfoList = [];
-    if (this.props.coffeeKind === 'coldbrew') {
-      coffeeInfoList = COFFEE_LIST[0].coldBrewCoffee;
-    } else if (this.props.coffeeKind === 'brewed') {
-      coffeeInfoList = COFFEE_LIST[1].brewedCoffee;
+    if (this.props.coffeeCategory === 'coldbrew') {
+      coffeeInfoList = COFFEE_IMG_LIST[0].coldBrewCoffee;
+    } else if (this.props.coffeeCategory === 'brewed') {
+      coffeeInfoList = COFFEE_IMG_LIST[1].brewedCoffee;
     }
-    const aaa = coffeeInfoList.map(coffeeInfo => {
+
+    const gridCell = coffeeInfoList.map(coffeeInfo => {
       return (
         <div className="gridCell">
           <div className="imgWrapper">
@@ -21,7 +22,7 @@ class Grid extends Component {
       );
     });
 
-    return <section className="gridWrapper">{aaa}</section>;
+    return <section className="gridWrapper">{gridCell}</section>;
   }
 }
 
