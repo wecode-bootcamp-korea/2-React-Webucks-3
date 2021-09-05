@@ -7,57 +7,72 @@ import Footer from '../components/Footer/Footer';
 import './Detail.scss';
 
 class Detail extends Component {
+  constructor() {
+    super();
+    this.state = {
+      details: {},
+    };
+  }
+
+  componentDidMount() {
+    const id = this.props.match.params.id * 1;
+    console.log(id);
+    fetch('http://localhost:3000/data/detailMockData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          details: data.data.filter(detail => detail.id === id)[0],
+        });
+      });
+  }
+
   render() {
+    console.log(this.state.details);
+    const { details } = this.state;
     return (
       <div className="DetailPage">
         <TopNav />
         <main>
           <section className="detailContainer">
             <section className="detailCoffeeTitle">
-              <h1>콜드 브루</h1>
+              <h1>{details.category}</h1>
               <NavBar
                 navCategory="MENU"
                 foodCategory="음료"
-                coffeeCategory="콜드 브루"
-                coffeeName="제주 비자림 콜드 브루"
+                coffeeCategory={details.category}
+                coffeeName={details.name}
               />
             </section>
             <section className="detailCoffeeInfo">
               <div className="detailCoffeeInfoImg">
-                <img
-                  alt="제주 비자림 콜드 브루"
-                  src="https://image.istarbucks.co.kr/upload/store/skuimg/2020/09/[9200000002672]_20200921171223898.jpg"
-                />
+                <img alt={details.name} src={details.imgUrl} />
               </div>
               <div className="detailCoffeeInfoNonImg">
                 <div className="detailCoffeeName">
                   <h2>
-                    제주 비자림 콜드 브루
+                    {details.name}
                     <br />
-                    <span>Jeju Forest Cold Brew</span>
+                    <span>{details.engName}</span>
                   </h2>
                   <div className="detailLikeButton">
                     <LikeButton />
                   </div>
                 </div>
                 <p className="detailDescription">
-                  [제주지역 한정음료] 제주 천년의 숲 비자림을 연상시키는
+                  {details.summary}
                   <br />
-                  음료로 제주에서 유기농 말차로 만든
-                  <br />
-                  파우더와 Cold Brew를 활용한 음료
+                  {details.desc}
                 </p>
                 <div className="detailImg2">
-                  <img
-                    alt="제주 비자림 콜드 브루"
-                    src="https://image.istarbucks.co.kr/upload/store/skuimg/2020/09/[9200000002672]_20200921171223898.jpg"
-                  />
+                  <img alt={details.name} src={details.imgUrl} />
                 </div>
                 <div className="nutrition">
                   <h5 className="sizeForNutrition">
                     <p className="productNutritionInfo">제품 영양 정보</p>
                     <p className="nutritionInfoDetails">
-                      Grande(그란데) / 473ml (16 fl oz)
+                      {details.servingSize}
                     </p>
                   </h5>
                   <div className="nutritionList">
@@ -65,15 +80,15 @@ class Detail extends Component {
                       <tbody>
                         <tr>
                           <td>1회 제공량(kcal)</td>
-                          <td>340</td>
+                          <td>{details.kcal}</td>
                         </tr>
                         <tr>
                           <td>포화지방 (g)</td>
-                          <td>8</td>
+                          <td>{details.fat}</td>
                         </tr>
                         <tr>
                           <td>단백질 (g)</td>
-                          <td>10</td>
+                          <td>{details.protein}</td>
                         </tr>
                       </tbody>
                     </table>
@@ -81,20 +96,22 @@ class Detail extends Component {
                       <tbody>
                         <tr>
                           <td>나트륨 (mg)</td>
-                          <td>115</td>
+                          <td>{details.natrium}</td>
                         </tr>
                         <tr>
                           <td>당류 (g)</td>
-                          <td>44</td>
+                          <td>{details.sugars}</td>
                         </tr>
                         <tr>
                           <td>카페인 (mg)</td>
-                          <td>105</td>
+                          <td>{details.caffeine}</td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
-                  <div className="alergy">알레르기 유발 요인: 없음</div>
+                  <div className="alergy">
+                    알레르기 유발 요인: {details.allergen}
+                  </div>
                 </div>
                 <Review />
               </div>

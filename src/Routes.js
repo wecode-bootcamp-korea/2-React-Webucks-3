@@ -9,7 +9,12 @@ function Router() {
     <Switch>
       <Route exact path="/login-dabin" component={loginDabin} />
       <Route exact path="/list-dabin" component={listDabin} />
-      <Route exact path="/detail-dabin" component={detailDabin} />
+      {/* <Route exact path="/list-dabin/detail-dabin" component={detailDabin} /> */}
+      <Route
+        exact
+        path="/list-dabin/detail-dabin/:id"
+        component={detailDabin}
+      />
     </Switch>
   );
 }
