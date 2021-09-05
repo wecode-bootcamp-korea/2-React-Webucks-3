@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 //components
-import TopNav from '../../../components/Nav/Nav';
-import CoffeeList from '../../../components/List/CoffeeList';
+import TopNav from '../../../components/Nav/TopNav';
+import TypeOfCoffeeList from '../../../components/List/TypeOfCoffeeList';
 import COFFEE_LIST from '../../../components/List/COFFEE_LIST';
 import TypeOfCoffeeInner from '../../../components/List/TypeOfCoffeeInner';
 
@@ -30,7 +30,11 @@ class List extends Component {
           <div className="coffeeTable">
             {coldBrewCoffeeList.map(props => {
               return (
-                <CoffeeList id={props.id} img={props.img} title={props.title} />
+                <TypeOfCoffeeList
+                  id={props.id}
+                  img={props.img}
+                  title={props.title}
+                />
               );
             })}
           </div>
@@ -45,7 +49,11 @@ class List extends Component {
           <div className="coffeeTable">
             {brewedCoffeeList.map(props => {
               return (
-                <CoffeeList id={props.id} img={props.img} title={props.title} />
+                <TypeOfCoffeeList
+                  id={props.id}
+                  img={props.img}
+                  title={props.title}
+                />
               );
             })}
           </div>

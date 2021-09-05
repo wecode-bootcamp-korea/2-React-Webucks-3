@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as fasFaHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as farFaHeart } from '@fortawesome/free-regular-svg-icons';
 import './HeartBtn.scss';
 
 class HeartBtn extends Component {
@@ -24,13 +25,12 @@ class HeartBtn extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <>
         <FontAwesomeIcon
-          active={this.state.heart ? 'heartBtn active' : 'heartBtn'}
+          class={this.state.heart ? 'heartBtn active' : 'heartBtn'}
           onClick={this.handleHeartBtn}
-          icon={faHeart}
+          icon={this.state.heart ? fasFaHeart : farFaHeart}
         />
       </>
     );
