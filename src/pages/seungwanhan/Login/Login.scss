@@ -22,30 +22,30 @@
     input {
       width: 290px;
       height: 35px;
-      margin-bottom: 15px;
       padding-left: 7px;
+      margin-bottom: 15px;
       border: 1px solid lightgray;
       border-radius: 5px;
       font-size: 13px;
       background-color: #F7F7F7;
     }
-  }
 
-  #btnLogin {
-    width: 303px;
-    height: 35px;
-    margin-bottom: 250px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-  }
+    button {
+      width: 303px;
+      height: 35px;
+      margin-bottom: 250px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+    }
 
-  .deactive {
-    background-color: #ADD3EA;
-  }
-  
-  .active {
-    background-color: #60ADED;
+    .deactive {
+      background-color: #ADD3EA;
+    }
+    
+    .active {
+      background-color: #60ADED;
+    }
   }
 
   #findPw {

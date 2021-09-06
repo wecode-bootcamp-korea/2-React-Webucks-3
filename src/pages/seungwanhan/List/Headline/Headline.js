@@ -4,8 +4,8 @@ import './Headline.scss';
 class Headline extends Component {
   render() {
     return (
-      <section className="headline">
-        <span>{this.props.coffeeName}</span>
+      <section className="Headline">
+        <span>{this.props.name}</span>
         <span>
           <img src="" alt="" />
         </span>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './Login.scss';
 
 export default class Login extends Component {
@@ -24,7 +25,7 @@ export default class Login extends Component {
 
     return (
       <div className="Login">
-        <main className="contentsWrapper">
+        <div className="contentsWrapper">
           <section className="logo">
             <span>WeBucks</span>
           </section>
@@ -40,23 +41,21 @@ export default class Login extends Component {
               placeholder="비밀번호"
               onChange={this.handlePwInput}
             />
+            <button
+              className={isLoginBtnActive ? 'active' : 'deactive'}
+              type="submit"
+              form="userInfo"
+              onClick={this.goToList}
+              disabled={!isLoginBtnActive}
+            >
+              로그인
+            </button>
           </form>
 
-          <button
-            id="btnLogin"
-            className={isLoginBtnActive ? 'active' : 'deactive'}
-            type="submit"
-            form="userInfo"
-            onClick={this.goToList}
-            disabled={!isLoginBtnActive}
-          >
-            로그인
-          </button>
-
-          <a id="findPw" href="./">
+          <Link id="findPw" to="./login-seungwan">
             비밀번호를 잊으셨나요?
-          </a>
-        </main>
+          </Link>
+        </div>
       </div>
     );
   }

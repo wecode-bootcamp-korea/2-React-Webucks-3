@@ -10,11 +10,11 @@ class List extends Component {
       <div className="List">
         <TopNav />
         <main className="contentsWrapper">
-          <Headline coffeeName="콜드 브루 커피" />
-          <Grid coffeeCategory="coldbrew" />
+          <Headline name="콜드 브루 커피" />
+          <Grid category="coldbrew" />
 
-          <Headline coffeeName="브루드 커피" />
-          <Grid coffeeCategory="brewed" />
+          <Headline name="브루드 커피" />
+          <Grid category="brewed" />
         </main>
       </div>
     );

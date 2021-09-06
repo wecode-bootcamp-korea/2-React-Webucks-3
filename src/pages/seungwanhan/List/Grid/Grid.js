@@ -1,28 +1,22 @@
 import React, { Component } from 'react';
+import GridCell from './GridCell/GridCell';
 import COFFEE_IMG_LIST from '../data/CoffeeImgList';
 import './Grid.scss';
 
 class Grid extends Component {
   render() {
-    let coffeeInfoList = [];
-    if (this.props.coffeeCategory === 'coldbrew') {
-      coffeeInfoList = COFFEE_IMG_LIST[0].coldBrewCoffee;
-    } else if (this.props.coffeeCategory === 'brewed') {
-      coffeeInfoList = COFFEE_IMG_LIST[1].brewedCoffee;
+    let imgList = [];
+    if (this.props.category === 'coldbrew') {
+      imgList = COFFEE_IMG_LIST.coldBrewCoffee;
+    } else if (this.props.category === 'brewed') {
+      imgList = COFFEE_IMG_LIST.brewedCoffee;
     }
 
-    const gridCell = coffeeInfoList.map(coffeeInfo => {
-      return (
-        <div className="gridCell">
-          <div className="imgWrapper">
-            <img src={coffeeInfo.img} alt={coffeeInfo.title}></img>
-          </div>
-          <p>{coffeeInfo.title}</p>
-        </div>
-      );
+    const gridCell = imgList.map(img => {
+      return <GridCell imgUrl={img.imgUrl} title={img.title} />;
     });
 
-    return <section className="gridWrapper">{gridCell}</section>;
+    return <section className="Grid">{gridCell}</section>;
   }
 }
 

@@ -5,26 +5,29 @@ import './ReviewList.scss';
 export default class ReviewList extends Component {
   constructor() {
     super();
-    this.refUserId = React.createRef();
     this.state = {
       reviewList: [
         {
-          userId: 'id1',
-          reviewText: 'review 111111',
+          uuid: 'key1',
+          userId: 'janghyun',
+          reviewText: '장현 리뷰 1등!!!',
           isHeartClicked: false,
         },
         {
-          userId: 'id22',
-          reviewText: 'review 22',
+          uuid: 'key2',
+          userId: 'soheon',
+          reviewText: '소헌도 리뷰 달았다ㅎㅎㅎㅎ',
           isHeartClicked: true,
         },
         {
-          userId: 'id333',
-          reviewText: 'review 333333333333333333333333',
+          uuid: 'key3',
+          userId: 'khkim',
+          reviewText: 'hi im kh hahaha',
           isHeartClicked: false,
         },
       ],
     };
+    this.refUserId = React.createRef();
   }
 
   reviewInputKeyUp = event => {
@@ -44,46 +47,47 @@ export default class ReviewList extends Component {
     }
   };
 
-  clickHeartIcon = reviewInfo => {
-    return () => {
-      const newReviewList = this.state.reviewList.map(el => {
-        if (el.userId === reviewInfo.userId) {
-          el.isHeartClicked = !el.isHeartClicked;
-          return el;
-        } else {
-          return el;
-        }
-      });
-
-      this.setState({
-        reviewList: newReviewList,
-      });
-    };
+  clickHeartIcon = uuid => {
+    const newList = this.state.reviewList.map(el => {
+      if (el.uuid === uuid) {
+        el.isHeartClicked = !el.isHeartClicked;
+        return el;
+      } else {
+        return el;
+      }
+    });
+    this.setState({ reviewList: newList });
   };
 
-  clickDeleteIcon = reviewInfo => {
-    return () => {
-      this.setState({
-        reviewList: this.state.reviewList.filter(el => {
-          return el.userId !== reviewInfo.userId;
-        }),
-      });
-    };
+  clickDeleteIcon = uuid => {
+    const newList = this.state.reviewList.filter(el => el.uuid !== uuid);
+    this.setState({ reviewList: newList });
   };
+
+  // 리뷰 요청드립니다.
+  // clickDeleteIcon = uuid => {
+  //   return () => {
+  //     const newList = this.state.reviewList.filter(el => el.uuid !== uuid);
+  //     this.setState({ reviewList: newList });
+  //   };
+  // };
 
   render() {
     return (
       <section className="ReviewList">
         <div className="top">리뷰</div>
         <div className="mid">
-          {this.state.reviewList.map(reviewInfo => {
+          {this.state.reviewList.map(review => {
             return (
               <Review
-                userId={reviewInfo.userId}
-                reviewText={reviewInfo.reviewText}
-                isHeartClicked={reviewInfo.isHeartClicked}
-                clickHeartIcon={this.clickHeartIcon(reviewInfo)}
-                clickDeleteIcon={this.clickDeleteIcon(reviewInfo)}
+                uuid={review.uuid}
+                userId={review.userId}
+                reviewText={review.reviewText}
+                isHeartClicked={review.isHeartClicked}
+                clickHeartIcon={this.clickHeartIcon}
+                clickDeleteIcon={this.clickDeleteIcon}
+                // 리뷰 요청드립니다.
+                // clickDeleteIcon={this.clickDeleteIcon(review.uuid)}
               />
             );
           })}

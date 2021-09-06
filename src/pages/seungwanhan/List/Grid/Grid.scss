@@ -1,28 +1,7 @@
-.gridWrapper {
+.Grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 20px;
   margin-bottom: 50px;
   text-align: center;
-
-  .gridCell {
-    .imgWrapper {
-      height: 304px;
-      overflow: hidden;
-    }
-  
-    p {
-      padding: 15px;
-    }
-  }
-  
-  img {
-    width: 100%;
-    transition: transform 1s;
-  
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
 }
-

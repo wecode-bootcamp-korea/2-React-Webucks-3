@@ -1,0 +1,26 @@
+.GridCell {
+
+  .imgWrapper {
+    height: 285px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      transition: transform 1s;
+    
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .coffeeName {
+    position: relative;
+    padding: 10px;
+
+    .heartIcon {
+      position: absolute;
+      right: 0;
+    }
+  }
+}
