@@ -1,0 +1,20 @@
+.category-nav {
+  ul {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  .topMenu {
+    text-decoration: none;
+    color: #c8c8c8;
+  }
+
+  .currentMenu {
+    text-decoration: none;
+    color: #2c2a29;
+  }
+}

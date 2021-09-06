@@ -1,31 +1,5 @@
+@import '../../../Styles/variables.scss';
 @import '../../../Styles/font.scss';
-
-// VARIABLES
-$theme-color: #f6f5ef;
-$basic-btn-color: #3795f6;
-$disabled-btn-color: #b2dffd;
-$division-color: #ddd;
-
-//EXTENDS
-%flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-%flex-column {
-  display: flex;
-  flex-direction: column;
-}
-
-%flex-between {
-  display: flex;
-  justify-content: space-between;
-}
-
-* {
-  box-sizing: border-box;
-}
 
 .Detail {
   @extend %flex-column;
@@ -51,27 +25,11 @@ $division-color: #ddd;
   margin-bottom: 20px;
   padding: 10px;
 
-  ul {
+  .category-nav {
     position: absolute;
-    display: flex;
-    justify-content: space-around;
     right: 0;
     bottom: 0;
     width: 400px;
-
-    li {
-      list-style: none;
-    }
-
-    .topMenu {
-      text-decoration: none;
-      color: #c8c8c8;
-    }
-
-    .currentMenu {
-      text-decoration: none;
-      color: #2c2a29;
-    }
   }
 }
 
@@ -196,44 +154,6 @@ $division-color: #ddd;
   ul {
     padding: 20px 0px;
     list-style: none;
-
-    li {
-      padding-bottom: 12px;
-    }
-
-    dl {
-      position: relative;
-      display: flex;
-      justify-content: flex-start;
-    }
-
-    dt {
-      font-weight: 800;
-      padding-right: 10px;
-    }
-
-    #review-like {
-      margin-left: 5px;
-      font-size: 16px;
-    }
-
-    .review-like-btn-wrap button.clicked {
-      color: tomato;
-    }
-
-    .del-btn {
-      position: absolute;
-      top: -2px;
-      right: 0;
-      padding: 2px 4px;
-      opacity: 0;
-      transition: 0.5s;
-      cursor: pointer;
-    }
-
-    dl:hover > .del-btn {
-      opacity: 1;
-    }
   }
 
   .review-input {

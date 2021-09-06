@@ -26,8 +26,15 @@ import detailJihoon from './pages/jihoonhan/Detail/Detail';
 //준범 page
 import loginJunbeom from './pages/junbeomham/Login/Login';
 import listJunbeom from './pages/junbeomham/List/List';
-import detailJunbeom from './pages/junbeomham/Detail/Detail';
+import Detail from './pages/junbeomham/Detail/Detail';
 
+import DETAIL_DATA from './pages/junbeomham/Detail/mockData/detailMockData';
+
+/*
+  준범을 제외한 다른 페이지의 컴포넌트들은 구현이 안 되어 있기 때문에,
+  Warning: Failed prop type: Invalid prop 'component' supplied to 'Route': the prop is not a valid React component at Route
+  에러 발생
+*/
 function Router() {
   return (
     <>
@@ -55,7 +62,11 @@ function Router() {
         {/* 준범 */}
         <Route exact path="/login-junbeom" component={loginJunbeom} />
         <Route exact path="/list-junbeom" component={listJunbeom} />
-        <Route exact path="/detail-junbeom" component={detailJunbeom} />
+        <Route
+          exact
+          path="/detail-junbeom"
+          render={() => <Detail {...DETAIL_DATA[0]} />}
+        />
       </Switch>
     </>
   );

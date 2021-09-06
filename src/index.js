@@ -6,6 +6,7 @@ import Router from './Routes';
 
 // Global CSS
 import './Styles/reset.scss';
+import './Styles/common.scss';
 
 ReactDOM.render(
   <BrowserRouter>

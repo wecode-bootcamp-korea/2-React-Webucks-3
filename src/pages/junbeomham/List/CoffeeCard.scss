@@ -1,0 +1,48 @@
+.item {
+  position: relative;
+  width: 275px;
+  margin: 0px 5px 30px 5px;
+  text-align: center;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+  }
+
+  img:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+    transition: all 0.8s ease-in-out;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  .img-wrap {
+    width: 275px;
+    height: 275px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  dd {
+    position: relative;
+  }
+
+  .like-wrap {
+    position: absolute;
+    left: 15px;
+    bottom: 0px;
+    color: #666;
+    background-color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  button.clicked {
+    color: tomato;
+  }
+}

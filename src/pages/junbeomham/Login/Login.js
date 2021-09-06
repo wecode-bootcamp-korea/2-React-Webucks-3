@@ -1,33 +1,28 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 import './Login.scss';
 
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.handleUserIdChange = this.handleUserIdChange.bind(this);
-    this.handleUserPwChange = this.handleUserPwChange.bind(this);
-    this.state = { userId: '', userPw: '', isLoginBtnValid: false };
+    this.handleLoginFormInput = this.handleLoginFormInput.bind(this);
+
+    this.state = { userId: '', userPw: '' };
   }
 
-  handleUserIdChange = event => {
+  handleLoginFormInput = event => {
+    const { value, name } = event.target;
     this.setState({
-      userId: event.target.value,
-      isLoginBtnValid:
-        event.target.value.includes('@') && this.state.userPw.length >= 5,
-    });
-  };
-
-  handleUserPwChange = event => {
-    this.setState({
-      userPw: event.target.value,
-      isLoginBtnValid:
-        this.state.userId.includes('@') && event.target.value.length >= 5,
+      [name]: value,
     });
   };
 
   render() {
+    const { handleLoginFormInput } = this;
+    const { userId, userPw } = this.state;
+    const isLoginBtnValid = userId.includes('@') && userPw.length >= 5;
+
     return (
       <div className="Login">
         <section className="login-section">
@@ -38,7 +33,8 @@ class Login extends Component {
                 <input
                   id="userId"
                   type="text"
-                  onChange={this.handleUserIdChange}
+                  name="userId"
+                  onChange={handleLoginFormInput}
                   required
                 />
                 <label htmlFor="userId">
@@ -49,7 +45,8 @@ class Login extends Component {
                 <input
                   id="userPw"
                   type="password"
-                  onChange={this.handleUserPwChange}
+                  name="userPw"
+                  onChange={handleLoginFormInput}
                   required
                 />
                 <label htmlFor="userPw">비밀번호</label>
@@ -58,12 +55,11 @@ class Login extends Component {
                 </button>
               </div>
               <div className="button-wrap">
-                {/* button에 disabled 추가 */}
                 <button
                   type="submit"
                   id="loginBtn"
-                  className={this.state.isLoginBtnValid ? 'able' : ''}
-                  disabled={!this.state.isLoginBtnValid}
+                  className={isLoginBtnValid ? 'able' : ''}
+                  disabled={!isLoginBtnValid}
                 >
                   로그인
                 </button>
@@ -71,9 +67,9 @@ class Login extends Component {
             </form>
           </div>
           <div className="findPw-wrap">
-            <a className="findPw" href="#">
+            <Link className="findPw" to="#">
               비밀번호를 잊으셨나요?
-            </a>
+            </Link>
           </div>
         </section>
       </div>
