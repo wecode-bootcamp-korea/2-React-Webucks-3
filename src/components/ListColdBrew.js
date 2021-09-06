@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as fasHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
@@ -36,10 +37,12 @@ class ColdBrewCoffees extends Component {
             onClick={this.heartOnOff}
           />
         </div>
-        <div className="imgFrame" name={this.props.index}>
-          <img alt={this.props.alt} src={this.props.src} />
-        </div>
-        <p>{this.props.coffeeName}</p>
+        <Link to="/detail-jihoon">
+          <div className="imgFrame" name={this.props.index}>
+            <img alt={this.props.alt} src={this.props.src} />
+          </div>
+          <p>{this.props.coffeeName}</p>
+        </Link>
       </li>
     );
   }

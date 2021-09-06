@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import TopNav from '../../../components/Nav/TopNav';
 import Review from '../../../components/DetailReview';
 import Footer from '../../../components/Footer';
@@ -33,23 +34,23 @@ class Detail extends Component {
           <nav>
             <ul>
               <li>
-                <a>홈</a>
+                <Link to="/Login-jihoon">홈</Link>
               </li>
               <li>&gt;</li>
               <li>
-                <a>MENU</a>
+                <Link to="/list-jihoon">MENU</Link>
               </li>
               <li>&gt;</li>
               <li>
-                <a>음료</a>
+                <Link to="/list-jihoon">음료</Link>
               </li>
               <li>&gt;</li>
               <li>
-                <a>브루드 커피</a>
+                <Link to="/list-jihoon">브루드 커피</Link>
               </li>
               <li>&gt;</li>
               <li>
-                <a>나이트로 바닐라 크림</a>
+                <Link to="/detail-jihoon">나이트로 바닐라 크림</Link>
               </li>
             </ul>
           </nav>
