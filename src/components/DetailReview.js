@@ -21,13 +21,13 @@ class Review extends Component {
         {
           commentId: 2,
           userId: 'CHOCO7',
-          userComment: '오늘도 화이트 초콜릿 모카를 마시러 갑니다.',
+          userComment: '오늘도 나이트로 바닐라 크림을 마시러 갑니다.',
           heartClicked: false,
         },
         {
           commentId: 3,
           userId: 'legend_dev',
-          userComment: '진짜 화이트 초콜릿 모카는 전설이다.',
+          userComment: '진짜 나이트로 바닐라 크림은 전설이다.',
           heartClicked: false,
         },
       ],
@@ -37,6 +37,7 @@ class Review extends Component {
     this.addComment = this.addComment.bind(this);
     this.handleCommentLike = this.handleCommentLike.bind(this);
     this.commentHeartClass = this.commentHeartClass.bind(this);
+    this.handleCommentDelete = this.handleCommentDelete.bind(this);
   }
 
   handleInput = e => {
@@ -48,7 +49,6 @@ class Review extends Component {
   enterKeyPressed = e => {
     if (e.key === 'Enter') {
       this.addComment();
-      this.setState({});
     }
   };
 
@@ -123,7 +123,7 @@ class Review extends Component {
             value={this.state.userInpttedId}
             name="userInpttedId"
             className="newId"
-            placeholder="아이디"
+            placeholder="닉네임"
             onChange={this.handleInput}
             onKeyPress={this.enterKeyPressed}
             autoComplete="off"

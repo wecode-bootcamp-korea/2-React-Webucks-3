@@ -3,10 +3,28 @@ import React, { Component } from 'react';
 import TopNav from '../../../components/Nav/TopNav';
 import ColdBrewCoffees from '../../../components/ListColdBrew';
 import BrewedCoffees from '../../../components/ListBrewed';
-import COFFEE_LIST from './ListMock';
 import './List.scss';
 
 class List extends Component {
+  constructor() {
+    super();
+    this.state = {
+      coldbrews: [],
+      breweds: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/myData.json')
+      .then(res => res.json())
+      .then(result => {
+        this.setState({
+          coldbrews: result.coldbrew,
+          breweds: result.brewed,
+        });
+      });
+  }
+
   render() {
     return (
       <>
@@ -20,12 +38,13 @@ class List extends Component {
           </div>
 
           <ul className="coldbrewMenu">
-            {COFFEE_LIST[0].coldBrewCoffee.map(data => {
+            {this.state.coldbrews.map((data, index) => {
               return (
                 <ColdBrewCoffees
-                  alt={data.title}
-                  src={data.img}
-                  coffeeName={data.title}
+                  key={index}
+                  alt={data.name}
+                  src={data.imgUrl}
+                  coffeeName={data.name}
                 />
               );
             })}
@@ -40,12 +59,13 @@ class List extends Component {
           </div>
 
           <div className="brewMenu">
-            {COFFEE_LIST[1].brewedCoffee.map((data, index) => {
+            {this.state.breweds.map((data, index) => {
               return (
                 <BrewedCoffees
-                  alt={data.title}
-                  src={data.img}
-                  coffeeName={data.title}
+                  key={index}
+                  alt={data.name}
+                  src={data.imgUrl}
+                  coffeeName={data.name}
                 />
               );
             })}
