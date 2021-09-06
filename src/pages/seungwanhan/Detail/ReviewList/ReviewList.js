@@ -44,9 +44,32 @@ export default class ReviewList extends Component {
     }
   };
 
-  // clickHeartIcon = () => {
+  clickHeartIcon = reviewInfo => {
+    return () => {
+      const newReviewList = this.state.reviewList.map(el => {
+        if (el.userId === reviewInfo.userId) {
+          el.isHeartClicked = !el.isHeartClicked;
+          return el;
+        } else {
+          return el;
+        }
+      });
 
-  // };
+      this.setState({
+        reviewList: newReviewList,
+      });
+    };
+  };
+
+  clickDeleteIcon = reviewInfo => {
+    return () => {
+      this.setState({
+        reviewList: this.state.reviewList.filter(el => {
+          return el.userId !== reviewInfo.userId;
+        }),
+      });
+    };
+  };
 
   render() {
     return (
@@ -59,6 +82,8 @@ export default class ReviewList extends Component {
                 userId={reviewInfo.userId}
                 reviewText={reviewInfo.reviewText}
                 isHeartClicked={reviewInfo.isHeartClicked}
+                clickHeartIcon={this.clickHeartIcon(reviewInfo)}
+                clickDeleteIcon={this.clickDeleteIcon(reviewInfo)}
               />
             );
           })}
