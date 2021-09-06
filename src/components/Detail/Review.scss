@@ -1,0 +1,40 @@
+.reviewBox {
+  .reviewDetailWrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 1.3rem;
+
+    .reviewer {
+      font-size: 0.9rem;
+      font-weight: 900;
+      margin-right: 0.6rem;
+    }
+
+    .reviewDetail {
+      font-size: 0.9rem;
+    }
+
+    .iconWrap {
+      position: relative;
+      top: -2px;
+
+      .likeReview {
+        margin-left: 0.5rem;
+        font-size: 0.9rem;
+        color: #c8c9c4;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .deleteBtn {
+        margin-left: 0.5rem;
+        font-size: 0.9rem;
+        color: red;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

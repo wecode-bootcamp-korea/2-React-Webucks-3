@@ -146,18 +146,17 @@
               font-weight: 500;
             }
           }
-        }
 
-        .cautionInfoWrap {
-          display: flex;
-          align-items: center;
-          margin-top: 1rem;
-          height: 2rem;
-          background-color: #f4f4f2;
-          font-weight: 600;
-          padding-left: 0.5rem;
+          .cautionInfoWrap {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+            height: 2rem;
+            background-color: #f4f4f2;
+            font-weight: 600;
+            padding-left: 0.5rem;
+          }
         }
-
         .reviewTitle {
           margin-top: 2rem;
           font-weight: 600;
@@ -165,47 +164,6 @@
 
         .reviewWrap {
           margin-bottom: 1rem;
-
-          .reviewBox {
-            .reviewDetailWrap {
-              display: flex;
-              flex-direction: row;
-              align-items: center;
-              height: 1.3rem;
-
-              .reviewer {
-                font-size: 0.9rem;
-                font-weight: 900;
-                margin-right: 0.6rem;
-              }
-
-              .reviewDetail {
-                font-size: 0.9rem;
-              }
-
-              .iconWrap {
-                position: relative;
-                top: -2px;
-
-                .likeReview {
-                  margin-left: 0.5rem;
-                  font-size: 0.9rem;
-                  color: #c8c9c4;
-                  &:hover {
-                    cursor: pointer;
-                  }
-                }
-                .deleteBtn {
-                  margin-left: 0.5rem;
-                  font-size: 0.9rem;
-                  color: red;
-                  &:hover {
-                    cursor: pointer;
-                  }
-                }
-              }
-            }
-          }
 
           .commentWrap {
             display: flex;

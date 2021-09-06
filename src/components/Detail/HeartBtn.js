@@ -28,7 +28,7 @@ class HeartBtn extends Component {
     return (
       <>
         <FontAwesomeIcon
-          class={this.state.heart ? 'heartBtn active' : 'heartBtn'}
+          className={this.state.heart ? 'heartBtn active' : 'heartBtn'}
           onClick={this.handleHeartBtn}
           icon={this.state.heart ? fasFaHeart : farFaHeart}
         />
