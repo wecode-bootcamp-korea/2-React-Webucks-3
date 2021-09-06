@@ -17,7 +17,7 @@ class Detail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLikeClicked: false,
+      isLikeBtnClicked: false,
       reviewList: [...REVIEW_LIST_DATA],
       reviewInputVal: '',
       testIdNum: 1,
@@ -29,8 +29,8 @@ class Detail extends Component {
   }
 
   handleLikeBtnColor = () => {
-    const { isLikeClicked } = this.state;
-    this.setState({ isLikeClicked: !isLikeClicked });
+    const { isLikeBtnClicked } = this.state;
+    this.setState({ isLikeBtnClicked: !isLikeBtnClicked });
   };
 
   handleReviewInput = event => {
@@ -44,6 +44,7 @@ class Detail extends Component {
       let newReview = {
         userId: 'test' + testIdNum,
         text: value,
+        isValid: true,
       };
       const newReviewList = reviewList;
       newReviewList.push(newReview);
@@ -63,9 +64,25 @@ class Detail extends Component {
     return reviewInputVal;
   };
 
+  handleDelReviewBtn = userId => {
+    const { reviewList } = this.state;
+    const updatedReviewList = reviewList;
+    for (let review of updatedReviewList) {
+      if (userId === review.userId) {
+        review.isValid = false;
+      }
+    }
+    this.setState({ reviewList: updatedReviewList });
+  };
+
   render() {
-    const { handleLikeBtnColor, handleReviewInput, getReviewInputVal } = this;
-    const { isLikeClicked, reviewList, reviewInputVal } = this.state;
+    const {
+      handleLikeBtnColor,
+      handleReviewInput,
+      getReviewInputVal,
+      handleDelReviewBtn,
+    } = this;
+    const { isLikeBtnClicked, reviewList, reviewInputVal } = this.state;
 
     let currentMenu;
     for (let menu of MENU_LIST) {
@@ -73,8 +90,6 @@ class Detail extends Component {
         currentMenu = menu;
       }
     }
-
-    console.log(this.props.id);
 
     return (
       <div className="Detail">
@@ -106,7 +121,7 @@ class Detail extends Component {
                   <div className="like-btn-wrap">
                     <button
                       className={
-                        isLikeClicked ? 'like-wrap clicked' : 'like-wrap'
+                        isLikeBtnClicked ? 'like-wrap clicked' : 'like-wrap'
                       }
                       id="product-like"
                       onClick={handleLikeBtnColor}
@@ -177,13 +192,17 @@ class Detail extends Component {
                   <h2 className="category-title review-title">리뷰</h2>
                   <ul className="review-list">
                     {reviewList.map(review => {
-                      return (
-                        <Review
-                          key={review.userId}
-                          userId={review.userId}
-                          text={review.text}
-                        />
-                      );
+                      if (review.isValid) {
+                        return (
+                          <Review
+                            key={review.userId}
+                            {...review}
+                            handleDelReviewBtn={handleDelReviewBtn}
+                          />
+                        );
+                      } else {
+                        return null;
+                      }
                     })}
                   </ul>
                   <div className="review-input-wrap">
