@@ -6,14 +6,15 @@
 }
 
 .arrow-nav nav ul {
-  display: flex;
   position: absolute;
   right: 100px;
   margin-right: 20px;
-  list-style: none;
+  height: 20px;
   color: #d5d4cf;
+  list-style: none;
 
   li {
+    display: inline-block;
     margin-right: 5px;
   }
 }
@@ -24,7 +25,7 @@
   width: 1200px;
   margin: 50px auto;
 
-  img {
+  .mainImg {
     height: 460px;
     width: 460px;
   }
@@ -32,93 +33,93 @@
   .table {
     width: 700px;
     margin-left: 40px;
-  }
 
-  .coffeename {
-    position: relative;
-    width: 700px;
-    height: 80px;
-    line-height: 150%;
-    border-bottom: 3px solid black;
-  }
+    .coffeename {
+      position: relative;
+      width: 700px;
+      height: 70px;
+      line-height: 140%;
+      border-bottom: 3px solid black;
 
-  .kor {
-    font-size: 28px;
-  }
+      .kor {
+        font-size: 28px;
+      }
 
-  .eng {
-    font-size: 18px;
-  }
+      .eng {
+        font-size: 18px;
+      }
 
-  .heart {
-    position: absolute;
-    right: 0;
-    bottom: 30px;
-    font-size: 30px;
-  }
+      .heart {
+        position: absolute;
+        right: 0;
+        bottom: 30px;
+        font-size: 30px;
+      }
 
-  .fas {
-    color: red;
-  }
+      .fas {
+        color: red;
+      }
+    }
 
-  .coffee-detail {
-    border-bottom: 2px solid #cccccc;
-    padding-top: 25px;
-    width: 700px;
-    height: 80px;
-    display: inline-block;
-    font-size: 24px;
-  }
+    .coffee-detail {
+      border-bottom: 2px solid #cccccc;
+      padding-top: 25px;
+      width: 700px;
+      height: 80px;
+      display: inline-block;
+      font-size: 24px;
+    }
 
-  .size {
-    border-bottom: 2px solid #cccccc;
-    width: 700px;
-    height: 70px;
-    display: inline-block;
-    line-height: 70px;
-  }
+    .size {
+      border-bottom: 2px solid #cccccc;
+      width: 700px;
+      height: 70px;
+      display: inline-block;
+      line-height: 70px;
 
-  .jepum {
-    padding-left: 15px;
-    font-size: 28px;
-  }
+      .jepum {
+        padding-left: 15px;
+        font-size: 28px;
+      }
 
-  .ryang {
-    float: right;
-    padding-right: 15px;
-    font-size: 28px;
-  }
+      .ryang {
+        float: right;
+        padding-right: 15px;
+        font-size: 28px;
+      }
+    }
 
-  .ingredients {
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
+    .ingredients {
+      padding-top: 15px;
+      padding-bottom: 15px;
 
-  .ingredients-name {
-    display: inline-block;
-    padding-left: 15px;
-    width: 260px;
-    line-height: 40px;
-    font-size: 24px;
-  }
+      .ingredients-name {
+        display: inline-block;
+        padding-left: 15px;
+        width: 260px;
+        line-height: 40px;
+        font-size: 24px;
+      }
 
-  .measure-left {
-    display: inline-block;
-    padding-right: 15px;
-    border-right: 2px dotted #cccccc;
-    width: 50px;
-    line-height: 40px;
-    font-size: 24px;
-    text-align: right;
-  }
+      .measure-left {
+        display: inline-block;
+        padding-right: 15px;
+        border-right: 2px dotted #cccccc;
+        width: 50px;
+        line-height: 40px;
+        font-size: 24px;
+        text-align: right;
+      }
+    }
 
-  .measure-right {
-    display: inline-block;
-    padding-right: 15px;
-    width: 50px;
-    line-height: 40px;
-    font-size: 24px;
-    text-align: right;
+    .measure-right {
+      display: inline-block;
+      padding-right: 15px;
+      width: 50px;
+      line-height: 40px;
+      font-size: 24px;
+      text-align: right;
+    }
   }
 
   .allergic {
@@ -129,114 +130,5 @@
     font-size: 24px;
     background-color: #cccccc;
     border-radius: 5px;
-  }
-
-  .review {
-    margin-top: 40px;
-    margin-bottom: 20px;
-    width: 700px;
-    height: 40px;
-    border-bottom: 2px solid #cccccc;
-
-    .reviewHeader {
-      margin-bottom: 30px;
-      font-size: 30px;
-      font-weight: bold;
-      color: #666666;
-    }
-
-    ul {
-      list-style: none;
-
-      li {
-        position: relative;
-        width: 700px;
-        height: 30px;
-        font-size: 20px;
-
-        .userName {
-          display: inline-block;
-          margin-right: 15px;
-          font-weight: 900;
-        }
-
-        .userComment {
-          display: inline-block;
-          font-size: 19px;
-          color: black;
-        }
-
-        .reviewHeart {
-          position: absolute;
-          right: 50px;
-          font-size: 18px;
-        }
-
-        .commentDeleteBtn {
-          position: absolute;
-          right: 15px;
-          color: #666666;
-          font-size: 18px;
-        }
-      }
-    }
-  }
-
-  .newId {
-    display: inline-block;
-    resize: none;
-    margin: 30px 10px 200px -5px;
-    padding-top: 4px;
-    padding-left: 12px;
-    border: none;
-    border-radius: 5px;
-    width: 115px;
-    height: 33px;
-    background-color: #cccccc;
-    font-size: 20px;
-  }
-
-  .newComment {
-    display: inline-block;
-    resize: none;
-    margin-top: 30px;
-    margin-bottom: 200px;
-    padding-top: 4px;
-    padding-left: 12px;
-    border: none;
-    border-radius: 5px;
-    width: 550px;
-    height: 33px;
-    background-color: #cccccc;
-    font-size: 20px;
-  }
-
-  input:focus {
-    outline: none;
-  }
-}
-
-/*footer*/
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  display: flex;
-  padding-top: 10px;
-  width: 100%;
-  height: 140px;
-  text-align: center;
-  line-height: 1.4;
-  background-color: #333333;
-
-  .footerText {
-    width: 18%;
-    font-family: 'Noto Sans KR', sans-serif;
-    color: white;
-    font-size: 12px;
-
-    span {
-      line-height: 25px;
-    }
   }
 }

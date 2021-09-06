@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as fasHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
+import './ListBrewed.scss';
 
 class BrewedCoffees extends Component {
   constructor() {
@@ -29,11 +30,11 @@ class BrewedCoffees extends Component {
   render() {
     const { heartClicked } = this.state;
     return (
-      <li>
+      <li className="brewedList">
         <div>
           <FontAwesomeIcon
             icon={heartClicked ? fasHeart : farHeart}
-            className={heartClicked ? 'fas listHeart' : 'far listHeart'}
+            className={heartClicked ? 'fas listHeart' : 'listHeart'}
             onClick={this.heartOnOff}
           />
         </div>

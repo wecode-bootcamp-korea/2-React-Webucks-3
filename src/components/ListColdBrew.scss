@@ -1,0 +1,47 @@
+.coldbrewList {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 30px;
+  width: 200px;
+  height: 232px;
+  text-align: center;
+  list-style: none;
+
+  .listHeart {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    color: white;
+    z-index: 99;
+  }
+
+  .fas {
+    color: red;
+  }
+
+  .imgFrame {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      transform: scale(1);
+      transition: transform 1s;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 1s;
+      }
+    }
+  }
+
+  p {
+    display: inline-block;
+    margin-top: 0;
+    padding-top: 10px;
+    text-align: center;
+  }
+}

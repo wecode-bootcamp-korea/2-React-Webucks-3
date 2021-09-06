@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react';
 import TopNav from '../../../components/Nav/TopNav';
+import Footer from '../../../components/Footer';
 import ColdBrewCoffees from '../../../components/ListColdBrew';
 import BrewedCoffees from '../../../components/ListBrewed';
 import './List.scss';
@@ -71,6 +72,7 @@ class List extends Component {
             })}
           </div>
         </article>
+        <Footer />
       </>
     );
   }

@@ -1,7 +1,7 @@
 .sector {
   display: flex;
   align-items: center;
-  margin: 0 auto 20px;
+  margin: 25px auto;
   padding-left: 20px;
   height: 44px;
   width: 1100px;
@@ -34,62 +34,8 @@
   width: 1120px;
 }
 
-.coldbrewMenu ul,
-.brewMenu ul {
+.coldbrewMenu .brewMenu {
   display: flex;
   flex-wrap: wrap;
   gap: 25px;
-}
-
-.coldbrewMenu li,
-.brewMenu li {
-  display: inline-block;
-  list-style: none;
-  position: relative;
-  margin-bottom: 30px;
-  width: 200px;
-  height: 232px;
-  text-align: center;
-}
-
-.listHeart {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 24px;
-  color: white;
-  z-index: 99;
-}
-
-.fas {
-  color: red;
-}
-
-.coldbrewMenu .imgFrame,
-.brewMenu .imgFrame {
-  display: inline-block;
-  width: 200px;
-  height: 200px;
-  overflow: hidden;
-}
-
-.coldbrewMenu img,
-.brewMenu img {
-  width: 100%;
-  transform: scale(1);
-  transition: transform 1s;
-}
-
-.coldbrewMenu p,
-.brewMenu p {
-  display: inline-block;
-  padding-top: 10px;
-  text-align: center;
-  margin-top: 0;
-}
-
-.coldbrewMenu img:hover,
-.brewMenu img:hover {
-  transform: scale(1.1);
-  transition: transform 1s;
 }

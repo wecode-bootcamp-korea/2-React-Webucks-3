@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as fasHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
 import { faBackspace } from '@fortawesome/free-solid-svg-icons';
+import './DetailReview.scss';
 
 class Review extends Component {
   constructor() {
@@ -99,7 +100,7 @@ class Review extends Component {
       <div className="review">
         <p className="reviewHeader">리뷰</p>
         <div className="comments">
-          <ul>
+          <ul className="reviewUl">
             {this.state.comments.map(r => {
               return (
                 <li className="commentRow" key={r.commentId}>

@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import TopNav from '../../../components/Nav/TopNav';
 import Review from '../../../components/DetailReview';
-import Footer from '../../../components/DetailFooter';
+import Footer from '../../../components/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as fasHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
@@ -49,7 +49,7 @@ class Detail extends Component {
               </li>
               <li>&gt;</li>
               <li>
-                <a>아이스 커피</a>
+                <a>나이트로 바닐라 크림</a>
               </li>
             </ul>
           </nav>
@@ -57,6 +57,7 @@ class Detail extends Component {
 
         <div className="container">
           <img
+            className="mainImg"
             alt="나이트로바닐라크림"
             src="/images/jihoonhan/나이트로바닐라크림.jpg"
           />
