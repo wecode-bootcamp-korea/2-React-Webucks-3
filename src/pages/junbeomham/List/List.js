@@ -32,7 +32,11 @@ class List extends Component {
         <section className="menu">
           {categoryList.map(category => {
             return (
-              <Category title={category.title} coffees={category.coffees} />
+              <Category
+                key={category.id}
+                title={category.title}
+                coffees={category.coffees}
+              />
             );
           })}
         </section>
