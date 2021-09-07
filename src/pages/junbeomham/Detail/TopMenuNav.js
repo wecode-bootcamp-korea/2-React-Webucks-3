@@ -14,6 +14,8 @@ class TopMenuNav extends Component {
   };
 
   render() {
+    const { path, name } = this.props;
+
     let menuId = this.props.parentId;
     const topMenus = [];
     while (menuId > 0) {
@@ -21,14 +23,15 @@ class TopMenuNav extends Component {
       topMenus.unshift(parentMenu);
       menuId = parentMenu.parentId;
     }
+
     return (
       <ul>
-        {topMenus.map(menu => {
+        {topMenus.map(topMenu => {
           return (
-            <React.Fragment key={menu.id}>
+            <React.Fragment key={topMenu.id}>
               <li>
-                <Link className="topMenu" to={menu.path}>
-                  {menu.name}
+                <Link className="topMenu" to={topMenu.path}>
+                  {topMenu.name}
                 </Link>
               </li>
               <li>
@@ -41,8 +44,8 @@ class TopMenuNav extends Component {
           );
         })}
         <li>
-          <Link className="currentMenu" to={this.props.path}>
-            {this.props.name}
+          <Link className="currentMenu" to={path}>
+            {name}
           </Link>
         </li>
       </ul>
