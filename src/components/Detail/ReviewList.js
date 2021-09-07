@@ -35,7 +35,7 @@ class Review extends Component {
     });
   };
 
-  handleSubmitCommentBtn = e => {
+  handleSubmitComment = e => {
     const { reviewer, comment } = this.state;
     let newCommentList = this.state.commentList;
 
@@ -53,6 +53,7 @@ class Review extends Component {
         comment: '',
       });
       this.nextId.current += 1;
+      e.preventDefault();
     }
   };
 
@@ -101,10 +102,7 @@ class Review extends Component {
             className="inputReviewText"
             onChange={this.handleInput}
           />
-          <button
-            className="ReviewSubmit"
-            onClick={this.handleSubmitCommentBtn}
-          >
+          <button className="ReviewSubmit" onClick={this.handleSubmitComment}>
             입력
           </button>
         </div>

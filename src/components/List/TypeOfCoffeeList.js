@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import HeartBtn from '../Detail/HeartBtn';
+import HeartBtn from '../Shared/HeartBtn';
 
 class CoffeeList extends Component {
   render() {

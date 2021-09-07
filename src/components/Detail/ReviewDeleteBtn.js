@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
-// import './ReviewLikeBtn.scss';
+import './ReviewDeleteBtn.scss';
 
 class ReviewDeleteBtn extends Component {
   render() {

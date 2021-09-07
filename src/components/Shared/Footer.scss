@@ -1,0 +1,28 @@
+.detailFooter {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 12rem;
+  background-color: #333333;
+
+  .categoryWrap {
+    margin-top: 1.5rem;
+    align-items: center;
+
+    .categoryHead {
+      display: block;
+      margin-bottom: 0.7rem;
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    .category {
+      display: block;
+      margin-bottom: 0.6rem;
+      color: white;
+      font-size: 0.8rem;
+    }
+  }
+}

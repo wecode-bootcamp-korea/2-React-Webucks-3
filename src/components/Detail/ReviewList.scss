@@ -18,15 +18,6 @@
     .iconWrap {
       position: relative;
       top: -2px;
-
-      .deleteBtn {
-        margin-left: 0.5rem;
-        font-size: 0.9rem;
-        color: red;
-        &:hover {
-          cursor: pointer;
-        }
-      }
     }
   }
 }

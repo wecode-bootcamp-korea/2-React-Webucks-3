@@ -5,6 +5,7 @@ import TopNav from '../../../components/Nav/TopNav';
 import TypeOfCoffeeList from '../../../components/List/TypeOfCoffeeList';
 import COFFEE_LIST from '../../../components/List/COFFEE_LIST';
 import TypeOfCoffeeInner from '../../../components/List/TypeOfCoffeeInner';
+import Footer from '../../../components/Shared/Footer';
 
 // CSS
 import './List.scss';
@@ -19,46 +20,49 @@ const TYPE_OF_COFFEE = [
 class List extends Component {
   render() {
     return (
-      <div className="listContainer">
-        <TopNav />
-        <section className="typeOfCoffeeWrap">
-          <>
-            {TYPE_OF_COFFEE[0].map(props => {
-              return <TypeOfCoffeeInner key={props.id} title={props.title} />;
-            })}
-          </>
-          <div className="coffeeTable">
-            {coldBrewCoffeeList.map(props => {
-              return (
-                <TypeOfCoffeeList
-                  key={props.id}
-                  img={props.img}
-                  title={props.title}
-                />
-              );
-            })}
-          </div>
-        </section>
+      <>
+        <div className="listContainer">
+          <TopNav />
+          <section className="typeOfCoffeeWrap">
+            <>
+              {TYPE_OF_COFFEE[0].map(props => {
+                return <TypeOfCoffeeInner key={props.id} title={props.title} />;
+              })}
+            </>
+            <div className="coffeeTable">
+              {coldBrewCoffeeList.map(props => {
+                return (
+                  <TypeOfCoffeeList
+                    key={props.id}
+                    img={props.img}
+                    title={props.title}
+                  />
+                );
+              })}
+            </div>
+          </section>
 
-        <section className="typeOfCoffeeWrap">
-          <>
-            {TYPE_OF_COFFEE[1].map(props => {
-              return <TypeOfCoffeeInner key={props.id} title={props.title} />;
-            })}
-          </>
-          <div className="coffeeTable">
-            {brewedCoffeeList.map(props => {
-              return (
-                <TypeOfCoffeeList
-                  key={props.id}
-                  img={props.img}
-                  title={props.title}
-                />
-              );
-            })}
-          </div>
-        </section>
-      </div>
+          <section className="typeOfCoffeeWrap">
+            <>
+              {TYPE_OF_COFFEE[1].map(props => {
+                return <TypeOfCoffeeInner key={props.id} title={props.title} />;
+              })}
+            </>
+            <div className="coffeeTable">
+              {brewedCoffeeList.map(props => {
+                return (
+                  <TypeOfCoffeeList
+                    key={props.id}
+                    img={props.img}
+                    title={props.title}
+                  />
+                );
+              })}
+            </div>
+          </section>
+          <Footer />
+        </div>
+      </>
     );
   }
 }
