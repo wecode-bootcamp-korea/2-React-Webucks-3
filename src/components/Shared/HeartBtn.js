@@ -13,15 +13,9 @@ class HeartBtn extends Component {
   }
 
   handleHeartBtn = () => {
-    if (this.state.heart) {
-      this.setState({
-        heart: false,
-      });
-    } else {
-      this.setState({
-        heart: true,
-      });
-    }
+    this.setState({
+      heart: !this.state.heart,
+    });
   };
 
   render() {

@@ -12,15 +12,9 @@ class ReviewLikeBtn extends Component {
   }
 
   handleReviewLikeBtn = () => {
-    if (this.state.isLikeReview) {
-      this.setState({
-        isLikeReview: false,
-      });
-    } else {
-      this.setState({
-        isLikeReview: true,
-      });
-    }
+    this.setState({
+      isLikeReview: !this.state.isLikeReview,
+    });
   };
 
   render() {
