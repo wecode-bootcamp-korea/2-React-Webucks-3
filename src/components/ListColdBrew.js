@@ -26,17 +26,16 @@ class ColdBrewCoffees extends Component {
           iconClassName: 'far listHeart',
         });
   };
+
   render() {
     const { heartClicked } = this.state;
     return (
       <li className="coldbrewList">
-        <div>
-          <FontAwesomeIcon
-            icon={heartClicked ? fasHeart : farHeart}
-            className={heartClicked ? 'fas listHeart' : 'listHeart'}
-            onClick={this.heartOnOff}
-          />
-        </div>
+        <FontAwesomeIcon
+          icon={heartClicked ? fasHeart : farHeart}
+          className={heartClicked ? 'fas listHeart' : 'listHeart'}
+          onClick={this.heartOnOff}
+        />
         <Link to="/detail-jihoon">
           <div className="imgFrame" name={this.props.index}>
             <img alt={this.props.alt} src={this.props.src} />

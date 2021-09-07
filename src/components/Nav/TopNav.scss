@@ -1,33 +1,30 @@
 header {
-  position: fixed;
-  display: flex;
-  top: 0;
   align-items: center;
   height: 60px;
   width: 100%;
   background-color: #f6f5ef;
-  z-index: 99999;
+  z-index: 99;
 
   h1 {
     float: left;
-    font-family: 'Dancing Script', cursive;
-    font-size: 36px;
     padding-left: 30px;
     padding-top: 12px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 36px;
   }
 
   nav ul {
     position: absolute;
-    list-style: none;
-    right: 30px;
     top: 22px;
+    right: 30px;
+    list-style: none;
 
     li {
       float: left;
       padding: 0 10px;
-      font-size: 18px;
-      line-height: 100%;
       color: #d5d4cf;
+      line-height: 100%;
+      font-size: 18px;
     }
   }
 }

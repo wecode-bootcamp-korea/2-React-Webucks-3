@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import TopNav from '../../../components/Nav/TopNav';
 import Footer from '../../../components/Footer';
+import SectorBorder from '../../../components/SectorBorder';
 import ColdBrewCoffees from '../../../components/ListColdBrew';
 import BrewedCoffees from '../../../components/ListBrewed';
 import './List.scss';
@@ -29,15 +30,12 @@ class List extends Component {
   render() {
     return (
       <>
-        <TopNav />
+        <header>
+          <TopNav />
+        </header>
 
-        <article className="menus">
-          <div className="sector coldbrew">
-            <h2>콜드 브루 커피</h2>
-            <img alt="머그잔" src="/images/jihoonhan/mug.jpeg" />
-            <h3>디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</h3>
-          </div>
-
+        <article>
+          <SectorBorder sectorName={'콜드 브루 커피'} />
           <ul className="coldbrewMenu">
             {this.state.coldbrews.map((data, index) => {
               return (
@@ -50,16 +48,8 @@ class List extends Component {
               );
             })}
           </ul>
-
-          <div className="sector brew">
-            <h2>브루드 커피</h2>
-            <a className="mug">
-              <img alt="머그잔" src="/images/jihoonhan/mug.jpeg" />
-            </a>
-            <h3>디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</h3>
-          </div>
-
-          <div className="brewMenu">
+          <SectorBorder sectorName={'브루드 커피'} />
+          <ul className="brewedMenu">
             {this.state.breweds.map((data, index) => {
               return (
                 <BrewedCoffees
@@ -70,9 +60,12 @@ class List extends Component {
                 />
               );
             })}
-          </div>
+          </ul>
         </article>
-        <Footer />
+
+        <footer>
+          <Footer />
+        </footer>
       </>
     );
   }
