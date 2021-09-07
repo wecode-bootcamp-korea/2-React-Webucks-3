@@ -1,5 +1,5 @@
-{
-  "coldBrewCoffee": { 
+[
+  { 
     "title": "콜드 브루 커피",
     "coffees": [
       {
@@ -69,7 +69,7 @@
       }
     ]
   },
-  "brewdCoffee": {
+  {
     "title": "브루드 커피",
     "coffees": [
       {
@@ -84,4 +84,4 @@
       }
     ]
   }
-}
+]
