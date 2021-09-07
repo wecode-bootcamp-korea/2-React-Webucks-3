@@ -26,7 +26,13 @@ class List extends Component {
           <section className="typeOfCoffeeWrap">
             <>
               {TYPE_OF_COFFEE[0].map(props => {
-                return <TypeOfCoffeeInner key={props.id} title={props.title} />;
+                return (
+                  <TypeOfCoffeeInner
+                    key={props.id}
+                    id={props.id}
+                    title={props.title}
+                  />
+                );
               })}
             </>
             <div className="coffeeTable">
@@ -34,6 +40,7 @@ class List extends Component {
                 return (
                   <TypeOfCoffeeList
                     key={props.id}
+                    id={props.id}
                     img={props.img}
                     title={props.title}
                   />
@@ -53,6 +60,7 @@ class List extends Component {
                 return (
                   <TypeOfCoffeeList
                     key={props.id}
+                    id={props.id}
                     img={props.img}
                     title={props.title}
                   />

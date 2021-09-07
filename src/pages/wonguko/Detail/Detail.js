@@ -4,8 +4,6 @@ import React, { Component } from 'react';
 import TopNav from '../../../components/Nav/TopNav';
 import Footer from '../../../components/Shared/Footer';
 import ProductDetail from '../../../components/Detail/ProductDetail';
-import ReviewList from '../../../components/Detail/ReviewList';
-import HeartBtn from '../../../components/Shared/HeartBtn';
 
 // css
 import './Detail.scss';
