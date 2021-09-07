@@ -26,7 +26,7 @@ class Category extends Component {
                 <CoffeeCard
                   key={cardData.id}
                   name={cardData.name}
-                  img={cardData.img}
+                  imgUrl={cardData.imgUrl}
                 />
               );
             })}

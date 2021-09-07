@@ -7,17 +7,18 @@ import './CoffeeCard.scss';
 
 class CoffeeCard extends Component {
   render() {
+    const { name, imgUrl } = this.props;
     return (
       <div className="item">
         <dt className="img-wrap">
           <div className="scale">
             <Link to="/detail-junbeom">
-              <img alt={this.props.name} src={this.props.img} />
+              <img alt={name} src={imgUrl} />
             </Link>
           </div>
         </dt>
         <dd>
-          {this.props.name}
+          {name}
           <LikeBtn />
         </dd>
       </div>
