@@ -14,10 +14,10 @@ class List extends Component {
           <section className="listContainer">
             <CoffeeCategory name={'콜드 브루 커피'} />
             <div className="coffeeList">
-              {COFFEE_LIST[0].coldbrew.map((data, index) => {
+              {COFFEE_LIST[0].coldbrew.map(data => {
                 return (
                   <CoffeeCard
-                    key={index}
+                    key={data.id}
                     id={data.id}
                     title={data.title}
                     img={data.img}
@@ -26,13 +26,13 @@ class List extends Component {
               })}
             </div>
           </section>
-          <section className="container">
+          <section className="listContainer">
             <CoffeeCategory name={'브루드 커피'} />
             <div className="coffeeList">
-              {COFFEE_LIST[1].brewedcoffee.map((data, index) => {
+              {COFFEE_LIST[1].brewedcoffee.map(data => {
                 return (
                   <CoffeeCard
-                    key={index}
+                    key={data.id}
                     id={data.id}
                     title={data.title}
                     img={data.img}

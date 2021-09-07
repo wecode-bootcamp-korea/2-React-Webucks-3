@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './LikeButton.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as heartInactive } from '@fortawesome/free-regular-svg-icons';
 import { faHeart as heartActive } from '@fortawesome/free-solid-svg-icons';
+import './LikeButton.scss';
 
 class LikeButton extends Component {
   constructor() {
@@ -13,14 +13,14 @@ class LikeButton extends Component {
     };
   }
 
+  likeButtonClicked = () => {
+    this.setState({ clicked: !this.state.clicked });
+  };
+
   render() {
     const { clicked } = this.state;
     return (
-      <i
-        onClick={() => {
-          this.setState({ clicked: !clicked });
-        }}
-      >
+      <i onClick={this.likeButtonClicked}>
         <FontAwesomeIcon
           icon={clicked ? heartActive : heartInactive}
           className={clicked ? 'fillHeart' : ''}

@@ -65,56 +65,6 @@
     padding-bottom: 20px;
     line-height: 150%;
   }
-
-  .sizeForNutrition {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 10px;
-    border-top: 1px solid #dddddd;
-    border-bottom: 1px solid #dddddd;
-    .productNutritionInfo {
-      padding-top: 5px;
-      padding-bottom: 5px;
-      font-size: 20px;
-      font-weight: 500;
-    }
-
-    .nutritionInfoDetails {
-      font-size: 18px;
-    }
-  }
-
-  .nutritionList {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 20px 10px;
-    .leftTable {
-      border-right: 1px dashed #dddddd;
-    }
-
-    td {
-      padding: 10px;
-      &:nth-child(odd) {
-        text-align: left;
-      }
-
-      &:nth-child(even) {
-        text-align: right;
-      }
-    }
-  }
-
-  .alergy {
-    display: flex;
-    align-items: center;
-    height: 50px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 20px;
-    border-radius: 3px;
-    background-color: #efefef;
-  }
 }
 
 .detailImg2 {

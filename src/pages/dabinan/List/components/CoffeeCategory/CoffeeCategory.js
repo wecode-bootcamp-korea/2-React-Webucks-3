@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './CoffeeCategory';
+import './CoffeeCategory.scss';
+
 class CoffeeCategory extends Component {
   render() {
     return (

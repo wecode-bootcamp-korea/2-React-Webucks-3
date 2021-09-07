@@ -5,24 +5,25 @@ import './CoffeeCard.scss';
 
 class CoffeeCard extends Component {
   render() {
-    const { id, title, img } = this.props;
     return (
       <>
         <div className="CoffeeCard">
           <div className="coffeeImgWithIcon">
             <img
               className="coffeeImg"
-              alt={title}
-              src={img}
+              alt={this.props.title}
+              src={this.props.img}
               onClick={() =>
-                this.props.history.push(`/list-dabin/detail-dabin/${id}`)
+                this.props.history.push(
+                  `/list-dabin/detail-dabin/${this.props.id}`
+                )
               }
             />
             <label className="listLikeButton">
               <LikeButton />
             </label>
           </div>
-          <p className="listPageCoffeeName">{title}</p>
+          <p className="listPageCoffeeName">{this.props.title}</p>
         </div>
       </>
     );

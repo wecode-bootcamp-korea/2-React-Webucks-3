@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './Login.scss';
-import '../Styles/common.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 import { faEyeSlash } from '@fortawesome/free-regular-svg-icons';
+import './Login.scss';
 
 class Login extends Component {
   constructor() {
     super();
     this.state = {
       idValue: '',
-      pwValue: '',
+      pwdValue: '',
       type: 'password',
       clicked: false,
     };
@@ -25,8 +24,8 @@ class Login extends Component {
   };
 
   render() {
-    const { idValue, pwValue, clicked } = this.state;
-    let activateLoginBtn = idValue.includes('@') && pwValue.length >= 5;
+    const { idValue, pwdValue, clicked } = this.state;
+    let activateLoginBtn = idValue.includes('@') && pwdValue.length >= 5;
     return (
       <div className="LoginPage">
         <section className="loginContainer">
@@ -46,11 +45,11 @@ class Login extends Component {
               <input
                 className="loginBox"
                 id="pwd"
-                name="pwValue"
+                name="pwdValue"
                 type={clicked ? 'text' : 'password'}
                 placeholder="비밀번호"
                 required
-                value={this.pwValue}
+                value={this.pwdValue}
                 onChange={this.handleInput}
               />
               <i
@@ -66,7 +65,6 @@ class Login extends Component {
             </div>
             <Link to="/list-dabin" className="linkToList">
               <button
-                type="submit"
                 className="loginBox loginBtn"
                 id={
                   activateLoginBtn
@@ -78,9 +76,9 @@ class Login extends Component {
                 로그인
               </button>
             </Link>
-            <a className="forgetPwd" href="http://localhost:3000/">
+            <Link to="/" className="forgetPwd">
               비밀번호를 잊으셨나요?
-            </a>
+            </Link>
           </form>
         </section>
       </div>

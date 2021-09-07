@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './Review.scss';
-import LikeButton from '../../../components/LikeButton/LikeButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import LikeButton from '../../../components/LikeButton/LikeButton';
+import './Review.scss';
 
 class Review extends Component {
   constructor() {
