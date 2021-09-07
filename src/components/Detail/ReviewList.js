@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './ReviewList.scss';
 import ReviewLikeBtn from './ReviewLikeBtn';
 import ReviewDeleteBtn from './ReviewDeleteBtn';
+import './ReviewList.scss';
 
 class Review extends Component {
   constructor() {

@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-
-//components
 import ReviewList from './ReviewList';
 import HeartBtn from '../Shared/HeartBtn';
-
-// CSS
 import './ProductDetail.scss';
 
 class ProductDetail extends Component {
