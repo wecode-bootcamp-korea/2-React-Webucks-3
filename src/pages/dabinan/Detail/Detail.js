@@ -59,11 +59,7 @@ class Detail extends Component {
                     <LikeButton />
                   </div>
                 </div>
-                <p className="detailDescription">
-                  {details.summary}
-                  <br />
-                  {details.desc}
-                </p>
+                <p className="detailDescription">{details.summary}</p>
                 <div className="detailImg2">
                   <img alt={details.name} src={details.imgUrl} />
                 </div>
