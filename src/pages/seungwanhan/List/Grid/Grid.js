@@ -4,8 +4,8 @@ import COFFEE_IMG_LIST from '../data/CoffeeImgList';
 import './Grid.scss';
 
 class Grid extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.imgList = [];
     if (this.props.category === 'coldbrew') {
