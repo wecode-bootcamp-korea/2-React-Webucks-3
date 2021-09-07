@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 import TopNav from '../../../components/Nav/TopNav';
 import Footer from '../../../components/Footer';
 import SectorBorder from '../../../components/SectorBorder';
-import ColdBrewCoffees from '../../../components/ListColdBrew';
-import BrewedCoffees from '../../../components/ListBrewed';
+import ListCoffees from '../../../components/ListCoffees';
 import './List.scss';
 
 class List extends Component {
@@ -17,7 +16,7 @@ class List extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/myData.json')
+    fetch('http://localhost:3000/data/myData.json', { method: 'GET' })
       .then(res => res.json())
       .then(result => {
         this.setState({
@@ -30,17 +29,15 @@ class List extends Component {
   render() {
     return (
       <>
-        <header>
-          <TopNav />
-        </header>
+        <TopNav />
 
         <article>
           <SectorBorder sectorName={'콜드 브루 커피'} />
           <ul className="coldbrewMenu">
-            {this.state.coldbrews.map((data, index) => {
+            {this.state.coldbrews.map(data => {
               return (
-                <ColdBrewCoffees
-                  key={index}
+                <ListCoffees
+                  key={data.id}
                   alt={data.name}
                   src={data.imgUrl}
                   coffeeName={data.name}
@@ -50,10 +47,10 @@ class List extends Component {
           </ul>
           <SectorBorder sectorName={'브루드 커피'} />
           <ul className="brewedMenu">
-            {this.state.breweds.map((data, index) => {
+            {this.state.breweds.map(data => {
               return (
-                <BrewedCoffees
-                  key={index}
+                <ListCoffees
+                  key={data.id}
                   alt={data.name}
                   src={data.imgUrl}
                   coffeeName={data.name}

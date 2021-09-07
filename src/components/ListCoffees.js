@@ -4,15 +4,13 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as fasHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
-import './ListBrewed.scss';
+import './ListCoffees.scss';
 
-class BrewedCoffees extends Component {
+class ListCoffees extends Component {
   constructor() {
     super();
     this.state = {
       heartClicked: false,
-      icon: farHeart,
-      iconClassName: 'far listHeart',
     };
     this.heartOnOff = this.heartOnOff.bind(this);
   }
@@ -28,26 +26,29 @@ class BrewedCoffees extends Component {
           iconClassName: 'far listHeart',
         });
   };
+
   render() {
     const { heartClicked } = this.state;
     return (
-      <li className="brewedList">
-        <div>
-          <FontAwesomeIcon
-            icon={heartClicked ? fasHeart : farHeart}
-            className={heartClicked ? 'fas listHeart' : 'listHeart'}
-            onClick={this.heartOnOff}
-          />
-        </div>
+      <li className="coldbrewList">
+        <FontAwesomeIcon
+          icon={heartClicked ? fasHeart : farHeart}
+          className={heartClicked ? 'fas listHeart' : 'listHeart'}
+          onClick={this.heartOnOff}
+        />
         <Link to="/detail-jihoon">
           <div className="imgFrame" name={this.props.index}>
-            <img alt={this.props.alt} src={this.props.src} />
+            <img
+              className="imgList"
+              alt={this.props.alt}
+              src={this.props.src}
+            />
           </div>
-          <p>{this.props.coffeeName}</p>
+          <p className="imgListName">{this.props.coffeeName}</p>
         </Link>
       </li>
     );
   }
 }
 
-export default BrewedCoffees;
+export default ListCoffees;

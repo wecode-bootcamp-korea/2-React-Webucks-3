@@ -40,7 +40,7 @@
       }
 
       .fas {
-        color: red;
+        color: orangered;
       }
 
       .commentDeleteBtn {
@@ -56,14 +56,18 @@
     display: inline-block;
     resize: none;
     margin: 30px 10px 200px -5px;
-    border: none;
-    border-radius: 5px;
     padding-top: 4px;
     padding-left: 12px;
     width: 115px;
     height: 33px;
+    border: none;
+    border-radius: 5px;
     background-color: #cccccc;
     font-size: 20px;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   .newComment {
@@ -71,17 +75,17 @@
     resize: none;
     margin-top: 30px;
     margin-bottom: 200px;
-    border: none;
-    border-radius: 5px;
     padding-top: 4px;
     padding-left: 12px;
     width: 550px;
     height: 33px;
+    border: none;
+    border-radius: 5px;
     background-color: #cccccc;
     font-size: 20px;
-  }
 
-  input:focus {
-    outline: none;
+    &:focus {
+      outline: none;
+    }
   }
 }

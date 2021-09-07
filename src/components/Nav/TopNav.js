@@ -4,14 +4,14 @@ import './TopNav.scss';
 class TopNav extends Component {
   render() {
     return (
-      <header>
-        <h1>WeBucks</h1>
+      <header className="topNavHeader">
+        <h1 className="topNavH1">WeBucks</h1>
         <nav>
-          <ul>
-            <li>COFFEE</li>
-            <li>MENU</li>
-            <li>STORE</li>
-            <li>WHAT'S NEW</li>
+          <ul className="topNavUl">
+            <li className="topNavLi">COFFEE</li>
+            <li className="topNavLi">MENU</li>
+            <li className="topNavLi">STORE</li>
+            <li className="topNavLi">WHAT'S NEW</li>
           </ul>
         </nav>
       </header>

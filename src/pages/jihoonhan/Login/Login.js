@@ -8,7 +8,6 @@ class Login extends Component {
       inputId: '',
       inputPw: '',
       isActive: false,
-      opacity: 0.5,
     };
   }
 
@@ -39,6 +38,7 @@ class Login extends Component {
         <span className="logo">WeBucks</span>
 
         <input
+          className="loginInput"
           id="id"
           type="text"
           placeholder="전화번호, 사용자 이름 또는 이메일"
@@ -49,6 +49,7 @@ class Login extends Component {
         />
 
         <input
+          className="loginInput"
           id="pw"
           type="password"
           placeholder="비밀번호"
@@ -60,13 +61,13 @@ class Login extends Component {
         <button
           type="button"
           className={this.state.isActive ? 'loginBtn btnActivated' : 'loginBtn'}
-          disabled={this.state.isActive ? null : 'disabled'}
+          disabled={this.state.isActive ? false : true}
           onClick={this.goToList}
         >
-          로그인
+          로 그 인
         </button>
 
-        <span id="forgotPassword">비밀번호를 잊으셨나요?</span>
+        <span className="forgotPassword">비밀번호를 잊으셨나요?</span>
       </div>
     );
   }

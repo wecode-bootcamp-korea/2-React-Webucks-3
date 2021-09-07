@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Review from './DetailReview';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as fasHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
+import DetailReview from './DetailReview';
 import './DetailContainer.scss';
 
 class DetailContainer extends Component {
@@ -20,7 +20,7 @@ class DetailContainer extends Component {
   render() {
     const { heartClicked } = this.state;
     return (
-      <div className="container">
+      <div className="detailContainer">
         <img className="mainImg" alt={this.props.alt} src={this.props.src} />
         <div className="table">
           <div className="coffeename">
@@ -89,7 +89,7 @@ class DetailContainer extends Component {
           <div className="allergic">
             알레르기 유발 요인: {this.props.allergen}
           </div>
-          <Review />
+          <DetailReview />
         </div>
       </div>
     );

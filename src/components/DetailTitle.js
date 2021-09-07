@@ -9,9 +9,9 @@ class DetailTitle extends Component {
         <div className="nameColdbrew">
           <span>콜드 브루</span>
         </div>
-        <div className="arrow-nav">
+        <div>
           <nav>
-            <ul>
+            <ul className="arrowNav">
               <li>
                 <Link to="/Login-jihoon">홈</Link>
               </li>

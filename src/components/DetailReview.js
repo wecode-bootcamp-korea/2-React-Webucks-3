@@ -5,40 +5,34 @@ import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
 import { faBackspace } from '@fortawesome/free-solid-svg-icons';
 import './DetailReview.scss';
 
-class Review extends Component {
+class DetailReview extends Component {
   constructor() {
     super();
     this.state = {
       heartClicked: false,
-      userInpttedId: '',
+      userInputtedId: '',
       userInputtedComment: '',
       comments: [
         {
           commentId: 1,
-          userId: 'coffee_lover',
-          userComment: '너무 맛있어요!',
+          userId: '나: ',
+          userComment: '나서스',
           heartClicked: false,
         },
         {
           commentId: 2,
-          userId: 'CHOCO7',
-          userComment: '오늘도 나이트로 바닐라 크림을 마시러 갑니다.',
+          userId: '이: ',
+          userComment: '이렐리아',
           heartClicked: false,
         },
         {
           commentId: 3,
-          userId: 'legend_dev',
-          userComment: '진짜 나이트로 바닐라 크림은 전설이다.',
+          userId: '트: ',
+          userComment: '트리스타나',
           heartClicked: false,
         },
       ],
     };
-    this.handleInput = this.handleInput.bind(this);
-    this.enterKeyPressed = this.enterKeyPressed.bind(this);
-    this.addComment = this.addComment.bind(this);
-    this.handleCommentLike = this.handleCommentLike.bind(this);
-    this.commentHeartClass = this.commentHeartClass.bind(this);
-    this.handleCommentDelete = this.handleCommentDelete.bind(this);
   }
 
   handleInput = e => {
@@ -54,15 +48,15 @@ class Review extends Component {
   };
 
   addComment = () => {
-    let commented = this.state.comments;
-    if (this.state.userInputtedComment !== '') {
+    const { userInputtedId, comments, userInputtedComment } = this.state;
+    let commented = comments;
+    if (userInputtedComment !== '') {
       commented = commented.concat({
-        commentId: this.state.comments.length
-          ? this.state.comments[this.state.comments.length - 1].commentId + 1
+        commentId: comments.length
+          ? comments[comments.length - 1].commentId + 1
           : 1,
-        userId:
-          this.state.userInpttedId === '' ? '(익명)' : this.state.userInpttedId,
-        userComment: this.state.userInputtedComment,
+        userId: userInputtedId === '' ? '(익명)' : userInputtedId,
+        userComment: userInputtedComment,
       });
       this.setState({
         comments: commented,
@@ -72,9 +66,9 @@ class Review extends Component {
     }
   };
 
-  handleCommentLike = r => {
+  handleCommentLike = review => {
     let comments = [...this.state.comments];
-    let index = comments.indexOf(r);
+    let index = comments.indexOf(review);
     let comment = { ...comments[index] };
     comment.heartClicked = !comment.heartClicked;
     comments[index] = comment;
@@ -91,7 +85,7 @@ class Review extends Component {
   };
 
   handleCommentDelete = comment => {
-    const comments = this.state.comments.filter(r => r !== comment);
+    const comments = this.state.comments.filter(review => review !== comment);
     this.setState({ comments });
   };
 
@@ -101,28 +95,28 @@ class Review extends Component {
         <p className="reviewHeader">리뷰</p>
         <div className="comments">
           <ul className="reviewUl">
-            {this.state.comments.map(r => {
+            {this.state.comments.map(review => {
               return (
-                <li className="commentRow" key={r.commentId}>
-                  <p className="userName">{r.userId}</p>
-                  <p className="userComment">{r.userComment}</p>
+                <li className="commentRow" key={review.commentId}>
+                  <p className="userName">{review.userId}</p>
+                  <p className="userComment">{review.userComment}</p>
                   <FontAwesomeIcon
-                    className={this.commentHeartClass(r)}
-                    icon={r.heartClicked ? fasHeart : farHeart}
-                    onClick={() => this.handleCommentLike(r)}
+                    className={this.commentHeartClass(review)}
+                    icon={review.heartClicked ? fasHeart : farHeart}
+                    onClick={() => this.handleCommentLike(review)}
                   />
                   <FontAwesomeIcon
                     className="commentDeleteBtn"
                     icon={faBackspace}
-                    onClick={() => this.handleCommentDelete(r)}
+                    onClick={() => this.handleCommentDelete(review)}
                   />
                 </li>
               );
             })}
           </ul>
           <input
-            value={this.state.userInpttedId}
-            name="userInpttedId"
+            value={this.state.userInputtedId}
+            name="userInputtedId"
             className="newId"
             placeholder="닉네임"
             onChange={this.handleInput}
@@ -142,4 +136,4 @@ class Review extends Component {
     );
   }
 }
-export default Review;
+export default DetailReview;

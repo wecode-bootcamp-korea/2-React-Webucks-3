@@ -17,7 +17,7 @@
   }
 
   .fas {
-    color: red;
+    color: orangered;
   }
 
   .imgFrame {
@@ -26,7 +26,7 @@
     height: 200px;
     overflow: hidden;
 
-    img {
+    .imgList {
       width: 100%;
       transform: scale(1);
       transition: transform 1s;
@@ -38,7 +38,7 @@
     }
   }
 
-  p {
+  .imgListName {
     display: inline-block;
     margin-top: 0;
     padding-top: 10px;
