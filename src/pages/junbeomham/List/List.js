@@ -4,19 +4,39 @@ import TopNav from '../../../components/Nav/Nav';
 import CoffeeCard from './CoffeeCard';
 import Footer from '../../../components/Footer/Footer';
 
-import COFFEECARD_DATA from './CoffeCardMockData';
-
 import './List.scss';
 
 class List extends Component {
+  constructor() {
+    super();
+    this.state = {
+      coldBrewCoffee: { title: '', coffees: [] },
+      brewdCoffee: { title: '', coffees: [] },
+    };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/coffeeCardMockData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          coldBrewCoffee: data.coldBrewCoffee,
+          brewdCoffee: data.brewdCoffee,
+        });
+      });
+  }
+
   render() {
+    const { coldBrewCoffee, brewdCoffee } = this.state;
     return (
       <div className="List">
         <TopNav />
         <section className="menu">
           <article>
             <section className="title-wrap">
-              <p className="title">콜드 브루 커피</p>
+              <p className="title">{coldBrewCoffee.title}</p>
               <img
                 alt="decafe logo"
                 src="https://image.istarbucks.co.kr/common/img/menu/logo_decaf.png"
@@ -27,7 +47,7 @@ class List extends Component {
             </section>
             <section className="items-wrap">
               <dl>
-                {COFFEECARD_DATA[0].coldBrewCoffee.map(cardData => {
+                {coldBrewCoffee.coffees.map(cardData => {
                   return (
                     <CoffeeCard
                       key={cardData.id}
@@ -42,7 +62,7 @@ class List extends Component {
 
           <article>
             <section className="title-wrap">
-              <p className="title">브루드 커피</p>
+              <p className="title">{brewdCoffee.title}</p>
               <img
                 alt="decafe logo"
                 src="https://image.istarbucks.co.kr/common/img/menu/logo_decaf.png"
@@ -53,7 +73,7 @@ class List extends Component {
             </section>
             <section className="items-wrap">
               <dl>
-                {COFFEECARD_DATA[1].brewdCoffee.map(cardData => {
+                {brewdCoffee.coffees.map(cardData => {
                   return (
                     <CoffeeCard
                       key={cardData.id}

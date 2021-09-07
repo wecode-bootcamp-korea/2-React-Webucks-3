@@ -3,16 +3,30 @@ import React, { Component } from 'react';
 import FooterMenuTitle from './FooterMenuTitle';
 import FooterMenuContent from './FooterMenuContent';
 
-import FOOTER_DATA from './footerMockData';
-
 import './Footer.scss';
 
 class Footer extends Component {
+  constructor() {
+    super();
+    this.state = { footerList: [] };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/footerListMockData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ footerList: data.footerList });
+      });
+  }
+
   render() {
+    const { footerList } = this.state;
     return (
       <footer className="Footer">
         <div className="footer-menus">
-          {FOOTER_DATA.map(data => {
+          {footerList.map(data => {
             return (
               <ul key={data.id}>
                 <FooterMenuTitle title={data.title} />

@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import CATEGORY_LIST from './mockData/MenuListMockData';
-
 import './TopMenuNav.scss';
 
 class TopMenuNav extends Component {
   getParentMenu(parentId) {
-    for (let menu of CATEGORY_LIST) {
+    const { menuList } = this.props;
+    for (let menu of menuList) {
       if (menu.id === parentId) {
         return menu;
       }

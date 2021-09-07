@@ -6,16 +6,15 @@ import LikeBtn from '../../../components/LikeBtn/LikeBtn';
 import Review from './Review';
 import Footer from '../../../components/Footer/Footer';
 
-import MENU_LIST from './mockData/MenuListMockData';
-import REVIEW_LIST_DATA from './mockData/ReviewListMockData';
-
 import './Detail.scss';
 
 class Detail extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      reviewList: [...REVIEW_LIST_DATA],
+      product: {},
+      reviewList: [],
+      menuList: [],
       reviewInputVal: '',
       testIdNum: 1,
     };
@@ -66,13 +65,37 @@ class Detail extends Component {
     this.setState({ reviewList: updatedReviewList });
   };
 
+  componentDidMount() {
+    Promise.all([
+      fetch('http://localhost:3000/data/detailMockData.json', {
+        method: 'GET',
+      }),
+      fetch('http://localhost:3000/data/reviewListMockData.json', {
+        method: 'GET',
+      }),
+      fetch('http://localhost:3000/data/menuListMockData.json', {
+        method: 'GET',
+      }),
+    ])
+      .then(([res1, res2, res3]) =>
+        Promise.all([res1.json(), res2.json(), res3.json()])
+      )
+      .then(([data1, data2, data3]) => {
+        this.setState({
+          product: data1.data[0],
+          reviewList: data2.reviews,
+          menuList: data3.menus,
+        });
+      });
+  }
+
   render() {
     const { handleReviewInput, getReviewInputVal, handleDelReviewBtn } = this;
-    const { reviewList, reviewInputVal } = this.state;
+    const { product, reviewList, menuList, reviewInputVal } = this.state;
 
     let currentMenu;
-    for (let menu of MENU_LIST) {
-      if (menu.name === this.props.korName) {
+    for (let menu of menuList) {
+      if (menu.name === product.name) {
         currentMenu = menu;
       }
     }
@@ -83,58 +106,48 @@ class Detail extends Component {
         <section className="detail-section">
           <article>
             <div className="detail-category">
-              <h2 className="category-title">콜드 브루</h2>
+              <h2 className="category-title">{product.catecory}</h2>
               <div className="category-nav">
-                <TopMenuNav {...currentMenu} />
+                <TopMenuNav {...currentMenu} menuList={menuList} />
               </div>
             </div>
             <div className="detail-content">
               <div className="detail-img-wrap">
-                <img
-                  alt="signatue the black cold brew"
-                  src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/08/[9200000003661]_20210819094346334.jpg"
-                />
+                <img alt="signatue the black cold brew" src={product.imgUrl} />
               </div>
               <div className="detail-text-wrap">
                 <div className="detail-text">
                   <h3 className="product-name-kr">
-                    {this.props.korName}
+                    {product.name}
                     <br />
-                    <span className="product-name-en">
-                      {this.props.engName}
-                    </span>
+                    <span className="product-name-en">{product.engName}</span>
                   </h3>
                   <LikeBtn />
-                  <p className="product-description">
-                    {this.props.description}
-                  </p>
+                  <p className="product-description">{product.summary}</p>
                 </div>
                 <div className="product-info">
                   <div className="product-info-head">
                     <p className="info-head-text">제품 영양 정보</p>
-                    <p className="info-head-text">
-                      {this.props.size} / {this.props.literSize}ml (
-                      {this.props.oz} fl oz)
-                    </p>
+                    <p className="info-head-text">{product.servingSize}</p>
                   </div>
                   <div className="product-info-content">
                     <ul>
                       <li>
                         <dl>
                           <dt>1회 제공량 (kcal)</dt>
-                          <dd>{this.props.calories}</dd>
+                          <dd>{product.kcal}</dd>
                         </dl>
                       </li>
                       <li>
                         <dl>
                           <dt>포화지방 (g)</dt>
-                          <dd>{this.props.fat}</dd>
+                          <dd>{product.fat}</dd>
                         </dl>
                       </li>
                       <li>
                         <dl>
                           <dt>단백질 (g)</dt>
-                          <dd>{this.props.protein}</dd>
+                          <dd>{product.protein}</dd>
                         </dl>
                       </li>
                     </ul>
@@ -143,25 +156,25 @@ class Detail extends Component {
                       <li>
                         <dl>
                           <dt>나트륨 (mg)</dt>
-                          <dd>{this.props.sodium}</dd>
+                          <dd>{product.natrium}</dd>
                         </dl>
                       </li>
                       <li>
                         <dl>
                           <dt>당류 (g)</dt>
-                          <dd>{this.props.sugar}</dd>
+                          <dd>{product.sugars}</dd>
                         </dl>
                       </li>
                       <li>
                         <dl>
                           <dt>카페인 (mg)</dt>
-                          <dd>{this.props.caffein}</dd>
+                          <dd>{product.caffeine}</dd>
                         </dl>
                       </li>
                     </ul>
                   </div>
                   <div className="allergens-wrap">
-                    <p>알레르기 유발 요인 : {this.props.allergy}</p>
+                    <p>알레르기 유발 요인 : {product.allergen}</p>
                   </div>
                 </div>
                 <div className="detail-review">

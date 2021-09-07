@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import './Nav.scss';
 
@@ -6,9 +7,9 @@ class TopNav extends Component {
   render() {
     return (
       <header className="TopNav">
-        <a href="/">
+        <Link to="/">
           <p className="logo">WeBucks</p>
-        </a>
+        </Link>
         <div className="mainMenu">
           <ul className="storeMenu">
             <li className="itemName">COFFEE</li>
