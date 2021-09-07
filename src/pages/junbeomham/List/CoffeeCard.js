@@ -1,27 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import LikeBtn from '../../../components/LikeBtn/LikeBtn';
 
 import './CoffeeCard.scss';
 
 class CoffeeCard extends Component {
-  constructor() {
-    super();
-    this.state = { isLikeBtnClicked: false };
-
-    this.handleLikeBtnColor = this.handleLikeBtnColor.bind(this);
-  }
-
-  handleLikeBtnColor = () => {
-    const { isLikeBtnClicked } = this.state;
-    this.setState({ isLikeBtnClicked: !isLikeBtnClicked });
-  };
-
   render() {
-    const { isLikeBtnClicked } = this.state;
-    const { handleLikeBtnColor } = this;
     return (
       <div className="item">
         <dt className="img-wrap">
@@ -33,12 +18,7 @@ class CoffeeCard extends Component {
         </dt>
         <dd>
           {this.props.name}
-          <button
-            className={isLikeBtnClicked ? 'like-wrap clicked' : 'like-wrap'}
-            onClick={handleLikeBtnColor}
-          >
-            <FontAwesomeIcon icon={faHeart} />
-          </button>
+          <LikeBtn />
         </dd>
       </div>
     );

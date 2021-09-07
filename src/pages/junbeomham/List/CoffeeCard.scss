@@ -31,18 +31,13 @@
     position: relative;
   }
 
-  .like-wrap {
+  .like-btn-wrap {
     position: absolute;
     left: 15px;
     bottom: 0px;
-    color: #666;
-    background-color: white;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-  }
 
-  button.clicked {
-    color: tomato;
+    .like-wrap {
+      font-size: 18px;
+    }
   }
 }

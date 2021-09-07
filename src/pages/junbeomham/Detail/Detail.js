@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
-
 import TopNav from '../../../components/Nav/Nav';
 import TopMenuNav from './TopMenuNav';
+import LikeBtn from '../../../components/LikeBtn/LikeBtn';
 import Review from './Review';
 import Footer from '../../../components/Footer/Footer';
 
@@ -17,21 +15,14 @@ class Detail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLikeBtnClicked: false,
       reviewList: [...REVIEW_LIST_DATA],
       reviewInputVal: '',
       testIdNum: 1,
     };
 
-    this.handleLikeBtnColor = this.handleLikeBtnColor.bind(this);
     this.handleReviewInput = this.handleReviewInput.bind(this);
     this.getReviewInputVal = this.getReviewInputVal.bind(this);
   }
-
-  handleLikeBtnColor = () => {
-    const { isLikeBtnClicked } = this.state;
-    this.setState({ isLikeBtnClicked: !isLikeBtnClicked });
-  };
 
   handleReviewInput = event => {
     const { key } = event;
@@ -76,13 +67,8 @@ class Detail extends Component {
   };
 
   render() {
-    const {
-      handleLikeBtnColor,
-      handleReviewInput,
-      getReviewInputVal,
-      handleDelReviewBtn,
-    } = this;
-    const { isLikeBtnClicked, reviewList, reviewInputVal } = this.state;
+    const { handleReviewInput, getReviewInputVal, handleDelReviewBtn } = this;
+    const { reviewList, reviewInputVal } = this.state;
 
     let currentMenu;
     for (let menu of MENU_LIST) {
@@ -118,17 +104,7 @@ class Detail extends Component {
                       {this.props.engName}
                     </span>
                   </h3>
-                  <div className="like-btn-wrap">
-                    <button
-                      className={
-                        isLikeBtnClicked ? 'like-wrap clicked' : 'like-wrap'
-                      }
-                      id="product-like"
-                      onClick={handleLikeBtnColor}
-                    >
-                      <FontAwesomeIcon icon={faHeart} />
-                    </button>
-                  </div>
+                  <LikeBtn />
                   <p className="product-description">
                     {this.props.description}
                   </p>
