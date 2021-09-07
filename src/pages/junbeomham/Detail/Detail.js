@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import TopNav from '../../../components/Nav/Nav';
+import TopNav from '../../../components/TopNav/TopNav';
 import TopMenuNav from './TopMenuNav';
 import LikeBtn from '../../../components/LikeBtn/LikeBtn';
 import Review from './Review';
@@ -18,9 +18,6 @@ class Detail extends Component {
       reviewInputVal: '',
       testIdNum: 1,
     };
-
-    this.handleReviewInput = this.handleReviewInput.bind(this);
-    this.getReviewInputVal = this.getReviewInputVal.bind(this);
   }
 
   handleReviewInput = event => {

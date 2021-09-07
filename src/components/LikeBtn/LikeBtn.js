@@ -9,7 +9,6 @@ class LikeBtn extends Component {
   constructor() {
     super();
     this.state = { isLikeBtnClicked: false };
-    this.handleLikeBtnColor = this.handleLikeBtnColor.bind(this);
   }
 
   handleLikeBtnColor = () => {

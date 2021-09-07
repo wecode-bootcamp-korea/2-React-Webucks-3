@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import './TopMenuNav.scss';
 
 class TopMenuNav extends Component {
-  getParentMenu(parentId) {
+  getParentMenu = parentId => {
     const { menuList } = this.props;
     for (let menu of menuList) {
       if (menu.id === parentId) {
         return menu;
       }
     }
-  }
+  };
 
   render() {
     let menuId = this.props.parentId;

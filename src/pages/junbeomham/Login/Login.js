@@ -6,8 +6,6 @@ import './Login.scss';
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.handleLoginFormInput = this.handleLoginFormInput.bind(this);
-
     this.state = { userId: '', userPw: '' };
   }
 
