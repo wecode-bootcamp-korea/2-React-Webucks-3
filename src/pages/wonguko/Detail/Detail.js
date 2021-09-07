@@ -3,23 +3,6 @@ import TopNav from '../../../components/Nav/TopNav';
 import './Detail.scss';
 import ReviewList from '../../../components/Detail/ReviewList';
 import HeartBtn from '../../../components/Detail/HeartBtn';
-import Comment from '../../../components/Detail/Comment';
-
-const reviewDefault = [
-  { id: 1, reviewer: 'coffee_lover', comment: '너무 맛있어요' },
-  {
-    id: 2,
-    reviewer: 'CHOCOJ',
-    comment: '오늘도 화이트 초콜릿 모카를 마시러 갑니다.',
-  },
-  {
-    id: 3,
-    reviewer: 'legend_dev',
-    comment:
-      '진짜 화이트 초콜릿 모카는 전설이다. 진짜 화이트 초콜릿 모카는 전설이다.',
-  },
-];
-
 class Detail extends Component {
   render() {
     return (
@@ -99,18 +82,7 @@ class Detail extends Component {
               <div className="reviewTitle">리뷰</div>
               <hr className="line" />
               <div className="reviewWrap">
-                <>
-                  {reviewDefault.map(props => {
-                    return (
-                      <ReviewList
-                        key={props.id}
-                        reviewer={props.reviewer}
-                        comment={props.comment}
-                      />
-                    );
-                  })}
-                </>
-                <Comment />
+                <ReviewList />
               </div>
             </article>
           </section>

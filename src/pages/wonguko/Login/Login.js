@@ -12,8 +12,6 @@ import {
 //css
 import './Login.scss';
 export default class Login extends Component {
-  btnRef = React.createRef();
-
   constructor() {
     super();
     this.state = {
@@ -23,6 +21,8 @@ export default class Login extends Component {
       pwdView: false,
     };
   }
+
+  btnRef = React.createRef();
 
   handleInput = e => {
     const { name, value } = e.target;
