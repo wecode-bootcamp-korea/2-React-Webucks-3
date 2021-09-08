@@ -1,0 +1,30 @@
+.topNavHeader {
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  background-color: #f6f5ef;
+  z-index: 99;
+
+  .topNavH1 {
+    float: left;
+    padding-left: 30px;
+    padding-top: 12px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 36px;
+  }
+
+  .topNavUl {
+    position: absolute;
+    top: 22px;
+    right: 30px;
+    list-style: none;
+
+    .topNavLi {
+      float: left;
+      padding: 0 10px;
+      color: #d5d4cf;
+      line-height: 100%;
+      font-size: 18px;
+    }
+  }
+}

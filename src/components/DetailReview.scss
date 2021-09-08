@@ -1,0 +1,91 @@
+.review {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  width: 700px;
+  height: 40px;
+  border-bottom: 2px solid #cccccc;
+
+  .reviewHeader {
+    margin-bottom: 30px;
+    color: #666666;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .reviewUl {
+    list-style: none;
+
+    .commentRow {
+      position: relative;
+      width: 700px;
+      height: 30px;
+      font-size: 20px;
+
+      .userName {
+        display: inline-block;
+        margin-right: 15px;
+        font-weight: 900;
+      }
+
+      .userComment {
+        display: inline-block;
+        color: black;
+        font-size: 19px;
+      }
+
+      .reviewHeart {
+        position: absolute;
+        right: 50px;
+        font-size: 18px;
+      }
+
+      .fas {
+        color: orangered;
+      }
+
+      .commentDeleteBtn {
+        position: absolute;
+        right: 15px;
+        color: #666666;
+        font-size: 18px;
+      }
+    }
+  }
+
+  .newId {
+    display: inline-block;
+    resize: none;
+    margin: 30px 10px 200px -5px;
+    padding-top: 4px;
+    padding-left: 12px;
+    width: 115px;
+    height: 33px;
+    border: none;
+    border-radius: 5px;
+    background-color: #cccccc;
+    font-size: 20px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .newComment {
+    display: inline-block;
+    resize: none;
+    margin-top: 30px;
+    margin-bottom: 200px;
+    padding-top: 4px;
+    padding-left: 12px;
+    width: 550px;
+    height: 33px;
+    border: none;
+    border-radius: 5px;
+    background-color: #cccccc;
+    font-size: 20px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

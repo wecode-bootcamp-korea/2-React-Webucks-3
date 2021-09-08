@@ -1,0 +1,22 @@
+.sector {
+  display: flex;
+  align-items: center;
+  margin: 25px auto;
+  padding-left: 20px;
+  width: 1100px;
+  height: 44px;
+  min-width: 550px;
+  background-color: #f6f5f0;
+
+  .sectorTitle {
+    float: left;
+    padding-right: 10px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .sectorComment {
+    padding-left: 10px;
+    font-size: 15px;
+  }
+}
