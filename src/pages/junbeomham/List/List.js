@@ -13,9 +13,7 @@ class List extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/coffeeCardMockData.json', {
-      method: 'GET',
-    })
+    fetch('http://localhost:3000/data/coffeeCardMockData.json')
       .then(res => res.json())
       .then(data => {
         this.setState({

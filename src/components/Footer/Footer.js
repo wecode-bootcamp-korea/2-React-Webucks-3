@@ -12,9 +12,7 @@ class Footer extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/footerListMockData.json', {
-      method: 'GET',
-    })
+    fetch('http://localhost:3000/data/footerListMockData.json')
       .then(res => res.json())
       .then(data => {
         this.setState({ footerList: data.footerList });

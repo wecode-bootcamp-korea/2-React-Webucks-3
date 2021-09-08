@@ -64,15 +64,9 @@ class Detail extends Component {
 
   componentDidMount() {
     Promise.all([
-      fetch('http://localhost:3000/data/detailMockData.json', {
-        method: 'GET',
-      }),
-      fetch('http://localhost:3000/data/reviewListMockData.json', {
-        method: 'GET',
-      }),
-      fetch('http://localhost:3000/data/menuListMockData.json', {
-        method: 'GET',
-      }),
+      fetch('http://localhost:3000/data/detailMockData.json'),
+      fetch('http://localhost:3000/data/reviewListMockData.json'),
+      fetch('http://localhost:3000/data/menuListMockData.json'),
     ])
       .then(([res1, res2, res3]) =>
         Promise.all([res1.json(), res2.json(), res3.json()])
