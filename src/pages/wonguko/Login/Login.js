@@ -2,14 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
-
-//components
 import {
-  CheckEmail,
-  CheckPassword,
+  checkEmail,
+  checkPassword,
 } from '../../../components/Login/Validation';
-
-//css
 import './Login.scss';
 
 export default class Login extends Component {
@@ -31,15 +27,14 @@ export default class Login extends Component {
       {
         [name]: value,
       },
-      () => this.handleValidation()
+      this.handleValidation()
     );
   };
 
   handleValidation = () => {
-    const isEmail = this.state.email;
-    const isPwd = this.state.pwd;
+    const { email, pwd } = this.state;
 
-    if (CheckEmail(isEmail) && CheckPassword(isPwd)) {
+    if (checkEmail(email) && checkPassword(pwd)) {
       this.checkValidation = true;
       this.btnRef.current.className = 'loginBtn active';
       this.btnRef.current.disabled = false;
@@ -51,13 +46,9 @@ export default class Login extends Component {
   };
 
   viewPwdBtn = () => {
-    this.state.pwdView
-      ? this.setState({
-          pwdView: false,
-        })
-      : this.setState({
-          pwdView: true,
-        });
+    this.setState({
+      pwdView: !this.state.pwdView,
+    });
   };
 
   render() {

@@ -2,9 +2,11 @@
   margin-left: 0.5rem;
   color: #c8c9c4;
   font-size: 0.9rem;
+
   &:hover {
     cursor: pointer;
   }
+
   &.active {
     color: green;
   }

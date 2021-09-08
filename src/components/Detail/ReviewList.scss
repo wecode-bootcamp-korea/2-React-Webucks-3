@@ -1,7 +1,6 @@
 .reviewBox {
   .reviewDetailWrap {
     display: flex;
-    flex-direction: row;
     align-items: center;
     height: 1.3rem;
 
@@ -16,6 +15,7 @@
     }
 
     .iconWrap {
+      display: flex;
       position: relative;
       top: -2px;
     }

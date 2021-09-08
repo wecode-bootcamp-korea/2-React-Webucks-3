@@ -6,13 +6,13 @@ import './ReviewDeleteBtn.scss';
 class ReviewDeleteBtn extends Component {
   render() {
     return (
-      <>
+      <div className="deleteBtnWrap">
         <FontAwesomeIcon
           className="deleteBtn"
           icon={faTrashAlt}
           onClick={() => this.props.handleDeleteCommentBtn(this.props.id)}
         />
-      </>
+      </div>
     );
   }
 }

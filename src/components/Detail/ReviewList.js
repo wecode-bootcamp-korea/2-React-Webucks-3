@@ -10,23 +10,28 @@ class Review extends Component {
       reviewer: '',
       comment: '',
       commentList: [
-        { id: 1, reviewer: 'coffee_lover', comment: '너무 맛있어요' },
+        {
+          id: 1,
+          reviewer: 'coffee_lover',
+          comment: '너무 맛있어요',
+          isLikeReview: false,
+        },
         {
           id: 2,
           reviewer: 'CHOCOJ',
           comment: '오늘도 화이트 초콜릿 모카를 마시러 갑니다.',
+          isLikeReview: false,
         },
         {
           id: 3,
           reviewer: 'legend_dev',
           comment:
             '진짜 화이트 초콜릿 모카는 전설이다. 진짜 화이트 초콜릿 모카는 전설이다.',
+          isLikeReview: false,
         },
       ],
     };
   }
-
-  nextId = React.createRef();
 
   handleInput = e => {
     const { name, value } = e.target;
@@ -35,10 +40,11 @@ class Review extends Component {
     });
   };
 
+  nextId = React.createRef();
+
   handleSubmitComment = e => {
     const { reviewer, comment } = this.state;
     let newCommentList = this.state.commentList;
-
     if (reviewer === '' || comment === '') {
       alert('리뷰가 제대로 입력되지 않았습니다. 알맞게 입력해주세요.');
     } else {
@@ -46,22 +52,40 @@ class Review extends Component {
         id: this.nextId.current + 4,
         reviewer: this.state.reviewer,
         comment: this.state.comment,
+        isLikeReview: false,
       });
       this.setState({
         commentList: newCommentList,
         reviewer: '',
         comment: '',
+        isLikeReview: false,
       });
       this.nextId.current += 1;
       e.preventDefault();
     }
   };
 
+  handleReviewLikeBtn = event => {
+    const selectId = Number(event.target.id);
+
+    const newCommentList = this.state.commentList.map(el => {
+      if (el.id === selectId) {
+        el.isLikeReview = !el.isLikeReview;
+        return el;
+      } else {
+        return el;
+      }
+    });
+    this.setState({
+      commentList: newCommentList,
+    });
+    console.log(this.state.commentList);
+  };
+
   handleDeleteCommentBtn = id => {
     const { commentList } = this.state;
-    const resetCommentList = commentList.filter(comment => comment.id !== id);
     this.setState({
-      commentList: resetCommentList,
+      commentList: commentList.filter(comment => comment.id !== id),
     });
   };
 
@@ -75,7 +99,11 @@ class Review extends Component {
                 <p className="reviewer">{props.reviewer}</p>
                 <p className="reviewDetail">{props.comment}</p>
                 <span className="iconWrap">
-                  <ReviewLikeBtn />
+                  <ReviewLikeBtn
+                    id={props.id}
+                    isLikeReview={props.isLikeReview}
+                    handleReviewLikeBtn={this.handleReviewLikeBtn}
+                  />
                   <ReviewDeleteBtn
                     id={props.id}
                     handleDeleteCommentBtn={this.handleDeleteCommentBtn}

@@ -14,7 +14,7 @@ class HeartBtn extends Component {
 
   handleHeartBtn = () => {
     this.setState({
-      isHeart: !this.state.isHeart,
+      isLiked: !this.state.isLiked,
     });
   };
 
@@ -22,9 +22,9 @@ class HeartBtn extends Component {
     return (
       <>
         <FontAwesomeIcon
-          className={this.state.isHeart ? 'heartBtn active' : 'heartBtn'}
+          className={this.state.isLiked ? 'heartBtn active' : 'heartBtn'}
           onClick={this.handleHeartBtn}
-          icon={this.state.isHeart ? fasFaHeart : farFaHeart}
+          icon={this.state.isLiked ? fasFaHeart : farFaHeart}
         />
       </>
     );

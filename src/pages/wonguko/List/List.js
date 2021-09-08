@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
-
-//components
 import TopNav from '../../../components/Nav/TopNav';
 import TypeOfCoffeeTitle from '../../../components/List/TypeOfCoffeeTitle';
 import TypeOfCoffeeList from '../../../components/List/TypeOfCoffeeList';
 import COFFEE_LIST from '../../../components/List/COFFEE_LIST';
 import Footer from '../../../components/Shared/Footer';
-
-// CSS
 import './List.scss';
 
 class List extends Component {

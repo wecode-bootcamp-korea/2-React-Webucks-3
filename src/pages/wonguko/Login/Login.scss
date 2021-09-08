@@ -1,19 +1,16 @@
-@import '../../../styles/font.scss';
+@import '../../../Styles/font.scss';
+@import '../../../Styles/common.scss';
 
 .loginContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexCenter;
   min-width: 100%;
   height: 100vh;
   background-color: #edefef;
 }
 
 .loginWrap {
-  display: flex;
+  @include flexCenter;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 30rem;
   height: 35rem;
   border: 3px solid #e4e4e4;
