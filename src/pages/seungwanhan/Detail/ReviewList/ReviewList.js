@@ -3,8 +3,8 @@ import Review from './Review/Review';
 import './ReviewList.scss';
 
 export default class ReviewList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       reviewList: [
         {
@@ -65,10 +65,11 @@ export default class ReviewList extends Component {
   };
 
   render() {
+    const { clickHeartIcon, clickDeleteIcon, reviewInputKeyUp } = this;
     return (
       <section className="ReviewList">
-        <div className="top">리뷰</div>
-        <div className="mid">
+        <div className="reviewListTop">리뷰</div>
+        <div className="reviewListMid">
           {this.state.reviewList.map(review => {
             return (
               <Review
@@ -76,13 +77,13 @@ export default class ReviewList extends Component {
                 userId={review.userId}
                 reviewText={review.reviewText}
                 isHeartClicked={review.isHeartClicked}
-                clickHeartIcon={this.clickHeartIcon}
-                clickDeleteIcon={this.clickDeleteIcon}
+                clickHeartIcon={clickHeartIcon}
+                clickDeleteIcon={clickDeleteIcon}
               />
             );
           })}
         </div>
-        <div className="bottom">
+        <div className="reviewListBottom">
           <input
             className="userId"
             type="text"
@@ -93,7 +94,7 @@ export default class ReviewList extends Component {
             className="reviewText"
             type="text"
             placeholder="리뷰를 입력해주세요."
-            onKeyUp={this.reviewInputKeyUp}
+            onKeyUp={reviewInputKeyUp}
           />
         </div>
       </section>

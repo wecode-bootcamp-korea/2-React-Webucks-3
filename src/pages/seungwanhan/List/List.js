@@ -4,7 +4,7 @@ import CoffeeCategory from './CoffeeCategory/CoffeeCategory';
 import CoffeeGrid from './CoffeeGrid/CoffeeGrid';
 import './List.scss';
 
-class List extends Component {
+export default class List extends Component {
   render() {
     return (
       <div className="List">
@@ -20,5 +20,3 @@ class List extends Component {
     );
   }
 }
-
-export default List;

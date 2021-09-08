@@ -6,13 +6,13 @@ import Nutrition from './Nutrition/Nutrition.js';
 import ReviewList from './ReviewList/ReviewList.js';
 import './Detail.scss';
 
-class Detail extends Component {
+export default class Detail extends Component {
   render() {
     return (
       <div className="Detail">
         <TopNav />
         <Category />
-        <main className="contentsWrapper">
+        <main className="coffeeInfoContainer">
           <div className="leftSide">
             <img
               src="https://image.istarbucks.co.kr/upload/store/skuimg/2020/09/[9200000002672]_20200921171223898.jpg"
@@ -29,5 +29,3 @@ class Detail extends Component {
     );
   }
 }
-
-export default Detail;

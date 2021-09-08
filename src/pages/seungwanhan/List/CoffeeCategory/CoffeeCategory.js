@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CoffeeIcon from './coffeeIcon.png';
 import './CoffeeCategory.scss';
 
-class CoffeeCategory extends Component {
+export default class CoffeeCategory extends Component {
   render() {
     return (
       <section className="CoffeeCategory">
@@ -17,5 +17,3 @@ class CoffeeCategory extends Component {
     );
   }
 }
-
-export default CoffeeCategory;

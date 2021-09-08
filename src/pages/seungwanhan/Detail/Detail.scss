@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
 
-  .TopNav, .Category, .contentsWrapper {
+  .TopNav, .Category, .coffeeInfoContainer {
     width: 80%;
   }
 
@@ -12,7 +12,7 @@
     top: 60px;
   }
 
-  .contentsWrapper {
+  .coffeeInfoContainer {
     position: absolute;
     top: 120px;
     display: flex;

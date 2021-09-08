@@ -6,8 +6,8 @@ import COFFEE_INFO_LIST from '../data/CoffeeInfoList.js';
 import './Description.scss';
 
 export default class Description extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       isHeartClicked: false,
     };
@@ -24,16 +24,16 @@ export default class Description extends Component {
     return (
       <section className="Description">
         <FontAwesomeIcon
+          className="heartIcon"
           icon={this.state.isHeartClicked ? heartSolid : heartRegular}
           size="2x"
-          className="heartIcon"
           onClick={this.clickHeartIcon}
         />
-        <div className="name">
+        <div className="coffeeName">
           <p className="ko">{this.coffeeInfo.koName}</p>
           <p className="eng">{this.coffeeInfo.engName}</p>
         </div>
-        <div className="detail">
+        <div className="coffeeDetail">
           {this.coffeeInfo.description.split('\n').map(line => {
             return <p>{line}</p>;
           })}

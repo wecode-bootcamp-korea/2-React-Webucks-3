@@ -3,15 +3,15 @@ import COFFEE_INFO_LIST from '../data/CoffeeInfoList.js';
 import './Nutrition.scss';
 
 export default class Nutrition extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.coffeeInfo = COFFEE_INFO_LIST[0];
   }
 
   render() {
     return (
       <section className="Nutrition">
-        <div className="top">
+        <div className="nutritionTop">
           <span>제품 영양 정보</span>
           <span>
             {this.coffeeInfo.size} / {this.coffeeInfo.literSize}ml (
@@ -19,7 +19,7 @@ export default class Nutrition extends Component {
           </span>
         </div>
 
-        <div className="mid">
+        <div className="nutritionMid">
           <div className="midLeft">
             <div>
               <span>1회 제공량 (kcal)</span>
@@ -50,7 +50,7 @@ export default class Nutrition extends Component {
           </div>
         </div>
 
-        <div className="bottom">
+        <div className="nutritionBottom">
           알레르기 유발 요인 : {this.coffeeInfo.alergy}
         </div>
       </section>

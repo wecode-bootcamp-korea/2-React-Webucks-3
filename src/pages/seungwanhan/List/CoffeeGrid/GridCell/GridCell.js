@@ -28,8 +28,8 @@ export default class GridCell extends Component {
         <div className="coffeeNameWrapper">
           <span>{title}</span>
           <FontAwesomeIcon
-            icon={this.state.isHeartClicked ? heartSolid : heartRegular}
             className="heartIcon"
+            icon={this.state.isHeartClicked ? heartSolid : heartRegular}
             onClick={this.clickHeartIcon}
           />
         </div>

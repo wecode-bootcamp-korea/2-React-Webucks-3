@@ -7,19 +7,28 @@ import './Review.scss';
 
 export default class Review extends Component {
   render() {
+    const {
+      uuid,
+      userId,
+      reviewText,
+      isHeartClicked,
+      clickHeartIcon,
+      clickDeleteIcon,
+    } = this.props;
+
     return (
       <div className="Review">
-        <span>{this.props.userId}</span>
-        <span>{this.props.reviewText}</span>
+        <span>{userId}</span>
+        <span>{reviewText}</span>
         <FontAwesomeIcon
-          icon={this.props.isHeartClicked ? heartSolid : heartRegular}
           className="heartIcon"
-          onClick={() => this.props.clickHeartIcon(this.props.uuid)}
+          icon={isHeartClicked ? heartSolid : heartRegular}
+          onClick={() => clickHeartIcon(uuid)}
         />
         <FontAwesomeIcon
-          icon={faTimes}
           className="deleteIcon"
-          onClick={() => this.props.clickDeleteIcon(this.props.uuid)}
+          icon={faTimes}
+          onClick={() => clickDeleteIcon(uuid)}
         />
       </div>
     );

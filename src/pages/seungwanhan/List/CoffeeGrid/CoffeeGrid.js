@@ -3,7 +3,7 @@ import GridCell from './GridCell/GridCell';
 import COFFEE_IMG_LIST from '../data/CoffeeImgList';
 import './CoffeeGrid.scss';
 
-class CoffeeGrid extends Component {
+export default class CoffeeGrid extends Component {
   constructor(props) {
     super(props);
 
@@ -23,5 +23,3 @@ class CoffeeGrid extends Component {
     return <section className="CoffeeGrid">{gridCell}</section>;
   }
 }
-
-export default CoffeeGrid;

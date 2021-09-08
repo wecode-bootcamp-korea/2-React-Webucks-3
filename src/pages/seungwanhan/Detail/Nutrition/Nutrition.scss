@@ -1,5 +1,5 @@
 .Nutrition {
-  .top {
+  .nutritionTop {
     display: flex;
     justify-content: space-between;
     padding: 20px 15px 20px 15px;
@@ -9,7 +9,7 @@
     font-size: 20px;
   }
 
-  .mid {
+  .nutritionMid {
     display: flex;
     justify-content: space-between;
     padding: 0 15px 0 15px;
@@ -39,7 +39,7 @@
     }
   }
 
-  .bottom {
+  .nutritionBottom {
     padding: 15px;
     margin-bottom: 25px;
     background-color: lightgray;
