@@ -48,7 +48,6 @@ export default class Login extends Component {
       this.btnRef.current.className = 'loginBtn';
       this.btnRef.current.disabled = true;
     }
-    console.log(this.checkValidation);
   };
 
   viewPwdBtn = () => {
