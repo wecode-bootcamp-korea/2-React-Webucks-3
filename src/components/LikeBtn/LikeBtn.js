@@ -6,8 +6,8 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import './LikeBtn.scss';
 
 class LikeBtn extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { isLikeBtnClicked: false };
   }
 

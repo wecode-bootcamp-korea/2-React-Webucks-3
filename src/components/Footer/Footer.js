@@ -6,8 +6,8 @@ import FooterMenuContent from './FooterMenuContent';
 import './Footer.scss';
 
 class Footer extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { footerList: [] };
   }
 

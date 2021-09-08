@@ -7,8 +7,8 @@ import Footer from '../../../components/Footer/Footer';
 import './List.scss';
 
 class List extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { categoryList: [] };
   }
 

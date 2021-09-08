@@ -9,8 +9,8 @@ import Footer from '../../../components/Footer/Footer';
 import './Detail.scss';
 
 class Detail extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       product: {},
       reviewList: [],
