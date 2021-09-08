@@ -13,14 +13,12 @@ export default class Login extends Component {
 
   handleInput = event => {
     const { name, value } = event.target;
-    this.setState({
-      [name]: value,
-    });
+    this.setState({ [name]: value });
   };
 
   render() {
     const { idValue, pwValue } = this.state;
-    let isLoginBtnActive = idValue.indexOf('@') > -1 && pwValue.length > 4;
+    const isLoginBtnActive = idValue.indexOf('@') > -1 && pwValue.length > 4;
 
     return (
       <div className="Login">

@@ -1,4 +1,6 @@
 .Review {
+  position: relative;
+
   span {
     padding-right: 10px;
     font-size: 13px;
@@ -6,6 +8,7 @@
 
   .deleteIcon {
     position: absolute;
+    top: 0;
     right: 10px;
   }
 }

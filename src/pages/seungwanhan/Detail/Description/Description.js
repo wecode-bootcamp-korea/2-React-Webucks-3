@@ -11,13 +11,10 @@ export default class Description extends Component {
     this.state = {
       isHeartClicked: false,
     };
-    this.coffeeInfo = COFFEE_INFO_LIST[0];
   }
 
   clickHeartIcon = () => {
-    this.setState({
-      isHeartClicked: !this.state.isHeartClicked,
-    });
+    this.setState({ isHeartClicked: !this.state.isHeartClicked });
   };
 
   render() {
@@ -30,11 +27,11 @@ export default class Description extends Component {
           onClick={this.clickHeartIcon}
         />
         <div className="coffeeName">
-          <p className="ko">{this.coffeeInfo.koName}</p>
-          <p className="eng">{this.coffeeInfo.engName}</p>
+          <p className="ko">{COFFEE_INFO_LIST[0].koName}</p>
+          <p className="eng">{COFFEE_INFO_LIST[0].engName}</p>
         </div>
         <div className="coffeeDetail">
-          {this.coffeeInfo.description.split('\n').map(line => {
+          {COFFEE_INFO_LIST[0].description.split('\n').map(line => {
             return <p>{line}</p>;
           })}
         </div>

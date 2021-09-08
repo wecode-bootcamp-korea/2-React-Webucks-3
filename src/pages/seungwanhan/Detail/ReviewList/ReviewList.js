@@ -32,15 +32,14 @@ export default class ReviewList extends Component {
 
   reviewInputKeyUp = event => {
     if (event.key === 'Enter') {
-      this.state.reviewList.push({
+      const newReview = {
+        uuid: 'key' + (this.state.reviewList.length + 1),
         userId: this.refUserId.current.value,
         reviewText: event.target.value,
         isHeartClicked: false,
-      });
+      };
 
-      this.setState({
-        reviewList: this.state.reviewList,
-      });
+      this.setState({ reviewList: [...this.state.reviewList, newReview] });
 
       this.refUserId.current.value = '';
       event.target.value = '';
@@ -73,10 +72,7 @@ export default class ReviewList extends Component {
           {this.state.reviewList.map(review => {
             return (
               <Review
-                uuid={review.uuid}
-                userId={review.userId}
-                reviewText={review.reviewText}
-                isHeartClicked={review.isHeartClicked}
+                {...review}
                 clickHeartIcon={clickHeartIcon}
                 clickDeleteIcon={clickDeleteIcon}
               />

@@ -1,25 +1,32 @@
 import React, { Component } from 'react';
 import GridCell from './GridCell/GridCell';
-import COFFEE_IMG_LIST from '../data/CoffeeImgList';
 import './CoffeeGrid.scss';
 
 export default class CoffeeGrid extends Component {
   constructor(props) {
     super(props);
-
-    this.imgList = [];
-    if (this.props.category === 'coldbrew') {
-      this.imgList = COFFEE_IMG_LIST.coldBrewCoffee;
-    } else if (this.props.category === 'brewed') {
-      this.imgList = COFFEE_IMG_LIST.brewedCoffee;
-    }
+    this.state = {
+      coffeeInfoList: this.props.coffeeInfoList,
+    };
   }
 
-  render() {
-    const gridCell = this.imgList.map(img => {
-      return <GridCell imgUrl={img.imgUrl} title={img.title} />;
+  clickHeartIcon = uuid => {
+    const newList = this.state.coffeeInfoList.map(el => {
+      if (el.uuid === uuid) {
+        el.isHeartClicked = !el.isHeartClicked;
+        return el;
+      } else {
+        return el;
+      }
     });
 
+    this.setState({ coffeeInfoList: newList });
+  };
+
+  render() {
+    const gridCell = this.state.coffeeInfoList.map(coffeeInfo => (
+      <GridCell {...coffeeInfo} clickHeartIcon={this.clickHeartIcon} />
+    ));
     return <section className="CoffeeGrid">{gridCell}</section>;
   }
 }
