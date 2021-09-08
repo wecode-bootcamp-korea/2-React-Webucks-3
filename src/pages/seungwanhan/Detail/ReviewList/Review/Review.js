@@ -20,8 +20,6 @@ export default class Review extends Component {
           icon={faTimes}
           className="deleteIcon"
           onClick={() => this.props.clickDeleteIcon(this.props.uuid)}
-          // 리뷰 요청드립니다.
-          // onClick={() => this.props.clickDeleteIcon}
         />
       </div>
     );

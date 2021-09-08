@@ -64,14 +64,6 @@ export default class ReviewList extends Component {
     this.setState({ reviewList: newList });
   };
 
-  // 리뷰 요청드립니다.
-  // clickDeleteIcon = uuid => {
-  //   return () => {
-  //     const newList = this.state.reviewList.filter(el => el.uuid !== uuid);
-  //     this.setState({ reviewList: newList });
-  //   };
-  // };
-
   render() {
     return (
       <section className="ReviewList">
@@ -86,8 +78,6 @@ export default class ReviewList extends Component {
                 isHeartClicked={review.isHeartClicked}
                 clickHeartIcon={this.clickHeartIcon}
                 clickDeleteIcon={this.clickDeleteIcon}
-                // 리뷰 요청드립니다.
-                // clickDeleteIcon={this.clickDeleteIcon(review.uuid)}
               />
             );
           })}
