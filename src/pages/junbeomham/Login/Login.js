@@ -6,7 +6,7 @@ import './Login.scss';
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = { userId: '', userPw: '' };
+    this.state = { userId: '', userPw: '', isBtnPwClicked: false };
   }
 
   handleLoginFormInput = event => {
@@ -16,10 +16,29 @@ class Login extends Component {
     });
   };
 
+  handleClickBtnPw = () => {
+    const { isBtnPwClicked } = this.state;
+    this.setState({ isBtnPwClicked: !isBtnPwClicked });
+    this.inputPw.focus();
+  };
+
+  isUserIdValid = userId => {
+    return userId.includes('@');
+  };
+
+  isUserPwValid = userPw => {
+    return userPw.length >= 5;
+  };
+
   render() {
-    const { handleLoginFormInput } = this;
-    const { userId, userPw } = this.state;
-    const isLoginBtnValid = userId.includes('@') && userPw.length >= 5;
+    const {
+      handleLoginFormInput,
+      handleClickBtnPw,
+      isUserIdValid,
+      isUserPwValid,
+    } = this;
+    const { userId, userPw, isBtnPwClicked } = this.state;
+    const isLoginBtnValid = isUserIdValid(userId) && isUserPwValid(userPw);
 
     return (
       <div className="Login">
@@ -29,7 +48,6 @@ class Login extends Component {
             <form action="/list-junbeom" className="loginForm">
               <div className="input-wrap">
                 <input
-                  id="userId"
                   type="text"
                   name="userId"
                   onChange={handleLoginFormInput}
@@ -41,14 +59,21 @@ class Login extends Component {
               </div>
               <div className="input-wrap">
                 <input
+                  ref={ref => {
+                    this.inputPw = ref;
+                  }}
                   id="userPw"
-                  type="password"
+                  type={isBtnPwClicked ? 'text' : 'password'}
                   name="userPw"
                   onChange={handleLoginFormInput}
                   required
                 />
                 <label htmlFor="userPw">비밀번호</label>
-                <button type="button" id="pw-btn" className="pw-btn">
+                <button
+                  type="button"
+                  className={isBtnPwClicked ? 'pw-btn hide' : 'pw-btn'}
+                  onClick={handleClickBtnPw}
+                >
                   show
                 </button>
               </div>
