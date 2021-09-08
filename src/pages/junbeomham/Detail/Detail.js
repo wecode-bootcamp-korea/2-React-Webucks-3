@@ -9,6 +9,8 @@ import Footer from '../../../components/Footer/Footer';
 import './Detail.scss';
 
 class Detail extends Component {
+  testIdNum = 1;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -16,20 +18,19 @@ class Detail extends Component {
       reviewList: [],
       menuList: [],
       reviewInputVal: '',
-      testIdNum: 1,
     };
   }
 
   handleReviewInput = event => {
     const { key } = event;
     const { value } = event.target;
-    const { testIdNum, reviewList } = this.state;
+    const { reviewList } = this.state;
 
     this.setState({ reviewInputVal: value });
 
     if (key === 'Enter' && value !== '') {
       let newReview = {
-        userId: 'test' + testIdNum,
+        userId: 'test' + this.testIdNum,
         text: value,
         isValid: true,
       };
@@ -38,9 +39,9 @@ class Detail extends Component {
 
       this.setState({
         reviewInputVal: '',
-        testIdNum: testIdNum + 1,
         reviewList: newReviewList,
       });
+      this.testIdNum++;
     }
   };
 
