@@ -11,48 +11,48 @@ export default class Login extends Component {
     };
   }
 
-  handleIdInput = event => this.setState({ idValue: event.target.value });
-
-  handlePwInput = event => this.setState({ pwValue: event.target.value });
-
-  checkIdPwValidation = () =>
-    this.state.idValue.indexOf('@') > -1 && this.state.pwValue.length > 4;
-
-  goToList = () => this.props.history.push('/list-seungwan');
+  handleInput = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value,
+    });
+  };
 
   render() {
-    let isLoginBtnActive = this.checkIdPwValidation();
+    const { idValue, pwValue } = this.state;
+    let isLoginBtnActive = idValue.indexOf('@') > -1 && pwValue.length > 4;
 
     return (
       <div className="Login">
-        <div className="contentsWrapper">
+        <div className="loginContainer">
           <section className="logo">
             <span>WeBucks</span>
           </section>
 
           <form id="userInfo">
             <input
+              name="idValue"
               type="text"
               placeholder="전화번호, 사용자 이름 또는 이메일"
-              onChange={this.handleIdInput}
+              onChange={this.handleInput}
             />
             <input
+              name="pwValue"
               type="password"
               placeholder="비밀번호"
-              onChange={this.handlePwInput}
+              onChange={this.handleInput}
             />
             <button
               className={isLoginBtnActive ? 'active' : 'deactive'}
-              type="submit"
               form="userInfo"
-              onClick={this.goToList}
+              onClick={() => this.props.history.push('/list-seungwan')}
               disabled={!isLoginBtnActive}
             >
               로그인
             </button>
           </form>
 
-          <Link id="findPw" to="./login-seungwan">
+          <Link id="findPw" to="./">
             비밀번호를 잊으셨나요?
           </Link>
         </div>

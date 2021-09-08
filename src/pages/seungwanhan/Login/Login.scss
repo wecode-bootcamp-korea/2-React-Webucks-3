@@ -1,10 +1,9 @@
 .Login {
-
   display: flex;
   justify-content: center;
   margin-top: 100px;
 
-  .contentsWrapper {
+  .loginContainer {
     position: relative;
     width: 400px;
     border: 1px solid lightgray;
@@ -55,5 +54,4 @@
     color: #2b84c4;
     text-decoration: none;
   }
-
 }
