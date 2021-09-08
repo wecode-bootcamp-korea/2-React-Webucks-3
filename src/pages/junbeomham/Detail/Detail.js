@@ -110,7 +110,7 @@ class Detail extends Component {
             </div>
             <div className="detail-content">
               <div className="detail-img-wrap">
-                <img alt="signatue the black cold brew" src={product.imgUrl} />
+                <img alt={product.name} src={product.imgUrl} />
               </div>
               <div className="detail-text-wrap">
                 <div className="detail-text">
