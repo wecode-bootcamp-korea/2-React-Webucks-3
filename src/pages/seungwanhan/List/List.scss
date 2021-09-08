@@ -1,16 +1,14 @@
 .List {
-  
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  .TopNav, .contentsWrapper {
+  .TopNav, .coffeeListContainer {
     width: 80%;
   }
 
-  .contentsWrapper {
+  .coffeeListContainer {
     position: absolute;
     top: 70px;
   }
-
 }

@@ -5,8 +5,8 @@ import { faHeart as heartSolid } from '@fortawesome/free-solid-svg-icons';
 import './GridCell.scss';
 
 export default class GridCell extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       isHeartClicked: false,
     };
@@ -19,13 +19,14 @@ export default class GridCell extends Component {
   };
 
   render() {
+    const { imgUrl, title } = this.props;
     return (
       <div className="GridCell">
-        <div className="imgWrapper">
-          <img src={this.props.imgUrl} alt={this.props.title}></img>
+        <div className="coffeeImgWrapper">
+          <img src={imgUrl} alt={title}></img>
         </div>
-        <div className="coffeeName">
-          <span>{this.props.title}</span>
+        <div className="coffeeNameWrapper">
+          <span>{title}</span>
           <FontAwesomeIcon
             icon={this.state.isHeartClicked ? heartSolid : heartRegular}
             className="heartIcon"

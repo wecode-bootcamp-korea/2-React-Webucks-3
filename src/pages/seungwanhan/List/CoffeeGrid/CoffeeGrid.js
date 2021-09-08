@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import GridCell from './GridCell/GridCell';
 import COFFEE_IMG_LIST from '../data/CoffeeImgList';
-import './Grid.scss';
+import './CoffeeGrid.scss';
 
-class Grid extends Component {
+class CoffeeGrid extends Component {
   constructor(props) {
     super(props);
 
@@ -20,8 +20,8 @@ class Grid extends Component {
       return <GridCell imgUrl={img.imgUrl} title={img.title} />;
     });
 
-    return <section className="Grid">{gridCell}</section>;
+    return <section className="CoffeeGrid">{gridCell}</section>;
   }
 }
 
-export default Grid;
+export default CoffeeGrid;
