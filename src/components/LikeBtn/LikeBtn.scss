@@ -3,8 +3,8 @@
   background-color: white;
   border: none;
   cursor: pointer;
-}
 
-.like-btn-wrap button.clicked {
-  color: tomato;
+  &.clicked {
+    color: tomato;
+  }
 }

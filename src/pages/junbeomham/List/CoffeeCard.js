@@ -9,7 +9,7 @@ class CoffeeCard extends Component {
   render() {
     const { name, imgUrl } = this.props;
     return (
-      <div className="item">
+      <div className="CoffeeCard">
         <dt className="img-wrap">
           <div className="scale">
             <Link to="/detail-junbeom">

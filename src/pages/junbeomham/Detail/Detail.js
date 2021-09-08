@@ -32,7 +32,7 @@ class Detail extends Component {
       let newReview = {
         userId: 'test' + this.testIdNum,
         text: value,
-        isValid: true,
+        isDeleted: false,
       };
       const newReviewList = reviewList;
       newReviewList.push(newReview);
@@ -48,16 +48,16 @@ class Detail extends Component {
   getReviewInputVal = event => {
     const { value } = event.target;
     this.setState({ reviewInputVal: value });
-    const reviewInputVal = this.state;
+    const { reviewInputVal } = this.state;
     return reviewInputVal;
   };
 
   handleDelReviewBtn = userId => {
     const { reviewList } = this.state;
-    const updatedReviewList = reviewList;
+    const updatedReviewList = [...reviewList];
     for (let review of updatedReviewList) {
       if (userId === review.userId) {
-        review.isValid = false;
+        review.isDeleted = true;
       }
     }
     this.setState({ reviewList: updatedReviewList });
@@ -173,7 +173,7 @@ class Detail extends Component {
                   <h2 className="category-title review-title">리뷰</h2>
                   <ul className="review-list">
                     {reviewList.map(review => {
-                      if (review.isValid) {
+                      if (!review.isDeleted) {
                         return (
                           <Review
                             key={review.userId}

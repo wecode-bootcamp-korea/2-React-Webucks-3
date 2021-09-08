@@ -12,7 +12,7 @@ class List extends Component {
     this.state = { categoryList: [] };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     fetch('http://localhost:3000/data/coffeeCardMockData.json')
       .then(res => res.json())
       .then(data => {

@@ -6,11 +6,11 @@
   align-items: center;
   flex-wrap: wrap;
   padding-top: 3rem;
-}
 
-.menu {
-  @extend %flex-column;
-  flex-wrap: wrap;
-  width: 60%;
-  margin: 30px auto;
+  .menu {
+    @extend %flex-column;
+    flex-wrap: wrap;
+    width: 60%;
+    margin: 30px auto;
+  }
 }
