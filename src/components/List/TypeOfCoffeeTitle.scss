@@ -1,0 +1,23 @@
+.coffeeTitleWrap {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  height: 3rem;
+  background-color: #f6f5f0;
+
+  .coffeeTitle {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-left: 1rem;
+  }
+
+  .coffeeIcon {
+    width: 2rem;
+    margin: 0 0.5rem 0 0.1rem;
+  }
+
+  .coffeeSubTitle {
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+}

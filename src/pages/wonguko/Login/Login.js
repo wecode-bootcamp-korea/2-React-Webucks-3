@@ -18,12 +18,12 @@ export default class Login extends Component {
     this.state = {
       email: '',
       pwd: '',
-      checkValidation: false,
       pwdView: false,
     };
   }
 
   btnRef = React.createRef();
+  checkValidation = false;
 
   handleInput = e => {
     const { name, value } = e.target;
@@ -40,28 +40,25 @@ export default class Login extends Component {
     const isPwd = this.state.pwd;
 
     if (CheckEmail(isEmail) && CheckPassword(isPwd)) {
-      this.setState({
-        checkValidation: true,
-      });
-      this.btnRef.current.style.opacity = 1;
+      this.checkValidation = true;
+      this.btnRef.current.className = 'loginBtn active';
+      this.btnRef.current.disabled = false;
     } else {
-      this.setState({
-        checkValidation: false,
-      });
-      this.btnRef.current.style.opacity = 0.5;
+      this.checkValidation = false;
+      this.btnRef.current.className = 'loginBtn';
+      this.btnRef.current.disabled = true;
     }
+    console.log(this.checkValidation);
   };
 
   viewPwdBtn = () => {
-    if (this.state.pwdView) {
-      this.setState({
-        pwdView: false,
-      });
-    } else {
-      this.setState({
-        pwdView: true,
-      });
-    }
+    this.state.pwdView
+      ? this.setState({
+          pwdView: false,
+        })
+      : this.setState({
+          pwdView: true,
+        });
   };
 
   render() {
@@ -111,10 +108,10 @@ export default class Login extends Component {
                 </div>
                 <Link to="/list-wongu">
                   <button
-                    id="loginBtn"
+                    className="loginBtn"
                     type="button"
                     ref={this.btnRef}
-                    disabled={this.state.checkValidation ? false : true}
+                    disabled={this.checkValidation ? false : true}
                   >
                     로그인
                   </button>

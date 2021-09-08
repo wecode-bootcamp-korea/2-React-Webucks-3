@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import './TypeOfCoffeeTitle.scss';
 
-class TypeOfCoffeeInner extends Component {
+class TypeOfCoffeeTitle extends Component {
   render() {
     return (
       <div className="coffeeTitleWrap" key={this.props.id}>
@@ -18,4 +19,4 @@ class TypeOfCoffeeInner extends Component {
   }
 }
 
-export default TypeOfCoffeeInner;
+export default TypeOfCoffeeTitle;

@@ -4,7 +4,7 @@ import './Footer.scss';
 class Footer extends Component {
   render() {
     return (
-      <footer className="detailFooter">
+      <footer className="footerContainer">
         <ul className="categoryWrap">
           <li>
             <a href="#none" className="categoryHead">

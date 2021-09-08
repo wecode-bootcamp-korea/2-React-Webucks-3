@@ -1,0 +1,38 @@
+.coffeeDetailWrap {
+  display: flex;
+  flex-direction: column;
+
+  .coffeeImgWrap {
+    width: 12rem;
+    height: 12rem;
+    margin: 0.6rem 0.6rem 0.3rem 0.6rem;
+    overflow: hidden;
+
+    .coffeeImg {
+      width: 100%;
+      height: 100%;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .coffeeNameWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .coffeeName {
+      margin: 0.5rem 0.1rem 0.5rem 0;
+      text-align: center;
+      color: black;
+      font-weight: 600;
+    }
+
+    .heartBtn {
+      position: relative;
+      top: -0.15rem;
+    }
+  }
+}

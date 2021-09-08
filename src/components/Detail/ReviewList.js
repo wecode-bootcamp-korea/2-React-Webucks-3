@@ -67,7 +67,7 @@ class Review extends Component {
 
   render() {
     return (
-      <>
+      <div className="reviewContainer">
         {this.state.commentList.map(props => {
           return (
             <div className="reviewBox" key={props.id}>
@@ -106,7 +106,7 @@ class Review extends Component {
             입력
           </button>
         </div>
-      </>
+      </div>
     );
   }
 }

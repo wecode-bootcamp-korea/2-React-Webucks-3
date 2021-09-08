@@ -8,13 +8,13 @@ class HeartBtn extends Component {
   constructor() {
     super();
     this.state = {
-      heart: false,
+      isHeart: false,
     };
   }
 
   handleHeartBtn = () => {
     this.setState({
-      heart: !this.state.heart,
+      isHeart: !this.state.isHeart,
     });
   };
 
@@ -22,9 +22,9 @@ class HeartBtn extends Component {
     return (
       <>
         <FontAwesomeIcon
-          className={this.state.heart ? 'heartBtn active' : 'heartBtn'}
+          className={this.state.isHeart ? 'heartBtn active' : 'heartBtn'}
           onClick={this.handleHeartBtn}
-          icon={this.state.heart ? fasFaHeart : farFaHeart}
+          icon={this.state.isHeart ? fasFaHeart : farFaHeart}
         />
       </>
     );

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import HeartBtn from '../Shared/HeartBtn';
+import './TypeOfCoffeeList.scss';
 
 class CoffeeList extends Component {
   render() {
