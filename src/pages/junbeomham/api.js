@@ -1,15 +1,22 @@
-const jsonUrl = {
-  list: { coffeeCards: 'http://localhost:3000/data/coffeeCardMockData.json' },
-  footer: { footerData: 'http://localhost:3000/data/footerListMockData.json' },
-  detail: {
-    products: 'http://localhost:3000/data/detailMockData.json',
-    reviews: 'http://localhost:3000/data/reviewListMockData.json',
-    menus: 'http://localhost:3000/data/menuListMockData.json',
-  },
+const getProductsAndSetstate = async component => {
+  const url = 'http://localhost:3000/data/detailMockData.json';
+  fetch(url)
+    .then(res => res.json())
+    .then(data => component.setState({ product: data.data[0] }));
 };
 
-const getUrls = key => {
-  return jsonUrl[key];
+const getReviewsAndSetstate = async component => {
+  const url = 'http://localhost:3000/data/reviewListMockData.json';
+  return fetch(url)
+    .then(res => res.json())
+    .then(data => component.setState({ reviewList: data.reviews }));
 };
 
-export default getUrls;
+const getMenusAndSetstate = async component => {
+  const url = 'http://localhost:3000/data/menuListMockData.json';
+  return fetch(url)
+    .then(res => res.json())
+    .then(data => component.setState({ menuList: data.menus }));
+};
+
+export { getProductsAndSetstate, getReviewsAndSetstate, getMenusAndSetstate };

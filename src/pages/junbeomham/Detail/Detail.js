@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
-//import { getUrls } from '../api';
+import {
+  getProductsAndSetstate,
+  getReviewsAndSetstate,
+  getMenusAndSetstate,
+} from '../api';
 
 import TopMenuNav from './TopMenuNav';
 import LikeBtn from '../../../components/LikeBtn/LikeBtn';
@@ -91,30 +95,10 @@ class Detail extends Component {
 
   componentDidMount() {
     Promise.all([
-      fetch('http://localhost:3000/data/detailMockData.json'),
-      fetch('http://localhost:3000/data/reviewListMockData.json'),
-      fetch('http://localhost:3000/data/menuListMockData.json'),
-    ])
-      .then(([res1, res2, res3]) =>
-        Promise.all([res1.json(), res2.json(), res3.json()])
-      )
-      .then(([data1, data2, data3]) => {
-        this.setState({
-          product: data1.data[0],
-          reviewList: data2.reviews,
-          menuList: data3.menus,
-        });
-      });
-    //////////////////////////////////////////////////////////////
-    // const detailUrls = getUrls('detail');
-    // const jsonKeys = detailUrls.keys();
-    // Promise.all(
-    //   detailUrls.values().map(url =>
-    //     fetch(url)
-    //       .then(res => res.json())
-    //       .then(data => {})
-    //   )
-    // );
+      getProductsAndSetstate(this),
+      getReviewsAndSetstate(this),
+      getMenusAndSetstate(this),
+    ]);
   }
 
   render() {
@@ -127,7 +111,7 @@ class Detail extends Component {
       isReviewLiked,
     } = this;
     const { product, menuList, reviewInputVal } = this.state;
-
+    console.log(this.state);
     let currentMenu;
     for (let menu of menuList) {
       if (menu.name === product.name) {
