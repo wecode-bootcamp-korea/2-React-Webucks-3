@@ -111,7 +111,7 @@ class Detail extends Component {
       isReviewLiked,
     } = this;
     const { product, menuList, reviewInputVal } = this.state;
-    console.log(this.state);
+
     let currentMenu;
     for (let menu of menuList) {
       if (menu.name === product.name) {
