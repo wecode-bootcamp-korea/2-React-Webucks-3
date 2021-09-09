@@ -103,27 +103,33 @@
     }
 
     .product-info-content {
-      @extend %flex-between;
+      @extend %flex-center;
+      margin: 10px;
+      padding: 10px;
 
-      ul {
-        width: 45%;
-        margin: 10px;
-        padding: 10px;
-        font-size: 14px;
-      }
+      table {
+        width: 100%;
 
-      li {
-        padding-bottom: 15px;
-        list-style: none;
-      }
+        tr {
+          height: 30px;
+        }
 
-      dl {
-        @extend %flex-between;
-      }
+        td {
+          width: 25%;
+        }
 
-      .dotted-border {
-        margin: 20px auto;
-        border-right: 1px dashed $division-color;
+        .align-right {
+          text-align: right;
+        }
+
+        .padding-right {
+          padding-right: 10px;
+        }
+
+        .dashed-border {
+          padding-left: 10px;
+          border-left: 1px dashed $division-color;
+        }
       }
     }
 

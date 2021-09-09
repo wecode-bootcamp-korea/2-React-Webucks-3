@@ -6,13 +6,19 @@ import './Review.scss';
 
 class Review extends Component {
   render() {
-    const { userId, text, handleDelReviewBtn } = this.props;
+    const { userId, text, isLiked, handleDelReviewBtn, isReviewLiked } =
+      this.props;
     return (
       <li>
         <dl>
           <dt>{userId}</dt>
           <dd>{text}</dd>
-          <LikeBtn />
+          <LikeBtn
+            whoseBtn="review"
+            userId={userId}
+            handler={isReviewLiked}
+            isLiked={isLiked}
+          />
           <button
             className="del-btn"
             onClick={() => handleDelReviewBtn(userId)}

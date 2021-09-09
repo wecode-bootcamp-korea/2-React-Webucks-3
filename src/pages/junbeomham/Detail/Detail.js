@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-import TopNav from '../../../components/TopNav/TopNav';
+//import { getUrls } from '../api';
+
 import TopMenuNav from './TopMenuNav';
 import LikeBtn from '../../../components/LikeBtn/LikeBtn';
 import Review from './Review';
-import Footer from '../../../components/Footer/Footer';
 
 import './Detail.scss';
 
@@ -26,13 +26,12 @@ class Detail extends Component {
     const { value } = event.target;
     const { reviewList } = this.state;
 
-    this.setState({ reviewInputVal: value });
-
     if (key === 'Enter' && value !== '') {
       let newReview = {
         userId: 'test' + this.testIdNum,
         text: value,
         isDeleted: false,
+        isLiked: false,
       };
       const newReviewList = reviewList;
       newReviewList.push(newReview);
@@ -48,8 +47,6 @@ class Detail extends Component {
   getReviewInputVal = event => {
     const { value } = event.target;
     this.setState({ reviewInputVal: value });
-    const { reviewInputVal } = this.state;
-    return reviewInputVal;
   };
 
   handleDelReviewBtn = userId => {
@@ -58,6 +55,35 @@ class Detail extends Component {
     for (let review of updatedReviewList) {
       if (userId === review.userId) {
         review.isDeleted = true;
+      }
+    }
+    this.setState({ reviewList: updatedReviewList });
+  };
+
+  getNotDeletedReviews = () => {
+    const { reviewList } = this.state;
+    const notDelReviewList = [];
+    for (let review of reviewList) {
+      if (!review.isDeleted) {
+        notDelReviewList.push(review);
+      }
+    }
+    return notDelReviewList;
+  };
+
+  isProductLiked = isLiked => {
+    const { product } = this.state;
+    const updatedProduct = { ...product };
+    updatedProduct.isLiked = isLiked;
+    this.setState({ product: updatedProduct });
+  };
+
+  isReviewLiked = (userId, isLiked) => {
+    const { reviewList } = this.state;
+    const updatedReviewList = [...reviewList];
+    for (let review of updatedReviewList) {
+      if (userId === review.userId) {
+        review.isLiked = isLiked;
       }
     }
     this.setState({ reviewList: updatedReviewList });
@@ -79,11 +105,28 @@ class Detail extends Component {
           menuList: data3.menus,
         });
       });
+    //////////////////////////////////////////////////////////////
+    // const detailUrls = getUrls('detail');
+    // const jsonKeys = detailUrls.keys();
+    // Promise.all(
+    //   detailUrls.values().map(url =>
+    //     fetch(url)
+    //       .then(res => res.json())
+    //       .then(data => {})
+    //   )
+    // );
   }
 
   render() {
-    const { handleReviewInput, getReviewInputVal, handleDelReviewBtn } = this;
-    const { product, reviewList, menuList, reviewInputVal } = this.state;
+    const {
+      handleReviewInput,
+      getReviewInputVal,
+      handleDelReviewBtn,
+      getNotDeletedReviews,
+      isProductLiked,
+      isReviewLiked,
+    } = this;
+    const { product, menuList, reviewInputVal } = this.state;
 
     let currentMenu;
     for (let menu of menuList) {
@@ -94,7 +137,7 @@ class Detail extends Component {
 
     return (
       <div className="Detail">
-        <TopNav />
+        {/* <TopNav /> */}
         <section className="detail-section">
           <article>
             <div className="detail-category">
@@ -114,7 +157,11 @@ class Detail extends Component {
                     <br />
                     <span className="product-name-en">{product.engName}</span>
                   </h3>
-                  <LikeBtn />
+                  <LikeBtn
+                    whoseBtn="product"
+                    handler={isProductLiked}
+                    isLiked={product.isLiked}
+                  />
                   <p className="product-description">{product.summary}</p>
                 </div>
                 <div className="product-info">
@@ -123,47 +170,34 @@ class Detail extends Component {
                     <p className="info-head-text">{product.servingSize}</p>
                   </div>
                   <div className="product-info-content">
-                    <ul>
-                      <li>
-                        <dl>
-                          <dt>1회 제공량 (kcal)</dt>
-                          <dd>{product.kcal}</dd>
-                        </dl>
-                      </li>
-                      <li>
-                        <dl>
-                          <dt>포화지방 (g)</dt>
-                          <dd>{product.fat}</dd>
-                        </dl>
-                      </li>
-                      <li>
-                        <dl>
-                          <dt>단백질 (g)</dt>
-                          <dd>{product.protein}</dd>
-                        </dl>
-                      </li>
-                    </ul>
-                    <div className="dotted-border"></div>
-                    <ul className="second-info">
-                      <li>
-                        <dl>
-                          <dt>나트륨 (mg)</dt>
-                          <dd>{product.natrium}</dd>
-                        </dl>
-                      </li>
-                      <li>
-                        <dl>
-                          <dt>당류 (g)</dt>
-                          <dd>{product.sugars}</dd>
-                        </dl>
-                      </li>
-                      <li>
-                        <dl>
-                          <dt>카페인 (mg)</dt>
-                          <dd>{product.caffeine}</dd>
-                        </dl>
-                      </li>
-                    </ul>
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td>1회 제공량 (kcal)</td>
+                          <td className="align-right padding-right">
+                            {product.kcal}
+                          </td>
+                          <td className="dashed-border">나트륨 (mg)</td>
+                          <td className="align-right">{product.natrium}</td>
+                        </tr>
+                        <tr>
+                          <td>포화지방 (g)</td>
+                          <td className="align-right padding-right">
+                            {product.fat}
+                          </td>
+                          <td className="dashed-border">당류 (g)</td>
+                          <td className="align-right">{product.sugars}</td>
+                        </tr>
+                        <tr>
+                          <td>단백질 (g)</td>
+                          <td className="align-right padding-right">
+                            {product.protein}
+                          </td>
+                          <td className="dashed-border">카페인 (mg)</td>
+                          <td className="align-right">{product.caffeine}</td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                   <div className="allergens-wrap">
                     <p>알레르기 유발 요인 : {product.allergen}</p>
@@ -172,18 +206,15 @@ class Detail extends Component {
                 <div className="detail-review">
                   <h2 className="category-title review-title">리뷰</h2>
                   <ul className="review-list">
-                    {reviewList.map(review => {
-                      if (!review.isDeleted) {
-                        return (
-                          <Review
-                            key={review.userId}
-                            {...review}
-                            handleDelReviewBtn={handleDelReviewBtn}
-                          />
-                        );
-                      } else {
-                        return null;
-                      }
+                    {getNotDeletedReviews().map(review => {
+                      return (
+                        <Review
+                          key={review.userId}
+                          {...review}
+                          isReviewLiked={isReviewLiked}
+                          handleDelReviewBtn={handleDelReviewBtn}
+                        />
+                      );
                     })}
                   </ul>
                   <div className="review-input-wrap">
@@ -201,7 +232,7 @@ class Detail extends Component {
             </div>
           </article>
         </section>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }

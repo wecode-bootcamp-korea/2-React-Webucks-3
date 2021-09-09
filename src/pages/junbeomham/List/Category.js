@@ -6,7 +6,7 @@ import './Category.scss';
 
 class Category extends Component {
   render() {
-    const { title, coffees } = this.props;
+    const { title, coffees, isCoffeeCardLiked } = this.props;
     return (
       <article>
         <section className="title-wrap">
@@ -27,6 +27,9 @@ class Category extends Component {
                   key={cardData.id}
                   name={cardData.name}
                   imgUrl={cardData.imgUrl}
+                  isLiked={cardData.isLiked}
+                  categoryTitle={title}
+                  isCoffeeCardLiked={isCoffeeCardLiked}
                 />
               );
             })}

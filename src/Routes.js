@@ -27,6 +27,8 @@ import detailJihoon from './pages/jihoonhan/Detail/Detail';
 import loginJunbeom from './pages/junbeomham/Login/Login';
 import listJunbeom from './pages/junbeomham/List/List';
 import detailJunbeom from './pages/junbeomham/Detail/Detail';
+import TopNav from './components/TopNav/TopNav';
+import Footer from './components/Footer/Footer';
 
 function Router() {
   return (
@@ -54,8 +56,12 @@ function Router() {
 
         {/* 준범 */}
         <Route exact path="/login-junbeom" component={loginJunbeom} />
-        <Route exact path="/list-junbeom" component={listJunbeom} />
-        <Route exact path="/detail-junbeom" component={detailJunbeom} />
+        <>
+          <TopNav />
+          <Route exact path="/list-junbeom" component={listJunbeom} />
+          <Route exact path="/detail-junbeom" component={detailJunbeom} />
+          <Footer />
+        </>
       </Switch>
     </>
   );

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
-import TopNav from '../../../components/TopNav/TopNav';
 import Category from './Category';
-import Footer from '../../../components/Footer/Footer';
 
 import './List.scss';
 
@@ -12,7 +10,7 @@ class List extends Component {
     this.state = { categoryList: [] };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     fetch('http://localhost:3000/data/coffeeCardMockData.json')
       .then(res => res.json())
       .then(data => {
@@ -22,11 +20,28 @@ class List extends Component {
       });
   }
 
+  isCoffeeCardLiked = (categoryTitle, coffeeName, isLiked) => {
+    const { categoryList } = this.state;
+    const updatedList = [...categoryList];
+    for (let category of updatedList) {
+      if (categoryTitle === category.title) {
+        for (let coffee of category.coffees) {
+          if (coffeeName === coffee.name) {
+            coffee.isLiked = isLiked;
+          }
+        }
+      }
+    }
+    this.setState({ categoryList: updatedList });
+  };
+
   render() {
     const { categoryList } = this.state;
+    const { isCoffeeCardLiked } = this;
+
     return (
       <div className="List">
-        <TopNav />
+        {/* <TopNav /> */}
         <section className="menu">
           {categoryList.map(category => {
             return (
@@ -34,11 +49,12 @@ class List extends Component {
                 key={category.id}
                 title={category.title}
                 coffees={category.coffees}
+                isCoffeeCardLiked={isCoffeeCardLiked}
               />
             );
           })}
         </section>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }

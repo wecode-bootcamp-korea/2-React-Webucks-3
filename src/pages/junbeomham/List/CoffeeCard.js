@@ -7,7 +7,8 @@ import './CoffeeCard.scss';
 
 class CoffeeCard extends Component {
   render() {
-    const { name, imgUrl } = this.props;
+    const { name, imgUrl, isLiked, categoryTitle, isCoffeeCardLiked } =
+      this.props;
     return (
       <div className="CoffeeCard">
         <dt className="img-wrap">
@@ -19,7 +20,13 @@ class CoffeeCard extends Component {
         </dt>
         <dd>
           {name}
-          <LikeBtn />
+          <LikeBtn
+            whoseBtn="coffeeCard"
+            categoryTitle={categoryTitle}
+            coffeeName={name}
+            isLiked={isLiked}
+            handler={isCoffeeCardLiked}
+          />
         </dd>
       </div>
     );

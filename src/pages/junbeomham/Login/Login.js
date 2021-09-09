@@ -74,7 +74,7 @@ class Login extends Component {
                   className={isBtnPwClicked ? 'pw-btn hide' : 'pw-btn'}
                   onClick={handleClickBtnPw}
                 >
-                  show
+                  {isBtnPwClicked ? 'hide' : 'show'}
                 </button>
               </div>
               <div className="button-wrap">

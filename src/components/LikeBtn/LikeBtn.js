@@ -8,12 +8,28 @@ import './LikeBtn.scss';
 class LikeBtn extends Component {
   constructor(props) {
     super(props);
-    this.state = { isLikeBtnClicked: false };
+    const { isLiked } = this.props;
+    this.state = { isLikeBtnClicked: isLiked };
   }
 
   handleLikeBtnColor = () => {
     const { isLikeBtnClicked } = this.state;
+    const { whoseBtn, handler, userId, categoryTitle, coffeeName } = this.props;
     this.setState({ isLikeBtnClicked: !isLikeBtnClicked });
+
+    switch (whoseBtn) {
+      case 'product':
+        handler(!isLikeBtnClicked);
+        break;
+      case 'review':
+        handler(userId, !isLikeBtnClicked);
+        break;
+      case 'coffeeCard':
+        handler(categoryTitle, coffeeName, !isLikeBtnClicked);
+        break;
+      default:
+        break;
+    }
   };
 
   render() {
