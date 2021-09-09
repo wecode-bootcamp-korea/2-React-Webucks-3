@@ -13,14 +13,9 @@ class Detail extends Component {
   constructor() {
     super();
     this.state = {
-      details: {},
-      isLiked: false,
+      details: [],
     };
   }
-
-  likeButtonClicked = () => {
-    this.setState({ isLiked: !this.state.isLiked });
-  };
 
   componentDidMount() {
     const { id } = this.props.match.params;
@@ -33,8 +28,17 @@ class Detail extends Component {
       });
   }
 
+  likeButtonClicked = id => {
+    this.setState({
+      details: {
+        ...this.state.details,
+        isLiked: !this.state.details.isLiked,
+      },
+    });
+  };
+
   render() {
-    const { details, isLiked } = this.state;
+    const { details } = this.state;
     return (
       <div className="DetailPage">
         <TopNav />
@@ -63,8 +67,8 @@ class Detail extends Component {
                   <div className="detailLikeButton">
                     <i onClick={this.likeButtonClicked} className="LikeButton">
                       <FontAwesomeIcon
-                        icon={isLiked ? heartActive : heartInactive}
-                        className={isLiked ? 'fillHeart' : ''}
+                        icon={details.isLiked ? heartActive : heartInactive}
+                        className={details.isLiked ? 'fillHeart' : ''}
                       />
                     </i>
                   </div>

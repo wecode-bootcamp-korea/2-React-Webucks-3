@@ -13,7 +13,8 @@
 			"natrium": "140",
 			"sugars": "53",
 			"caffeine": "210",
-			"allergen": "대두 / 우유"
+			"allergen": "대두 / 우유",
+			"isLiked": false
 		},
 		{
 			"id": 102,
@@ -29,7 +30,8 @@
 			"natrium": "20",
 			"sugars": "10",
 			"caffeine": "245",
-			"allergen": "우유"
+			"allergen": "우유",
+			"isLiked": false
 		},
 		{
 			"id": 103,
@@ -45,7 +47,8 @@
 			"natrium": "5",
 			"sugars": "0",
 			"caffeine": "245",
-			"allergen": false
+			"allergen": false,
+			"isLiked": false
 		},
 		{
 			"id": 104,
@@ -61,7 +64,8 @@
 			"natrium": "115",
 			"sugars": "29",
 			"caffeine": "150",
-			"allergen": "우유"
+			"allergen": "우유",
+			"isLiked": false
 		},
 		{
 			"id": 105,
@@ -77,7 +81,8 @@
 			"natrium": "58",
 			"sugars": "11",
 			"caffeine": "150",
-			"allergen": "우유"
+			"allergen": "우유",
+			"isLiked": false
 		},
 		{
 			"id": 106,
@@ -93,7 +98,8 @@
 			"natrium": "15",
 			"sugars": "17",
 			"caffeine": "160",
-			"allergen": false
+			"allergen": false,
+			"isLiked": false
 		},
 		{
 			"id": 107,
@@ -109,7 +115,8 @@
 			"natrium": "115",
 			"sugars": "44",
 			"caffeine": "105",
-			"allergen": false
+			"allergen": false,
+			"isLiked": false
 		},
 		{
 			"id": 108,
@@ -125,7 +132,8 @@
 			"natrium": "11",
 			"sugars": "0",
 			"caffeine": "150",
-			"allergen": false
+			"allergen": false,
+			"isLiked": false
 		},
 		{
 			"id": 109,
@@ -141,7 +149,8 @@
 			"natrium": "147.8",
 			"sugars": "40",
 			"caffeine": "150",
-			"allergen": "대두 / 우유"
+			"allergen": "대두 / 우유",
+			"isLiked": false
 		},
 		{
 			"id": 110,
@@ -157,7 +166,8 @@
 			"natrium": "95",
 			"sugars": "11",
 			"caffeine": "65",
-			"allergen": false
+			"allergen": false,
+			"isLiked": false
 		},
 		{
 			"id": 111,
@@ -173,7 +183,8 @@
 			"natrium": "69",
 			"sugars": "18",
 			"caffeine": "150",
-			"allergen": "우유"
+			"allergen": "우유",
+			"isLiked": false
 		},
 		{
 			"id": 112,
@@ -189,7 +200,8 @@
 			"natrium": "0",
 			"sugars": "19",
 			"caffeine": "145",
-			"allergen": false
+			"allergen": false,
+			"isLiked": false
 		},
 		{
 			"id": 201,
@@ -205,7 +217,8 @@
 			"natrium": "10",
 			"sugars": "0",
 			"caffeine": "140",
-			"allergen": false
+			"allergen": false,
+			"isLiked": false
 		},
 		{
 			"id": 202,
@@ -221,7 +234,8 @@
 			"natrium": "10",
 			"sugars": "0",
 			"caffeine": "260",
-			"allergen": false
+			"allergen": false,
+			"isLiked": false
 		}
 	]
 }

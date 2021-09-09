@@ -24,7 +24,18 @@ class List extends Component {
       });
   }
 
+  likeButtonClicked = (coffeeCategory, id) => {
+    const likedCoffee = coffeeCategory.map(coffee => {
+      if (coffee.id === id) {
+        coffee.isLiked = !coffee.isLiked;
+      }
+      return coffee;
+    });
+    this.setState({ comments: likedCoffee });
+  };
+
   render() {
+    console.log(this.state);
     const { coldbrew, brewedCoffee } = this.state;
     return (
       <div className="ListPage">
@@ -40,6 +51,10 @@ class List extends Component {
                     id={data.id}
                     title={data.title}
                     img={data.img}
+                    isLiked={data.isLiked}
+                    likeButtonClicked={() =>
+                      this.likeButtonClicked(coldbrew, data.id)
+                    }
                   />
                 );
               })}
@@ -55,6 +70,10 @@ class List extends Component {
                     id={data.id}
                     title={data.title}
                     img={data.img}
+                    isLiked={data.isLiked}
+                    likeButtonClicked={() =>
+                      this.likeButtonClicked(brewedCoffee, data.id)
+                    }
                   />
                 );
               })}

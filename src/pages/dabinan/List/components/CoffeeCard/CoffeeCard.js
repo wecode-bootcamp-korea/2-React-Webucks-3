@@ -6,24 +6,11 @@ import { faHeart as heartActive } from '@fortawesome/free-solid-svg-icons';
 import './CoffeeCard.scss';
 
 class CoffeeCard extends Component {
-  constructor() {
-    super();
-    this.state = {
-      coldbrew: [],
-      brewedCoffee: [],
-      isLiked: false,
-    };
-  }
-  likeButtonClicked = () => {
-    this.setState({ isLiked: !this.state.isLiked });
-  };
-
   moveToDetailPage = () => {
     this.props.history.push(`/list-dabin/detail-dabin/${this.props.id}`);
   };
 
   render() {
-    const { isLiked } = this.state;
     return (
       <>
         <div className="CoffeeCard">
@@ -35,10 +22,10 @@ class CoffeeCard extends Component {
               onClick={this.moveToDetailPage}
             />
             <label className="listLikeButton">
-              <i onClick={this.likeButtonClicked} className="LikeButton">
+              <i onClick={this.props.likeButtonClicked} className="LikeButton">
                 <FontAwesomeIcon
-                  icon={isLiked ? heartActive : heartInactive}
-                  className={isLiked ? 'fillHeart' : ''}
+                  icon={this.props.isLiked ? heartActive : heartInactive}
+                  className={this.props.isLiked ? 'fillHeart' : ''}
                 />
               </i>
             </label>
