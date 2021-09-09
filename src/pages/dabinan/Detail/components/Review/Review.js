@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as heartInactive } from '@fortawesome/free-regular-svg-icons';
+import { faHeart as heartActive } from '@fortawesome/free-solid-svg-icons';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
-import LikeButton from '../../../components/LikeButton/LikeButton';
 import './Review.scss';
 
 class Review extends Component {
@@ -10,11 +11,26 @@ class Review extends Component {
     this.maxId = 3;
     this.state = {
       userValue: '',
-      textValue: '',
+      commentValue: '',
       comments: [
-        { id: 1, userName: 'jeju', comment: '비자림이 그저 forest?' },
-        { id: 2, userName: 'dabin', comment: '흑임자 쑥 프라푸치노 드세요' },
-        { id: 3, userName: 'darling', comment: '멍멍멍멍 왈왈왈왈' },
+        {
+          id: 1,
+          userName: 'jeju',
+          comment: '비자림이 그저 forest?',
+          isLiked: false,
+        },
+        {
+          id: 2,
+          userName: 'dabin',
+          comment: '흑임자 쑥 프라푸치노 드세요',
+          isLiked: false,
+        },
+        {
+          id: 3,
+          userName: 'darling',
+          comment: '멍멍멍멍 왈왈왈왈',
+          isLiked: false,
+        },
       ],
     };
   }
@@ -27,19 +43,22 @@ class Review extends Component {
   };
 
   addReview = e => {
-    const { userValue, textValue } = this.state;
+    const { userValue, commentValue } = this.state;
     let newComments = this.state.comments;
-    this.maxId = this.maxId + 1;
-    if (userValue !== '' && textValue !== '') {
-      newComments = newComments.concat({
-        id: this.maxId,
-        userName: this.state.userValue,
-        comment: this.state.textValue,
-      });
+    this.maxId++;
+    if (userValue !== '' && commentValue !== '') {
+      newComments = newComments.concat([
+        {
+          id: this.maxId,
+          userName: this.state.userValue,
+          comment: this.state.commentValue,
+          isLiked: false,
+        },
+      ]);
       this.setState({
         comments: newComments,
         userValue: '',
-        textValue: '',
+        commentValue: '',
       });
     } else {
       alert('이름과 댓글 모두 입력해주세요 ♡◟(●•ᴗ•●)◞♡');
@@ -63,6 +82,17 @@ class Review extends Component {
     }
   };
 
+  likeButtonClicked = id => {
+    const { comments } = this.state;
+    const likedComments = comments.map(comment => {
+      if (comment.id === id) {
+        comment.isLiked = !comment.isLiked;
+      }
+      return comment;
+    });
+    this.setState({ comments: likedComments });
+  };
+
   render() {
     return (
       <>
@@ -75,7 +105,15 @@ class Review extends Component {
                   <li className="addedReview" key={id}>
                     <p className="addedName">{review.userName}</p>
                     <p className="addedComment">{review.comment}</p>
-                    <LikeButton className="commentLikeButton" />
+                    <i
+                      onClick={() => this.likeButtonClicked(review.id)}
+                      className="LikeButton commentLikeButton"
+                    >
+                      <FontAwesomeIcon
+                        icon={review.isLiked ? heartActive : heartInactive}
+                        className={review.isLiked ? 'fillHeart' : ''}
+                      />
+                    </i>
                     <i onClick={() => this.removeReview(review.id)}>
                       <FontAwesomeIcon icon={faTrashAlt} key={review.id} />
                     </i>
@@ -97,9 +135,9 @@ class Review extends Component {
             />
             <input
               className="reviewText"
-              name="textValue"
+              name="commentValue"
               type="text"
-              value={this.state.textValue}
+              value={this.state.commentValue}
               placeholder="리뷰를 입력해주세요"
               required
               onChange={this.getValue}

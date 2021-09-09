@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as heartInactive } from '@fortawesome/free-regular-svg-icons';
+import { faHeart as heartActive } from '@fortawesome/free-solid-svg-icons';
 import TopNav from '../components/TopNav/TopNav';
 import NavBar from './components/NavBar/NavBar';
-import LikeButton from '../components/LikeButton/LikeButton';
 import NutritionInfo from './components/NutritionInfo/NutritionInfo';
 import Review from './components/Review/Review';
 import Footer from '../components/Footer/Footer';
@@ -12,24 +14,27 @@ class Detail extends Component {
     super();
     this.state = {
       details: {},
+      isLiked: false,
     };
   }
 
+  likeButtonClicked = () => {
+    this.setState({ isLiked: !this.state.isLiked });
+  };
+
   componentDidMount() {
-    const id = this.props.match.params.id * 1;
-    fetch('http://localhost:3000/data/detailMockData.json', {
-      method: 'GET',
-    })
+    const { id } = this.props.match.params;
+    fetch('http://localhost:3000/data/detailMockData.json')
       .then(res => res.json())
       .then(data => {
         this.setState({
-          details: data.data.filter(detail => detail.id === id)[0],
+          details: data.data.filter(detail => detail.id === +id)[0],
         });
       });
   }
 
   render() {
-    const { details } = this.state;
+    const { details, isLiked } = this.state;
     return (
       <div className="DetailPage">
         <TopNav />
@@ -56,23 +61,19 @@ class Detail extends Component {
                     <span>{details.engName}</span>
                   </h2>
                   <div className="detailLikeButton">
-                    <LikeButton />
+                    <i onClick={this.likeButtonClicked} className="LikeButton">
+                      <FontAwesomeIcon
+                        icon={isLiked ? heartActive : heartInactive}
+                        className={isLiked ? 'fillHeart' : ''}
+                      />
+                    </i>
                   </div>
                 </div>
                 <p className="detailDescription">{details.summary}</p>
                 <div className="detailImg2">
                   <img alt={details.name} src={details.imgUrl} />
                 </div>
-                <NutritionInfo
-                  servingSize={details.servingSize}
-                  kcal={details.kcal}
-                  fat={details.fat}
-                  protein={details.protein}
-                  natrium={details.natrium}
-                  sugars={details.sugars}
-                  caffeine={details.caffeine}
-                  allergen={details.allergen}
-                />
+                <NutritionInfo {...details} />
                 <Review />
               </div>
             </section>

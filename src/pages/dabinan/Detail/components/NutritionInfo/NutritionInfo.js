@@ -4,7 +4,7 @@ import './NutritionInfo.scss';
 class NutritionInfo extends Component {
   render() {
     return (
-      <div className="nutrition">
+      <div className="NutritionInfo">
         <h5 className="sizeForNutrition">
           <p className="productNutritionInfo">제품 영양 정보</p>
           <p className="nutritionInfoDetails">{this.props.servingSize}</p>

@@ -1,31 +1,36 @@
 .Review {
   margin-top: 35px;
   margin-bottom: 130px;
-	.reviewTitle {
+
+  .reviewTitle {
     margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 1px solid #dddddd;
     font-size: 20px;
-	}
-	
+  }
+  
   .commentsBox {
     .addedReview {
       display: flex;
+
       p {
-				margin-top: 3px;
-				margin-bottom: 3px;
-				padding: 12px 8px;
-				border-style: none;
-				border-radius: 3px;
-				outline: none;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        padding: 12px 8px;
+        border-style: none;
+        border-radius: 3px;
+        outline: none;
       }
-			.addedName {
-				width: 25%;
-				font-weight: bold;
-			}
-			.addedComment {
-				width: 75%;
-			}
+
+      .addedName {
+        width: 25%;
+        font-weight: bold;
+      }
+
+      .addedComment {
+        width: 75%;
+      }
+
       i {
         width: 7%;
         margin-left: 5px;
@@ -36,34 +41,35 @@
       }
     }
   }
-	.pushBox {
+  .pushBox {
     display: flex;
-		input {
-			margin-top: 10px;
-    	padding: 12px 8px;
-    	background-color: #efefef;
-    	border-style: none;
-    	border-radius: 3px;
-    	outline: none;
-		}
+    
+    input {
+      margin-top: 10px;
+      padding: 12px 8px;
+      background-color: #efefef;
+      border-style: none;
+      border-radius: 3px;
+      outline: none;
+    }
 
-		.userNameInput {
-    	width: 20%;
-		}
+    .userNameInput {
+      width: 20%;
+    }
 
-		.reviewText {
-    	width: 65%;
-			margin-left: 5px;
-		}
+    .reviewText {
+      width: 65%;
+      margin-left: 5px;
+    }
 
-		.push {
-    	width: 15%;
-    	margin-top: 10px;
-    	margin-left: 5px;
-    	border-style: none;
-    	border-radius: 3px;
-    	background-color: rgba(170, 170, 170, 0.315);
-    	cursor: pointer;
-		}
-	}
+    .push {
+      width: 15%;
+      margin-top: 10px;
+      margin-left: 5px;
+      border-style: none;
+      border-radius: 3px;
+      background-color: rgba(170, 170, 170, 0.315);
+      cursor: pointer;
+    }
+  }
 }

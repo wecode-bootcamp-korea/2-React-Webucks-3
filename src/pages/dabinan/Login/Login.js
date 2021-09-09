@@ -11,8 +11,7 @@ class Login extends Component {
     this.state = {
       idValue: '',
       pwdValue: '',
-      type: 'password',
-      clicked: false,
+      showPwd: false,
     };
   }
 
@@ -24,7 +23,7 @@ class Login extends Component {
   };
 
   render() {
-    const { idValue, pwdValue, clicked } = this.state;
+    const { idValue, pwdValue, showPwd } = this.state;
     let activateLoginBtn = idValue.includes('@') && pwdValue.length >= 5;
     return (
       <div className="LoginPage">
@@ -38,7 +37,7 @@ class Login extends Component {
               type="text"
               placeholder="전화번호, 사용자 이름 또는 이메일"
               required
-              value={this.idValue}
+              value={idValue}
               onChange={this.handleInput}
             />
             <div className="pwdBox">
@@ -46,21 +45,22 @@ class Login extends Component {
                 className="loginBox"
                 id="pwd"
                 name="pwdValue"
-                type={clicked ? 'text' : 'password'}
+                type={showPwd ? 'text' : 'password'}
                 placeholder="비밀번호"
                 required
-                value={this.pwdValue}
+                value={pwdValue}
                 onChange={this.handleInput}
+                autoComplete="off"
               />
               <i
                 className="eyeIcon"
                 onClick={() => {
                   this.setState({
-                    clicked: !clicked,
+                    showPwd: !showPwd,
                   });
                 }}
               >
-                <FontAwesomeIcon icon={clicked ? faEyeSlash : faEye} />
+                <FontAwesomeIcon icon={showPwd ? faEyeSlash : faEye} />
               </i>
             </div>
             <Link to="/list-dabin" className="linkToList">

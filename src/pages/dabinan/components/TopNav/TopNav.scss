@@ -1,13 +1,12 @@
 @import '../../../../Styles/font.scss';
+@import '../../../../Styles/mixin.scss';
 
 .TopNav {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flexCenterAligned;
   width: 100vw;
   min-width: 440px;
   height: 90px;
