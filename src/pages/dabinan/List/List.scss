@@ -1,0 +1,27 @@
+.ListPage {
+  padding-top: 90px;
+
+	.listMain {
+		width: 80vw;
+		margin: 0 auto;
+		z-index: 1;
+
+		.listContainer {
+			width: 80vw;
+			padding-top: 30px;
+			
+			.coffeeList {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				@media screen and (max-width:1000px) {
+					grid-template-columns: 1fr 1fr 1fr;
+				}
+				@media screen and (max-width:800px) {
+					grid-template-columns: 1fr 1fr;
+					min-width: 440px;
+				}
+			}
+		}
+	}
+}
+

@@ -1,0 +1,38 @@
+.CoffeeCard {
+  margin: 10px;
+  .coffeeImgWithIcon {
+    position: relative;
+    padding-bottom: 100%;
+    overflow: hidden;
+    .coffeeImg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      transition: all 0.7s;
+      transform: scale(1);
+    }
+
+    &:hover .coffeeImg {
+      transform: scale(1.1);
+    }
+
+    .listLikeButton {
+      position:absolute;
+      top: 10px;
+      left: 10px;
+      color: white;
+      background-color: transparent;
+      border-style: none;
+      font-size: 25px;
+      cursor: pointer;
+      z-index: 0;
+    }
+  }
+
+  .listPageCoffeeName {
+    margin-top: 20px;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+}

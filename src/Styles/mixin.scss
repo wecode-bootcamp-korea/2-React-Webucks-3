@@ -1,0 +1,14 @@
+@mixin border {
+  border:2px solid #dddddd;
+  border-radius: 5px;
+}
+
+@mixin cursor {
+  cursor: pointer;
+}
+
+@mixin flexCenterAligned{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

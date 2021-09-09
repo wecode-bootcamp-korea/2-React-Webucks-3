@@ -1,0 +1,84 @@
+@import '../../../Styles/font.scss';
+@import '../../../Styles/mixin.scss';
+
+.LoginPage {
+  height: 100vh;
+  background-color: #eeefef;
+
+  .loginContainer {
+    position: absolute; 
+    top:50%; left: 50%;
+    display: flex; 
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 400px;
+    height: 500px;
+    margin-left: -200px;
+    margin-top: -250px;
+    background-color: white;
+    @include border;
+
+    .loginPageLogo {
+      margin: 60px 0px 30px;
+      @include FontDancingScripts;
+      font-size: 60px;
+    }
+
+    .loginBox {
+      width: 300px;
+      height: 37px;
+      margin-bottom: 15px;
+      padding-left: 10px;
+      color: #b7b7b7;
+      background-color: #f7f7f7;
+      @include border;
+      outline: none;
+    }  
+    
+    .loginForm {
+      display: flex;
+      flex-direction: column;
+
+      .pwdBox {
+        position: relative;
+      }
+
+      .eyeIcon {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        color: rgb(180, 179, 179);
+        @include cursor
+      }
+    }
+
+    .linkToList {
+      text-decoration: none;
+      
+      .loginBtn {
+        padding-left: 2px;
+        color: white;
+        background-color: #add3ea;
+        border-style: none;
+        @include cursor
+      }
+
+      #changedLoginBtnColor {
+        background-color: #41abec;
+      }
+
+      #unchangedLoginBtnColor {
+        background-color: #add3ea;
+      }
+    }
+      
+    .forgetPwd {
+      margin-top: 100px;
+      color: #80a3bb;
+      text-align: center;
+      text-decoration: none;
+    }
+  }
+}
+    

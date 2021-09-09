@@ -1,0 +1,31 @@
+.coffeeCategory {
+  display: flex;
+	align-items: center;
+	min-width: 440px;
+	margin-bottom: 20px;
+	padding: 10px;
+	background-color: #f4f4f2;
+	border-radius: 3px;
+	@media screen and (max-width: 800px) {
+		flex-wrap: wrap;
+	}
+
+	.coffeeCategoryWithDecafImg {
+		display: flex;
+		@media screen and (max-width: 800px) {
+			justify-items: flex-start;;
+		}
+
+		.coffeeCategoryName {
+			padding-top: 16px;
+			padding-bottom: 16px;
+			color: black;
+  		font-size: 20px;
+			text-decoration: none;
+		}
+
+		.decafImg {
+  		width: 60px;
+		}
+	}
+}
