@@ -37,7 +37,7 @@ class Detail extends Component {
         isDeleted: false,
         isLiked: false,
       };
-      const newReviewList = reviewList;
+      const newReviewList = [...reviewList];
       newReviewList.push(newReview);
 
       this.setState({
