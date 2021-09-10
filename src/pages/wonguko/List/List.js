@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import TopNav from '../../../components/Nav/TopNav';
+
 import TypeOfCoffeeTitle from '../../../components/List/TypeOfCoffeeTitle';
 import TypeOfCoffeeList from '../../../components/List/TypeOfCoffeeList';
-import Footer from '../../../components/Shared/Footer';
+
 import './List.scss';
 
 class List extends Component {
@@ -36,7 +36,6 @@ class List extends Component {
 
     return (
       <div className="listContainer">
-        <TopNav />
         <section className="typeOfCoffeeWrap">
           <div className="TypeOfCoffeeTitleWrap">
             <TypeOfCoffeeTitle
@@ -79,7 +78,6 @@ class List extends Component {
             })}
           </div>
         </section>
-        <Footer />
       </div>
     );
   }
