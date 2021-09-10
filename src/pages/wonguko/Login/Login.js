@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 import {
@@ -46,9 +45,41 @@ export default class Login extends Component {
   };
 
   viewPwdBtn = () => {
+    console.log(this.state.email);
+    console.log(this.state.pwd);
     this.setState({
       pwdView: !this.state.pwdView,
     });
+  };
+
+  onClickSignupBtn = () => {
+    fetch('/users/signup', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.pwd,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => console.log(result));
+  };
+
+  onClickLoginBtn = () => {
+    fetch('users/login', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.pwd,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => console.log(result));
   };
 
   render() {
@@ -96,16 +127,24 @@ export default class Login extends Component {
                     onClick={this.viewPwdBtn}
                   />
                 </div>
-                <Link to="/list-wongu">
-                  <button
-                    className="loginBtn"
-                    type="button"
-                    ref={this.btnRef}
-                    disabled={this.checkValidation ? false : true}
-                  >
-                    로그인
-                  </button>
-                </Link>
+                <button
+                  className="loginBtn"
+                  type="button"
+                  ref={this.btnRef}
+                  // disabled={this.checkValidation ? false : true}
+                  onClick={this.onClickSignupBtn}
+                >
+                  회원가입
+                </button>
+                <button
+                  className="loginBtn"
+                  type="button"
+                  ref={this.btnRef}
+                  // disabled={this.checkValidation ? false : true}
+                  onClick={this.onClickLoginBtn}
+                >
+                  로그인
+                </button>
               </fieldset>
             </form>
             <div className="findPwdWrap">
