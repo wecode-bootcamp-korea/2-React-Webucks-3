@@ -6,6 +6,8 @@ import './ReviewList.scss';
 class Review extends Component {
   constructor() {
     super();
+    this.nextId = React.createRef();
+    this.nextId.current = 4;
     this.state = {
       reviewer: '',
       comment: '',
@@ -40,16 +42,14 @@ class Review extends Component {
     });
   };
 
-  nextId = React.createRef();
-
   handleSubmitComment = e => {
-    const { reviewer, comment } = this.state;
-    let newCommentList = this.state.commentList;
+    const { reviewer, comment, commentList } = this.state;
+    let newCommentList = [...commentList];
     if (reviewer === '' || comment === '') {
       alert('리뷰가 제대로 입력되지 않았습니다. 알맞게 입력해주세요.');
     } else {
       newCommentList = newCommentList.concat({
-        id: this.nextId.current + 4,
+        id: this.nextId.current,
         reviewer: this.state.reviewer,
         comment: this.state.comment,
         isLikeReview: false,
@@ -79,7 +79,6 @@ class Review extends Component {
     this.setState({
       commentList: newCommentList,
     });
-    console.log(this.state.commentList);
   };
 
   handleDeleteCommentBtn = id => {
