@@ -1,0 +1,21 @@
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-height: 100%;
+
+  .typeOfCoffeeWrap {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    width: 100vw;
+    top: 4rem;
+    margin-bottom: 2rem;
+
+    .coffeeTable {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}

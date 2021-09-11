@@ -1,0 +1,23 @@
+.reviewBox {
+  .reviewDetailWrap {
+    display: flex;
+    align-items: center;
+    height: 1.3rem;
+
+    .reviewer {
+      font-size: 0.9rem;
+      font-weight: 900;
+      margin-right: 0.6rem;
+    }
+
+    .reviewDetail {
+      font-size: 0.9rem;
+    }
+
+    .iconWrap {
+      display: flex;
+      position: relative;
+      top: -2px;
+    }
+  }
+}
