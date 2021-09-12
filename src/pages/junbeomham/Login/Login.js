@@ -30,12 +30,43 @@ class Login extends Component {
     return userPw.length >= 5;
   };
 
+  handleRegisterUser = () => {
+    const { userId, userPw } = this.state;
+    fetch('/users/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: userId,
+        password: userPw,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  };
+
+  handleLoginUser = () => {
+    const { userId, userPw } = this.state;
+    fetch('/users/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: userId,
+        password: userPw,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => console.log(res));
+  };
+
   render() {
     const {
       handleLoginFormInput,
       handleClickBtnPw,
       isUserIdValid,
       isUserPwValid,
+      handleRegisterUser,
+      handleLoginUser,
     } = this;
     const { userId, userPw, isBtnPwClicked } = this.state;
     const isLoginBtnValid = isUserIdValid(userId) && isUserPwValid(userPw);
@@ -79,10 +110,11 @@ class Login extends Component {
               </div>
               <div className="button-wrap">
                 <button
-                  type="submit"
+                  type="button"
                   id="loginBtn"
                   className={isLoginBtnValid ? 'able' : ''}
                   disabled={!isLoginBtnValid}
+                  onClick={handleRegisterUser}
                 >
                   로그인
                 </button>

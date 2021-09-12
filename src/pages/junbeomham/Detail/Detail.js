@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
-import {
-  getProductsAndSetstate,
-  getReviewsAndSetstate,
-  getMenusAndSetstate,
-} from '../api';
+import { getProducts, getReviews, getMenus } from '../api';
 
 import TopMenuNav from './TopMenuNav';
 import LikeBtn from '../../../components/LikeBtn/LikeBtn';
@@ -93,12 +89,36 @@ class Detail extends Component {
     this.setState({ reviewList: updatedReviewList });
   };
 
-  componentDidMount() {
-    Promise.all([
-      getProductsAndSetstate(this),
-      getReviewsAndSetstate(this),
-      getMenusAndSetstate(this),
-    ]);
+  async componentDidMount() {
+    // console.time('소요시간');
+    // Promise.all([
+    //   fetch('http://localhost:3000/data/detailMockData.json'),
+    //   fetch('http://localhost:3000/data/reviewListMockData.json'),
+    //   fetch('http://localhost:3000/data/menuListMockData.json'),
+    // ])
+    //   .then(([res1, res2, res3]) =>
+    //     Promise.all([res1.json(), res2.json(), res3.json()])
+    //   )
+    //   .then(([data1, data2, data3]) => {
+    //     this.setState({
+    //       product: data1.data[0],
+    //       reviewList: data2.reviews,
+    //       menuList: data3.menus,
+    //     });
+    //   });
+    // console.timeEnd('소요시간');
+    try {
+      const jsonData = await Promise.all([
+        getProducts(),
+        getReviews(),
+        getMenus(),
+      ]);
+      this.setState({ product: jsonData[0].data[0] });
+      this.setState({ reviewList: jsonData[1].reviews });
+      this.setState({ menuList: jsonData[2].menus });
+    } catch (err) {
+      new Error('Failed to set state');
+    }
   }
 
   render() {

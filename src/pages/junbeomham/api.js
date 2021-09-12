@@ -1,22 +1,28 @@
-const getProductsAndSetstate = component => {
+const getProducts = async () => {
   const url = 'http://localhost:3000/data/detailMockData.json';
-  fetch(url)
+  return fetch(url)
     .then(res => res.json())
-    .then(data => component.setState({ product: data.data[0] }));
+    .catch(
+      err => new Error('Failed to fetch JSON data or convert data to json')
+    );
 };
 
-const getReviewsAndSetstate = component => {
+const getReviews = async () => {
   const url = 'http://localhost:3000/data/reviewListMockData.json';
   return fetch(url)
     .then(res => res.json())
-    .then(data => component.setState({ reviewList: data.reviews }));
+    .catch(
+      err => new Error('Failed to fetch JSON data or convert data to json')
+    );
 };
 
-const getMenusAndSetstate = component => {
+const getMenus = async () => {
   const url = 'http://localhost:3000/data/menuListMockData.json';
   return fetch(url)
     .then(res => res.json())
-    .then(data => component.setState({ menuList: data.menus }));
+    .catch(
+      err => new Error('Failed to fetch JSON data or convert data to json')
+    );
 };
 
-export { getProductsAndSetstate, getReviewsAndSetstate, getMenusAndSetstate };
+export { getProducts, getReviews, getMenus };
