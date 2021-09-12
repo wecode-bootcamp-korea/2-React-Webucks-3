@@ -1,0 +1,37 @@
+@import '../../../Styles/variables.scss';
+
+.menu {
+  .title-wrap {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+    padding: 10px;
+    background-color: $theme-color;
+    box-shadow: 10px 10px 20px lightgray;
+
+    .title {
+      min-width: 120px;
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    img {
+      margin: auto 20px;
+    }
+
+    .description {
+      font-size: 15px;
+    }
+  }
+
+  dl {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}

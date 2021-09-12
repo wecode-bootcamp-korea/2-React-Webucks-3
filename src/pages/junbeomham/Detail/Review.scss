@@ -1,0 +1,38 @@
+.detail-review {
+  li {
+    padding-bottom: 12px;
+  }
+
+  dl {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  dt {
+    font-weight: 800;
+    padding-right: 10px;
+  }
+
+  .like-btn-wrap {
+    .like-wrap {
+      margin-left: 5px;
+      font-size: 16px;
+    }
+  }
+
+  .del-btn {
+    position: absolute;
+    top: -2px;
+    right: 0;
+    padding: 2px 4px;
+    opacity: 0;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+
+  dl:hover > .del-btn {
+    opacity: 1;
+  }
+}

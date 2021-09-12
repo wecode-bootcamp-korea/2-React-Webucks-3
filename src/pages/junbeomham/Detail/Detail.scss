@@ -1,0 +1,164 @@
+@import '../../../Styles/variables.scss';
+@import '../../../Styles/font.scss';
+
+.Detail {
+  @extend %flex-column;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 3rem;
+
+  .detail-section {
+    @extend %flex-column;
+    width: 60%;
+    margin-top: 30px;
+
+    .category-title {
+      font-size: 25px;
+      font-weight: 700;
+    }
+  }
+
+  .detail-category {
+    position: relative;
+    height: 80px;
+    margin-bottom: 20px;
+    padding: 10px;
+
+    .category-nav {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 400px;
+    }
+  }
+
+  .detail-content {
+    @extend %flex-between;
+    flex-wrap: wrap;
+  }
+
+  .detail-img-wrap {
+    max-width: 45%;
+    min-width: 300px;
+    padding: 10px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .detail-text-wrap {
+    max-width: 55%;
+    padding: 10px;
+  }
+
+  .detail-text {
+    position: relative;
+
+    .product-name-kr {
+      padding-bottom: 18px;
+      margin-bottom: 20px;
+      color: #222;
+      border-bottom: 2px solid #333;
+      font-size: 25px;
+      font-weight: 400;
+    }
+
+    .product-name-en {
+      color: #666;
+      font-size: 16px;
+    }
+
+    .like-btn-wrap {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      .like-wrap {
+        font-size: 25px;
+      }
+    }
+
+    .product-description {
+      margin-bottom: 20px;
+      font-size: 16px;
+      white-space: pre-wrap;
+    }
+  }
+
+  .product-info {
+    @extend %flex-column;
+
+    .product-info-head {
+      @extend %flex-between;
+      border-top: 1px solid $division-color;
+      border-bottom: 1px solid $division-color;
+
+      .info-head-text {
+        color: #222;
+        font-size: 18px;
+        padding: 10px;
+        margin: 10px;
+      }
+    }
+
+    .product-info-content {
+      @extend %flex-center;
+      margin: 10px;
+      padding: 10px;
+
+      table {
+        width: 100%;
+
+        tr {
+          height: 30px;
+        }
+
+        td {
+          width: 25%;
+        }
+
+        .align-right {
+          text-align: right;
+        }
+
+        .padding-right {
+          padding-right: 10px;
+        }
+
+        .dashed-border {
+          padding-left: 10px;
+          border-left: 1px dashed $division-color;
+        }
+      }
+    }
+
+    .allergens-wrap {
+      margin: 10px;
+      padding: 10px;
+      font-size: 18px;
+      background-color: $division-color;
+    }
+  }
+
+  .detail-review {
+    margin-bottom: 30px;
+
+    .review-title {
+      padding: 20px 0px;
+      border-bottom: 1px solid $division-color;
+    }
+
+    ul {
+      padding: 20px 0px;
+      list-style: none;
+    }
+
+    .review-input {
+      width: 100%;
+      padding: 10px;
+      background-color: $division-color;
+      border: none;
+    }
+  }
+}
